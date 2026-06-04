@@ -77,6 +77,22 @@
     });
   }
 
+  /* ---------- depth parallax (premium) ---------- */
+  if (!isTouch && !reduced) {
+    const bgEl = document.getElementById('bg');
+    let tmx = 0, tmy = 0, cmx = 0, cmy = 0;
+    window.addEventListener('mousemove', (e) => { tmx = e.clientX / window.innerWidth - 0.5; tmy = e.clientY / window.innerHeight - 0.5; });
+    const ploop = () => {
+      cmx += (tmx - cmx) * 0.06; cmy += (tmy - cmy) * 0.06;
+      if (bgEl) bgEl.style.transform = `translate(${cmx * -22}px, ${cmy * -15}px) scale(1.07)`;
+      requestAnimationFrame(ploop);
+    };
+    ploop();
+    if (hasGSAP) {
+      gsap.to('#hero .wrap', { yPercent: 20, ease: 'none', scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
+    }
+  }
+
   /* ---------- lazy painel iframe ---------- */
   const lazyFrame = document.querySelector('.lazy-frame');
   if (lazyFrame) {
