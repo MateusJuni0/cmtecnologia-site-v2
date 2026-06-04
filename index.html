@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>C&amp;M Tecnologia — Automação Inteligente com IA</title>
+<meta name="description" content="Software House em Portugal. Automação com IA para clínicas e PMEs: WhatsApp 24/7, sites de alta performance, marcações e relatórios. Liberte a sua equipa." />
+<meta name="theme-color" content="#0b0616" />
+<meta property="og:title" content="C&amp;M Tecnologia — Automação Inteligente com IA" />
+<meta property="og:description" content="A IA trata do resto — 24/7. WhatsApp inteligente, sites premium, automação completa." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- scroll progress -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- background: crossfading host (the rabbit) scenes -->
+  <div class="bg" id="bg" aria-hidden="true">
+    <div class="frame" data-scene="0" style="background-image:url('scenes/scene-1-hero.jpg')"></div>
+    <div class="frame" data-scene="1" style="background-image:url('scenes/scene-3-painel.jpg')"></div>
+    <div class="frame" data-scene="2" style="background-image:url('scenes/scene-2-showreel.jpg')"></div>
+    <div class="frame" data-scene="3" style="background-image:url('scenes/scene-4-instagram.jpg')"></div>
+    <div class="frame" data-scene="4" style="background-image:url('scenes/scene-5-madalena.jpg')"></div>
+    <div class="frame" data-scene="5" style="background-image:url('scenes/scene-6-cta.jpg')"></div>
+  </div>
+  <div class="scrim" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- nav -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#hero" aria-label="C&amp;M Tecnologia">
+      <span class="brand-mark">C<span>&amp;</span>M</span>
+      <span class="brand-word">Tecnologia</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#madalena">Madalena</a>
+      <a href="#voz">Voz</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="btn-quote magnetic" href="#contacto" data-cta>Solicitar Orçamento</a>
+  </header>
+
+  <main>
+    <!-- 1 · HERO -->
+    <section class="scene" id="hero" data-scene="0">
+      <div class="wrap">
+        <p class="kicker reveal"><span class="dot"></span>C&amp;M Tecnologia · Software House</p>
+        <h1 class="reveal">Automação<br/>Inteligente <span class="grad">com IA</span></h1>
+        <p class="lede reveal">Liberte a sua equipa para o que realmente importa. A Inteligência Artificial trata do resto — 24&nbsp;horas por dia, 7&nbsp;dias por semana.</p>
+        <div class="hero-cta reveal">
+          <a class="btn-primary magnetic" href="#contacto" data-cta>Solicitar Orçamento</a>
+          <a class="btn-ghost magnetic" href="#trabalhos">Ver o que fazemos</a>
+        </div>
+      </div>
+      <div class="scrollhint" aria-hidden="true"><span class="bar"></span>rolar</div>
+    </section>
+
+    <!-- 2 · PAINEL (live iframe) -->
+    <section class="scene has-device" id="painel" data-scene="1">
+      <div class="split">
+        <div class="col-text">
+          <p class="kicker reveal"><span class="dot"></span>O nosso comando</p>
+          <h2 class="reveal">O seu negócio,<br/><span class="grad">num só ecrã.</span></h2>
+          <p class="lede reveal">Leads, conversas, agenda e métricas — tudo num painel que a IA mantém vivo em tempo real. Este é o painel <strong>a sério</strong>. Mexe nele.</p>
+          <ul class="ticks reveal">
+            <li>Conversas e leads centralizados</li>
+            <li>Métricas e ROI em tempo real</li>
+            <li>A Madalena a escalar o que importa</li>
+          </ul>
+        </div>
+        <div class="col-device reveal">
+          <div class="browser tilt shot-screen" data-tilt data-modal="painel">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="browser-url">● painel.cmtecnologia.pt · demo</span></div>
+            <div class="browser-screen">
+              <img class="painel-shot" src="scenes/painel-fullpage.jpg" alt="Painel boutique C&amp;M — dashboard real" loading="lazy" onerror="this.style.display='none'" />
+              <span class="shot-badge">▸ percorrer o dashboard</span>
+            </div>
+          </div>
+          <p class="device-cap">Dashboard real (dados de exemplo) — clica para percorrer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3 · CRONOS (showcase modal) -->
+    <section class="scene" id="trabalhos" data-scene="2">
+      <div class="wrap">
+        <p class="kicker reveal"><span class="dot"></span>Trabalhos</p>
+        <h2 class="reveal">Sites que vendem<br/><span class="grad">enquanto dorme.</span></h2>
+        <p class="lede reveal">Lojas e plataformas de alta performance, prontas a escalar. Como a <strong>Cronos</strong> — e-commerce premium que construímos de raiz.</p>
+        <button class="btn-show magnetic" data-modal="cronos">
+          <span class="btn-show-ic">▸</span>
+          <span>Espreitar o site<small>cronosgame.com.br</small></span>
+        </button>
+        <div class="thumbs reveal" id="thumbs"></div>
+      </div>
+    </section>
+
+    <!-- 4 · MADALENA (WhatsApp chat demo) -->
+    <section class="scene has-device" id="madalena" data-scene="3">
+      <div class="split">
+        <div class="col-text">
+          <p class="kicker reveal"><span class="dot"></span>WhatsApp Inteligente</p>
+          <h2 class="reveal">Conheça a<br/><span class="grad">Madalena.</span></h2>
+          <p class="lede reveal">A IA que atende, qualifica e <strong>vende</strong> no WhatsApp — sem intervenção humana. Responde em segundos, a qualquer hora.</p>
+          <ul class="ticks reveal">
+            <li>Atendimento 24/7, respostas instantâneas</li>
+            <li>Qualifica leads quentes dos frios</li>
+            <li>Agenda e fecha — e avisa-te do que importa</li>
+          </ul>
+        </div>
+        <div class="col-phone reveal">
+          <div class="phone" data-tilt>
+            <div class="phone-notch"></div>
+            <div class="wa" id="wa">
+              <div class="wa-top"><span class="wa-av">M</span><div><b>Madalena</b><small>online · C&amp;M Tecnologia</small></div></div>
+              <div class="wa-body" id="wa-body"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · VOZ (Inês voice demo) -->
+    <section class="scene" id="voz" data-scene="4">
+      <div class="wrap center">
+        <p class="kicker reveal"><span class="dot"></span>E agora, por voz</p>
+        <h2 class="reveal">A <span class="grad">Inês</span> atende<br/>o telefone.</h2>
+        <p class="lede reveal">A mesma inteligência — agora a falar. Atende chamadas, responde e marca, com voz natural.</p>
+        <div class="voice reveal" id="voice">
+          <button class="voice-btn magnetic" id="voiceBtn" aria-label="Simular chamada">
+            <span class="voice-ic">☎</span>
+          </button>
+          <div class="waves" id="waves" aria-hidden="true"></div>
+          <p class="voice-status" id="voiceStatus">Toca para simular uma chamada</p>
+          <div class="voice-script" id="voiceScript"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 · CTA -->
+    <section class="scene" id="contacto" data-scene="5">
+      <div class="wrap">
+        <div class="orbit reveal" aria-hidden="true" id="orbit"></div>
+        <p class="kicker reveal"><span class="dot"></span>Vamos a isto</p>
+        <h2 class="reveal">Ponha o seu negócio<br/><span class="grad">em piloto automático.</span></h2>
+        <p class="lede reveal">Em 30 minutos mostramos-lhe o que podemos automatizar já esta semana. Sem compromisso.</p>
+        <div class="hero-cta reveal">
+          <a class="btn-primary magnetic" href="https://cmtecnologia.pt" target="_blank" rel="noopener" data-cta>Solicitar Orçamento</a>
+          <a class="btn-ghost magnetic" href="#hero">Voltar ao início</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span class="brand-mark sm">C<span>&amp;</span>M</span>
+    <span>C&amp;M Tecnologia · Automação com IA em Portugal</span>
+    <a href="https://cmtecnologia.pt" target="_blank" rel="noopener">cmtecnologia.pt</a>
+  </footer>
+
+  <!-- premium showcase modal -->
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-label="Pré-visualização do site">
+      <div class="modal-head">
+        <span class="modal-title" id="modalTitle">cronosgame.com.br</span>
+        <div class="modal-actions">
+          <button class="modal-mini" id="modalReplay" title="Rever">↻</button>
+          <a class="modal-mini" id="modalVisit" href="#" target="_blank" rel="noopener" title="Abrir o site">↗</a>
+          <button class="modal-mini" data-close title="Fechar">✕</button>
+        </div>
+      </div>
+      <div class="modal-viewport" id="modalViewport">
+        <img class="modal-shot" id="modalShot" alt="Pré-visualização do site" />
+        <iframe class="modal-iframe" id="modalIframe" title="Site ao vivo" hidden></iframe>
+      </div>
+      <div class="modal-foot"><span id="modalHint">A percorrer o site…</span></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
