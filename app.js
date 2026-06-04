@@ -38,7 +38,26 @@
 
   /* ---------- background crossfade + reveals ---------- */
   const frames = Array.from(document.querySelectorAll('.bg .frame'));
-  const setActive = (i) => frames.forEach((f, idx) => f.classList.toggle('active', idx === i));
+  const vidCache = {};
+  function ensureVideo(frame) {
+    const src = frame.dataset.video; if (!src) return null;
+    if (vidCache[src]) return vidCache[src];
+    const v = document.createElement('video');
+    v.src = src; v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('preload', 'auto');
+    v.className = 'frame-video';
+    frame.appendChild(v);
+    vidCache[src] = v;
+    return v;
+  }
+  const setActive = (i) => frames.forEach((f, idx) => {
+    const on = idx === i;
+    f.classList.toggle('active', on);
+    if (f.dataset.video) {
+      const v = on ? ensureVideo(f) : vidCache[f.dataset.video];
+      if (v) { if (on) v.play().catch(() => {}); else v.pause(); }
+    }
+  });
   setActive(0);
   const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
   const navActive = (id) => navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
