@@ -18,14 +18,11 @@
   <!-- scroll progress -->
   <div class="progress" id="progress" aria-hidden="true"></div>
 
-  <!-- background: crossfading host (the rabbit) scenes -->
+  <!-- background: ONE continuous host video, scroll-scrubbed (desktop) / looping (mobile) -->
   <div class="bg" id="bg" aria-hidden="true">
-    <div class="frame" data-scene="0" data-video="scenes/scene-1-hero.mp4" style="background-image:url('scenes/scene-1-hero.jpg')"></div>
-    <div class="frame" data-scene="1" data-video="scenes/scene-3-painel.mp4" style="background-image:url('scenes/scene-3-painel.jpg')"></div>
-    <div class="frame" data-scene="2" data-video="scenes/scene-2-showreel.mp4" style="background-image:url('scenes/scene-2-showreel.jpg')"></div>
-    <div class="frame" data-scene="3" data-video="scenes/scene-4-instagram.mp4" style="background-image:url('scenes/scene-4-instagram.jpg')"></div>
-    <div class="frame" data-scene="4" data-video="scenes/scene-5-madalena.mp4" style="background-image:url('scenes/scene-5-madalena.jpg')"></div>
-    <div class="frame" data-scene="5" data-video="scenes/scene-6-cta.mp4" style="background-image:url('scenes/scene-6-cta.jpg')"></div>
+    <video id="bgvideo" class="bgvideo" muted playsinline preload="auto" poster="scenes/scene-1-hero.jpg">
+      <source src="scenes/bg-master.mp4" type="video/mp4" />
+    </video>
   </div>
   <div class="scrim" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
@@ -182,6 +179,13 @@
       <div class="modal-foot"><span id="modalHint">A percorrer o site…</span></div>
     </div>
   </div>
+
+  <!-- background music (starts on user click — browsers block audio autoplay) -->
+  <audio id="music" src="scenes/music.mp3" loop preload="auto"></audio>
+  <button id="soundBtn" class="sound-btn" aria-label="Ligar música de fundo">
+    <span class="sound-ico"><i></i><i></i><i></i><i></i></span>
+    <span class="sound-txt">música</span>
+  </button>
 
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>

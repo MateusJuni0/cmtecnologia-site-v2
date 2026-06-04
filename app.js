@@ -37,30 +37,36 @@
   onScroll();
 
   /* ---------- background crossfade + reveals ---------- */
-  const frames = Array.from(document.querySelectorAll('.bg .frame'));
-  const vidCache = {};
-  function ensureVideo(frame) {
-    const src = frame.dataset.video; if (!src) return null;
-    if (vidCache[src]) return vidCache[src];
-    const v = document.createElement('video');
-    v.src = src; v.muted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
-    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('preload', 'auto');
-    v.className = 'frame-video';
-    frame.appendChild(v);
-    vidCache[src] = v;
-    return v;
-  }
-  const setActive = (i) => frames.forEach((f, idx) => {
-    const on = idx === i;
-    f.classList.toggle('active', on);
-    if (f.dataset.video) {
-      const v = on ? ensureVideo(f) : vidCache[f.dataset.video];
-      if (v) { if (on) v.play().catch(() => {}); else v.pause(); }
-    }
-  });
-  setActive(0);
   const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
   const navActive = (id) => navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+
+  // ---- ONE continuous background video: scroll-scrubbed (desktop), looping (mobile) ----
+  const bgvideo = document.getElementById('bgvideo');
+  if (bgvideo) {
+    bgvideo.muted = true;
+    if (isTouch || reduced) {
+      bgvideo.loop = true;
+      bgvideo.play().catch(() => {});
+    } else {
+      bgvideo.loop = false; bgvideo.pause();
+      let target = 0, cur = 0;
+      const onScrub = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        target = max > 0 ? Math.min(1, Math.max(0, (window.scrollY || 0) / max)) : 0;
+      };
+      if (lenis) lenis.on('scroll', onScrub);
+      window.addEventListener('scroll', onScrub, { passive: true });
+      onScrub();
+      const tick = () => {
+        cur += (target - cur) * 0.085;
+        const dur = bgvideo.duration;
+        if (dur && isFinite(dur)) { try { bgvideo.currentTime = cur * (dur - 0.06); } catch (e) {} }
+        requestAnimationFrame(tick);
+      };
+      if (bgvideo.readyState >= 1) requestAnimationFrame(tick);
+      else bgvideo.addEventListener('loadedmetadata', () => requestAnimationFrame(tick), { once: true });
+    }
+  }
 
   const sections = Array.from(document.querySelectorAll('section.scene'));
   sections.forEach((sec, i) => {
@@ -69,7 +75,7 @@
     if (hasGSAP) {
       ScrollTrigger.create({
         trigger: sec, start: 'top center', end: 'bottom center',
-        onToggle: (self) => { if (self.isActive) { setActive(idx); navActive(sec.id); } },
+        onToggle: (self) => { if (self.isActive) navActive(sec.id); },
       });
       if (reduced) gsap.set(items, { opacity: 1, y: 0 });
       else gsap.fromTo(items, { y: 42, opacity: 0 },
@@ -322,6 +328,18 @@
       es.forEach((en) => { if (en.isIntersecting) { cb(); io.disconnect(); } });
     }, { threshold: 0.35 });
     io.observe(el);
+  }
+
+  /* ---------- background music (user gesture; browsers block audio autoplay) ---------- */
+  const music = document.getElementById('music');
+  const soundBtn = document.getElementById('soundBtn');
+  if (music && soundBtn) {
+    let musicOn = false; music.volume = 0;
+    const fade = (to) => { const s = () => { music.volume += (to - music.volume) * 0.08; if (Math.abs(to - music.volume) > 0.01) requestAnimationFrame(s); else music.volume = to; }; s(); };
+    soundBtn.addEventListener('click', () => {
+      musicOn = !musicOn; soundBtn.classList.toggle('on', musicOn);
+      if (musicOn) { music.play().then(() => fade(0.3)).catch(() => {}); } else { fade(0); setTimeout(() => music.pause(), 700); }
+    });
   }
 
   /* ---------- anchor smooth-scroll via Lenis ---------- */
