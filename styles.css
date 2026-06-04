@@ -89,6 +89,7 @@ a { color: inherit; }
 .nav-links { display: flex; gap: 28px; }
 .nav-links a { text-decoration: none; color: var(--muted); font-size: 15px; font-weight: 500; transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
+.nav-links a.active { color: var(--cyan); }
 .btn-quote {
   font-family: var(--font-d); font-weight: 600; font-size: 14px; text-decoration: none;
   color: #0a0712; background: linear-gradient(110deg, var(--green), var(--cyan));

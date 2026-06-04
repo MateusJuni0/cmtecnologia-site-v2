@@ -40,6 +40,8 @@
   const frames = Array.from(document.querySelectorAll('.bg .frame'));
   const setActive = (i) => frames.forEach((f, idx) => f.classList.toggle('active', idx === i));
   setActive(0);
+  const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
+  const navActive = (id) => navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
 
   const sections = Array.from(document.querySelectorAll('section.scene'));
   sections.forEach((sec, i) => {
@@ -48,7 +50,7 @@
     if (hasGSAP) {
       ScrollTrigger.create({
         trigger: sec, start: 'top center', end: 'bottom center',
-        onToggle: (self) => { if (self.isActive) setActive(idx); },
+        onToggle: (self) => { if (self.isActive) { setActive(idx); navActive(sec.id); } },
       });
       if (reduced) gsap.set(items, { opacity: 1, y: 0 });
       else gsap.fromTo(items, { y: 42, opacity: 0 },
