@@ -248,9 +248,12 @@
     if (cfg.type === 'shot') {
       modalIframe.hidden = true; modalIframe.src = '';
       modalShot.style.display = 'block';
-      modalShot.onload = autoScroll;
       modalShot.onerror = () => { modalHint.textContent = 'Pré-visualização indisponível — abra o site ↗'; };
+      // measure AFTER the open transition + layout settle, else offsetHeight is stale (dist≈0)
+      const begin = () => setTimeout(() => requestAnimationFrame(autoScroll), 560);
+      modalShot.onload = begin;
       modalShot.src = cfg.src;
+      if (modalShot.complete && modalShot.naturalHeight) begin();
       modalReplay.style.display = '';
     } else {
       modalShot.style.display = 'none'; modalShot.src = '';

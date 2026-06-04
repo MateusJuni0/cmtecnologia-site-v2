@@ -6,3 +6,5 @@ Thumbs.db
 _capture/
 .env
 .env.*
+
+.vercel
