@@ -40,12 +40,30 @@
   const navLinks = Array.from(document.querySelectorAll('.nav-links a'));
   const navActive = (id) => navLinks.forEach((a) => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
 
+  // mobile menu (hamburger) toggle
+  const navToggle = document.getElementById('navToggle');
+  if (navToggle && nav) {
+    const closeMenu = () => { nav.classList.remove('menu-open'); navToggle.setAttribute('aria-expanded', 'false'); };
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('menu-open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    navLinks.forEach((a) => a.addEventListener('click', closeMenu));
+  }
+
   // ---- ONE continuous background video: scroll-scrubbed (desktop), looping (mobile) ----
   const bgvideo = document.getElementById('bgvideo');
   if (bgvideo) {
     bgvideo.muted = true;
     if (isTouch || reduced) {
       bgvideo.loop = true;
+      if (isTouch) {
+        const srcEl = bgvideo.querySelector('source');
+        if (srcEl) {
+          bgvideo.addEventListener('error', function onErr() { if (srcEl.src.indexOf('bg-mobile') !== -1) { srcEl.src = 'scenes/bg-master.mp4'; bgvideo.load(); bgvideo.play().catch(() => {}); } bgvideo.removeEventListener('error', onErr); });
+          srcEl.src = 'scenes/bg-mobile.mp4'; bgvideo.load();
+        }
+      }
       bgvideo.play().catch(() => {});
     } else {
       bgvideo.loop = false; bgvideo.pause();
@@ -138,60 +156,84 @@
     io.observe(lazyFrame);
   }
 
-  /* ---------- works thumbs ---------- */
-  const thumbs = document.getElementById('thumbs');
-  if (thumbs) {
+  /* ---------- works gallery ---------- */
+  const works = document.getElementById('works');
+  if (works) {
     [
-      { img: 'scenes/cronos-fullpage.jpg', label: 'Cronos', modal: 'cronos' },
-      { img: 'scenes/painel-fullpage.jpg', label: 'Painel', modal: 'painel' },
+      { img: 'scenes/cronos-fullpage.jpg', name: 'Cronos', kind: 'E-commerce de jogos · loja premium', domain: 'cronosgame.com.br', modal: 'cronos' },
+      { img: 'scenes/templates-fullpage.jpg', name: 'CM Templates Pro', kind: 'Biblioteca SaaS · 7.559 designs', domain: 'templates.cmtecnologia.pt', modal: 'templates' },
+      { img: 'scenes/painel-fullpage.jpg', name: 'Painel Boutique', kind: 'Dashboard em tempo real', domain: 'painel.cmtecnologia.pt', modal: 'painel' },
     ].forEach((it) => {
-      const d = document.createElement('div');
-      d.className = 'thumb'; d.dataset.modal = it.modal;
-      d.innerHTML = `<img src="${it.img}" alt="${it.label}" loading="lazy" onerror="this.parentElement.style.display='none'"/><span>${it.label}</span>`;
-      thumbs.appendChild(d);
+      const c = document.createElement('button');
+      c.className = 'work'; c.dataset.modal = it.modal;
+      c.innerHTML = `<span class="work-shot"><img src="${it.img}" alt="${it.name}" loading="lazy" onerror="this.closest('.work').classList.add('noimg')"/><em class="work-go">Espreitar ↗</em></span>` +
+        `<span class="work-meta"><b>${it.name}</b><small>${it.kind}</small><i>${it.domain}</i></span>`;
+      works.appendChild(c);
     });
+  }
+
+  /* ---------- Instagram auto-feed (posts REAIS de @cm.tecnologia) ---------- */
+  const igGrid = document.getElementById('igGrid');
+  if (igGrid) {
+    for (let i = 1; i <= 9; i++) {
+      const d = document.createElement('div');
+      d.className = 'ig-tile';
+      d.innerHTML = `<img src="scenes/ig-${i}.jpg" alt="Publicação de @cm.tecnologia" loading="lazy" onerror="this.closest('.ig-tile').classList.add('noimg')"/><i class="ig-dots"></i>`;
+      igGrid.appendChild(d);
+    }
   }
 
   /* ---------- Madalena · WhatsApp chat ---------- */
   const waBody = document.getElementById('wa-body');
-  const waSeq = [
-    { t: 'in', m: 'Olá! 👋 Bem-vinda à Clínica Sorriso. Sou a Madalena, a assistente.' },
-    { t: 'in', m: 'Em que posso ajudar hoje?' },
-    { t: 'out', m: 'Queria saber o preço de um implante.' },
-    { t: 'in', m: 'Claro! Um implante unitário fica a partir de 890€, já com TAC e consulta incluídas. 😊' },
-    { t: 'in', m: 'Quer que marque uma avaliação gratuita esta semana?' },
-    { t: 'out', m: 'Pode ser quinta de manhã?' },
-    { t: 'in', m: 'Quinta às 10h00 está livre. Fica reservado em seu nome? ✅' },
-    { t: 'out', m: 'Sim, obrigada!' },
-    { t: 'in', m: 'Marcado! Envio a confirmação por SMS. Até quinta. 💜' },
-  ];
-  function playWa() {
+  const waForm = document.getElementById('waForm');
+  const waText = document.getElementById('waText');
+  const waBtn = waForm ? waForm.querySelector('button') : null;
+  const waHistory = [];
+  let waLeadSent = false, waStarted = false, waBusy = false;
+
+  function waAdd(role, text) {
     if (!waBody) return;
-    waBody.innerHTML = '';
-    let i = 0;
-    const max = 6;
-    const trim = () => { while (waBody.children.length > max) waBody.removeChild(waBody.firstChild); };
-    const addBub = (item) => {
-      const b = document.createElement('div');
-      b.className = 'bub ' + item.t;
-      b.innerHTML = item.m + '<small>' + (item.t === 'out' ? '✓✓' : '') + '</small>';
-      waBody.appendChild(b); trim();
-    };
-    const step = () => {
-      if (i >= waSeq.length) return;
-      const item = waSeq[i];
-      if (item.t === 'in') {
-        const typ = document.createElement('div');
-        typ.className = 'typing'; typ.innerHTML = '<i></i><i></i><i></i>';
-        waBody.appendChild(typ); trim();
-        setTimeout(() => { typ.remove(); addBub(item); i++; setTimeout(step, 540); }, 950);
-      } else {
-        addBub(item); i++; setTimeout(step, 1100);
-      }
-    };
-    setTimeout(step, 500);
+    const b = document.createElement('div');
+    b.className = 'bub ' + (role === 'out' ? 'out' : 'in');
+    b.textContent = text;
+    if (role === 'out') { const s = document.createElement('small'); s.textContent = '✓✓'; b.appendChild(s); }
+    waBody.appendChild(b); waBody.scrollTop = waBody.scrollHeight;
   }
-  observeOnce('#madalena', playWa);
+  function waTyping() {
+    const typ = document.createElement('div');
+    typ.className = 'typing'; typ.innerHTML = '<i></i><i></i><i></i>';
+    waBody.appendChild(typ); waBody.scrollTop = waBody.scrollHeight;
+    return typ;
+  }
+  async function waSend(text) {
+    text = (text || '').trim();
+    if (!text || waBusy) return;
+    waBusy = true; if (waBtn) waBtn.disabled = true;
+    waAdd('out', text); waHistory.push({ role: 'user', text });
+    const typ = waTyping();
+    try {
+      const r = await fetch('/api/madalena', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ message: text, history: waHistory.slice(-10) }) });
+      const j = await r.json();
+      typ.remove();
+      const reply = (j && j.reply) || 'Peço desculpa, pode escrever de novo?';
+      waAdd('in', reply); waHistory.push({ role: 'madalena', text: reply });
+      if (j && j.lead && (j.lead.contact || j.lead.name) && !waLeadSent) {
+        waLeadSent = true;
+        fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ source: 'Madalena (WhatsApp)', name: j.lead.name, contact: j.lead.contact, need: j.lead.need, transcript: waHistory.slice() }) }).catch(() => {});
+      }
+    } catch (e) { typ.remove(); waAdd('in', 'Estou com um problema de ligação — tente outra vez daqui a pouco. 🙏'); }
+    waBusy = false; if (waBtn) waBtn.disabled = false;
+  }
+  function waStart() {
+    if (waStarted || !waBody) return; waStarted = true;
+    setTimeout(() => waAdd('in', 'Olá! 👋 Sou a Madalena, da C&M Tecnologia.'), 450);
+    setTimeout(() => {
+      waAdd('in', 'Conte-me do seu negócio — o que mais o atrapalha no dia a dia?');
+      waHistory.push({ role: 'madalena', text: 'Olá! Sou a Madalena, da C&M Tecnologia. Conte-me do seu negócio — o que mais o atrapalha no dia a dia?' });
+    }, 1400);
+  }
+  if (waForm) waForm.addEventListener('submit', (e) => { e.preventDefault(); const t = waText.value; waText.value = ''; waSend(t); });
+  observeOnce('#madalena', waStart);
 
   /* ---------- Voice · Inês ---------- */
   const voiceBtn = document.getElementById('voiceBtn');
@@ -240,7 +282,13 @@
     });
     scriptTimers.push(setTimeout(() => { if (voiceOn) { setWaves(false); if (voiceStatus) voiceStatus.textContent = 'Chamada terminada · marcação feita ✅'; if (voiceBtn) voiceBtn.classList.remove('live'); voiceOn = false; } }, t + 300));
   }
-  if (voiceBtn) voiceBtn.addEventListener('click', () => { voiceOn ? stopVoice() : startVoice(); });
+  const voiceDemo = document.getElementById('voiceDemo');
+  if (voiceDemo) voiceDemo.addEventListener('click', (e) => { e.preventDefault(); voiceOn ? stopVoice() : startVoice(); });
+  if (voiceBtn) voiceBtn.addEventListener('click', () => {
+    // real live call when supported; fall back to the scripted demo otherwise
+    if (window.inesLive && window.inesLive.supported) window.inesLive.toggle();
+    else { voiceOn ? stopVoice() : startVoice(); }
+  });
 
   /* ---------- CTA orbit ---------- */
   const orbit = document.getElementById('orbit');
@@ -257,8 +305,9 @@
 
   /* ---------- Premium showcase modal ---------- */
   const MODALS = {
-    cronos: { title: 'cronosgame.com.br', type: 'shot', src: 'scenes/cronos-fullpage.jpg', visit: 'https://cronosgame.com.br', hint: 'A percorrer a loja Cronos…' },
-    painel: { title: 'painel.cmtecnologia.pt', type: 'shot', src: 'scenes/painel-fullpage.jpg', visit: 'https://painel.cmtecnologia.pt/demo', hint: 'A percorrer o painel boutique…' },
+    cronos: { title: 'cronosgame.com.br', type: 'shot', src: 'scenes/cronos-fullpage.jpg', visit: 'https://cronosgame.com.br', hint: 'Loja com pagamentos — toca em ↗ para abrir a loja ao vivo' },
+    templates: { title: 'templates.cmtecnologia.pt', type: 'live', src: 'https://templates.cmtecnologia.pt', visit: 'https://templates.cmtecnologia.pt', hint: 'Site real ao vivo — percorre e clica à vontade', wide: true },
+    painel: { title: 'painel.cmtecnologia.pt · demo', type: 'shot', src: 'scenes/painel-fullpage.jpg', visit: 'https://painel.cmtecnologia.pt/demo', hint: 'Dashboard real com dados de exemplo — percorre' },
   };
   const modal = document.getElementById('modal');
   const modalTitle = document.getElementById('modalTitle');
@@ -288,6 +337,8 @@
     modalTitle.textContent = cfg.title;
     modalVisit.href = cfg.visit;
     modalHint.textContent = cfg.hint;
+    const card = modal.querySelector('.modal-card');
+    if (card) card.classList.toggle('wide', !!cfg.wide);
     if (cfg.type === 'shot') {
       modalIframe.hidden = true; modalIframe.src = '';
       modalShot.style.display = 'block';
@@ -300,8 +351,11 @@
       modalReplay.style.display = '';
     } else {
       modalShot.style.display = 'none'; modalShot.src = '';
-      modalIframe.hidden = false; modalIframe.src = cfg.src;
       modalReplay.style.display = 'none';
+      modalIframe.hidden = false;
+      if (modalViewport) modalViewport.classList.add('loading');
+      modalIframe.onload = () => { if (modalViewport) modalViewport.classList.remove('loading'); };
+      modalIframe.src = cfg.src;
     }
     modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false');
     if (lenis) lenis.stop(); document.documentElement.classList.add('lenis-stopped');
@@ -339,6 +393,22 @@
     soundBtn.addEventListener('click', () => {
       musicOn = !musicOn; soundBtn.classList.toggle('on', musicOn);
       if (musicOn) { music.play().then(() => fade(0.3)).catch(() => {}); } else { fade(0); setTimeout(() => music.pause(), 700); }
+    });
+  }
+
+  /* ---------- lead form → compõe WhatsApp ---------- */
+  const leadForm = document.getElementById('leadForm');
+  if (leadForm) {
+    leadForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const fd = new FormData(leadForm);
+      const nome = (fd.get('nome') || '').toString().trim();
+      const contacto = (fd.get('contacto') || '').toString().trim();
+      const msg = (fd.get('msg') || '').toString().trim();
+      const text = `Olá! Sou ${nome || '(sem nome)'}. Contacto: ${contacto || '—'}.\n${msg || 'Quero saber mais sobre automação com IA.'}`;
+      const note = document.getElementById('formNote');
+      if (note) note.textContent = 'A abrir o WhatsApp com o seu pedido…';
+      window.open('https://wa.me/351964977047?text=' + encodeURIComponent(text), '_blank', 'noopener');
     });
   }
 

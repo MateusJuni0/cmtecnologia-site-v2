@@ -3,11 +3,13 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>C&amp;M Tecnologia — Automação Inteligente com IA</title>
-<meta name="description" content="Software House em Portugal. Automação com IA para clínicas e PMEs: WhatsApp 24/7, sites de alta performance, marcações e relatórios. Liberte a sua equipa." />
+<title>C&amp;M Tecnologia — Todo o seu negócio, a trabalhar por si</title>
+<meta name="description" content="Reunimos o atendimento, as marcações, as redes sociais e as finanças do seu negócio num só painel — a funcionar 24h por dia. Software house portuguesa para clínicas e PMEs." />
 <meta name="theme-color" content="#0b0616" />
-<meta property="og:title" content="C&amp;M Tecnologia — Automação Inteligente com IA" />
-<meta property="og:description" content="A IA trata do resto — 24/7. WhatsApp inteligente, sites premium, automação completa." />
+<link rel="icon" type="image/png" href="scenes/favicon-192.png" />
+<link rel="apple-touch-icon" href="scenes/favicon-192.png" />
+<meta property="og:title" content="C&amp;M Tecnologia — Todo o seu negócio, a trabalhar por si" />
+<meta property="og:description" content="O atendimento, as marcações, as redes e as finanças num só sítio — a trabalhar por si, 24h por dia." />
 <meta property="og:type" content="website" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,7 +22,7 @@
 
   <!-- background: ONE continuous host video, scroll-scrubbed (desktop) / looping (mobile) -->
   <div class="bg" id="bg" aria-hidden="true">
-    <video id="bgvideo" class="bgvideo" muted playsinline preload="auto" poster="scenes/scene-1-hero.jpg">
+    <video id="bgvideo" class="bgvideo" autoplay muted loop playsinline preload="auto" poster="scenes/scene-1-hero.jpg">
       <source src="scenes/bg-master.mp4" type="video/mp4" />
     </video>
   </div>
@@ -30,7 +32,7 @@
   <!-- nav -->
   <header class="nav" id="nav">
     <a class="brand" href="#hero" aria-label="C&amp;M Tecnologia">
-      <span class="brand-mark">C<span>&amp;</span>M</span>
+      <img class="brand-logo" src="scenes/logo-cmtec-web.png" alt="C&amp;M" width="40" height="40" />
       <span class="brand-word">Tecnologia</span>
     </a>
     <nav class="nav-links">
@@ -40,15 +42,22 @@
       <a href="#contacto">Contacto</a>
     </nav>
     <a class="btn-quote magnetic" href="#contacto" data-cta>Solicitar Orçamento</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </header>
+
+  <!-- floating WhatsApp -->
+  <a class="wa-fab" id="waFab" href="https://wa.me/351964977047?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20C%26M%20e%20quero%20falar%20com%20a%20Madalena." target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm0 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-4.9 1 1-4.8-.3-.4C5.5 18.3 5 16.7 5 15 5 9.9 9.9 5 16 5s11 4.9 11 10-4.9 9.8-11 9.8zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.5-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>
+  </a>
 
   <main>
     <!-- 1 · HERO -->
     <section class="scene" id="hero" data-scene="0">
       <div class="wrap">
         <p class="kicker reveal"><span class="dot"></span>C&amp;M Tecnologia · Software House</p>
-        <h1 class="reveal">Automação<br/>Inteligente <span class="grad">com IA</span></h1>
-        <p class="lede reveal">Liberte a sua equipa para o que realmente importa. A Inteligência Artificial trata do resto — 24&nbsp;horas por dia, 7&nbsp;dias por semana.</p>
+        <h1 class="reveal">Todo o seu negócio,<br/>a trabalhar <span class="grad">por si.</span></h1>
+        <p class="lede reveal d-only">Reunimos o atendimento, as marcações, as redes sociais e as finanças do seu negócio num só painel — a funcionar 24&nbsp;horas por dia. Você define o rumo; a C&amp;M trata da operação.</p>
+        <p class="lede reveal m-only">Atendimento, marcações, redes e finanças num só painel — a trabalhar por si, 24&nbsp;horas por dia.</p>
         <div class="hero-cta reveal">
           <a class="btn-primary magnetic" href="#contacto" data-cta>Solicitar Orçamento</a>
           <a class="btn-ghost magnetic" href="#trabalhos">Ver o que fazemos</a>
@@ -61,13 +70,14 @@
     <section class="scene has-device" id="painel" data-scene="1">
       <div class="split">
         <div class="col-text">
-          <p class="kicker reveal"><span class="dot"></span>O nosso comando</p>
+          <p class="kicker reveal"><span class="dot"></span>O seu painel de gestão</p>
           <h2 class="reveal">O seu negócio,<br/><span class="grad">num só ecrã.</span></h2>
-          <p class="lede reveal">Leads, conversas, agenda e métricas — tudo num painel que a IA mantém vivo em tempo real. Este é o painel <strong>a sério</strong>. Mexe nele.</p>
+          <p class="lede reveal d-only">É daqui que gere tudo, sem andar a saltar entre dez ferramentas. No mesmo ecrã: publica no Instagram, gere os anúncios, responde no WhatsApp, marca consultas na agenda e vê as métricas e as finanças do negócio — tudo em tempo real. O que a IA faz por si vai aparecendo aqui à medida que acontece. <strong>Carregue e percorra o painel real</strong> (com dados de exemplo).</p>
+          <p class="lede reveal m-only">Faça tudo num só ecrã: redes, anúncios, WhatsApp, marcações, métricas e finanças. <strong>Toque e percorra o painel real.</strong></p>
           <ul class="ticks reveal">
-            <li>Conversas e leads centralizados</li>
-            <li>Métricas e ROI em tempo real</li>
-            <li>A Madalena a escalar o que importa</li>
+            <li>Instagram, anúncios e WhatsApp — tudo num só sítio</li>
+            <li>Métricas, ROI e finanças em tempo real</li>
+            <li>Agenda, pacientes e mensagens centralizados</li>
           </ul>
         </div>
         <div class="col-device reveal">
@@ -85,15 +95,12 @@
 
     <!-- 3 · CRONOS (showcase modal) -->
     <section class="scene" id="trabalhos" data-scene="2">
-      <div class="wrap">
+      <div class="wrap wide">
         <p class="kicker reveal"><span class="dot"></span>Trabalhos</p>
         <h2 class="reveal">Sites que vendem<br/><span class="grad">enquanto dorme.</span></h2>
-        <p class="lede reveal">Lojas e plataformas de alta performance, prontas a escalar. Como a <strong>Cronos</strong> — e-commerce premium que construímos de raiz.</p>
-        <button class="btn-show magnetic" data-modal="cronos">
-          <span class="btn-show-ic">▸</span>
-          <span>Espreitar o site<small>cronosgame.com.br</small></span>
-        </button>
-        <div class="thumbs reveal" id="thumbs"></div>
+        <p class="lede reveal">Desenhamos e programamos o seu site ou loja de raiz — rápido, bonito e pensado ao detalhe para transformar visitas em clientes. Nada de temas de prateleira: cada projeto é feito à medida do seu negócio, impecável no telemóvel e preparado para aparecer no Google. Em baixo estão projetos <strong>reais</strong> nossos — abra e experimente à vontade.</p>
+        <div class="works reveal" id="works"></div>
+        <p class="works-hint reveal">Toca num projeto para o percorrer ao vivo ↗</p>
       </div>
     </section>
 
@@ -101,63 +108,193 @@
     <section class="scene has-device" id="madalena" data-scene="3">
       <div class="split">
         <div class="col-text">
-          <p class="kicker reveal"><span class="dot"></span>WhatsApp Inteligente</p>
-          <h2 class="reveal">Conheça a<br/><span class="grad">Madalena.</span></h2>
-          <p class="lede reveal">A IA que atende, qualifica e <strong>vende</strong> no WhatsApp — sem intervenção humana. Responde em segundos, a qualquer hora.</p>
+          <p class="kicker reveal"><span class="dot"></span>O WhatsApp que vende por si</p>
+          <h2 class="reveal">Nunca mais perca<br/><span class="grad">um cliente.</span></h2>
+          <p class="lede reveal d-only">A Madalena não é um bot de respostas automáticas. Conhece cada cliente — lembra-se das conversas e do historial — e responde por texto <strong>ou em áudio</strong>, como uma pessoa. Liga-se à sua agenda e marca as consultas sozinha, tira dúvidas, faz seguimento de quem ficou indeciso, e só o chama quando vale mesmo a pena. Tudo a qualquer hora, com dezenas de conversas ao mesmo tempo.</p>
+          <p class="lede reveal m-only">Não é um bot: conhece cada cliente, responde por texto <strong>ou áudio</strong>, marca na agenda e faz seguimento — a qualquer hora.</p>
           <ul class="ticks reveal">
-            <li>Atendimento 24/7, respostas instantâneas</li>
-            <li>Qualifica leads quentes dos frios</li>
-            <li>Agenda e fecha — e avisa-te do que importa</li>
+            <li>Memória de cada cliente e conversa</li>
+            <li>Responde por texto ou áudio, como gente</li>
+            <li>Liga-se ao calendário e faz o seguimento</li>
           </ul>
+          <a class="wa-cta magnetic reveal" href="https://wa.me/351964977047?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20C%26M%20e%20quero%20falar%20com%20a%20Madalena%20sobre%20automa%C3%A7%C3%A3o%20com%20IA." target="_blank" rel="noopener">
+            <svg class="wa-ico" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3z" fill="currentColor" opacity=".18"/><path d="M12.5 9.6c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.8 6 5.2 3 1.2 3.6 1 4.2.9.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.2-2-2.6-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.3.4-.6.1-.2.1-.4 0-.6-.1-.2-.8-2-1.1-2.7z" fill="currentColor"/></svg>
+            <span>Falar com a Madalena<small>WhatsApp real · resposta em segundos</small></span>
+          </a>
         </div>
         <div class="col-phone reveal">
           <div class="phone" data-tilt>
             <div class="phone-notch"></div>
             <div class="wa" id="wa">
-              <div class="wa-top"><span class="wa-av">M</span><div><b>Madalena</b><small>online · C&amp;M Tecnologia</small></div></div>
+              <div class="wa-top"><span class="wa-av">M</span><div><b>Madalena</b><small>online · responde em segundos</small></div></div>
               <div class="wa-body" id="wa-body"></div>
+              <form class="wa-input" id="waForm" autocomplete="off">
+                <input id="waText" type="text" placeholder="Escreva à Madalena…" maxlength="300" aria-label="Mensagem para a Madalena" />
+                <button type="submit" aria-label="Enviar">➤</button>
+              </form>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- 5 · VOZ (Inês voice demo) -->
+    <!-- 4b · INSTAGRAM / Social automático -->
+    <section class="scene has-device" id="instagram" data-scene="4">
+      <div class="split">
+        <div class="col-text">
+          <p class="kicker reveal"><span class="dot"></span>Redes sociais no automático</p>
+          <h2 class="reveal">As suas redes,<br/><span class="grad">sempre ativas.</span></h2>
+          <p class="lede reveal d-only">A IA escreve, desenha e publica os seus carrosséis e stories todos os dias, na sua marca — sem ter de pensar no que publicar nem contratar ninguém. Quer ver a funcionar? <strong>Este feed do nosso @cm.tecnologia é feito exatamente assim.</strong></p>
+          <p class="lede reveal m-only">A IA cria e publica os seus posts todos os dias, na sua marca. <strong>Este feed @cm.tecnologia é feito assim.</strong></p>
+          <ul class="ticks reveal">
+            <li>Conteúdo gerado por IA, na sua marca</li>
+            <li>Publicação automática — sem mãos</li>
+            <li>Carrosséis, stories e legendas, todos os dias</li>
+          </ul>
+          <a class="wa-cta ig-cta magnetic reveal" href="https://www.instagram.com/cm.tecnologia/" target="_blank" rel="noopener">
+            <svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.51.01-4.75.07-.9.04-1.39.2-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.12.32-.28.81-.32 1.71C3.21 8.49 3.2 8.86 3.2 12s.01 3.51.07 4.75c.04.9.2 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.12.81.28 1.71.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.39-.2 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.12-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.2-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.12-.81-.28-1.71-.32C15.51 4.01 15.14 4 12 4zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.14-1.95a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg>
+            <span>Ver o nosso Instagram<small>@cm.tecnologia · feito por IA</small></span>
+          </a>
+        </div>
+        <div class="col-phone reveal">
+          <div class="phone" data-tilt>
+            <div class="phone-notch"></div>
+            <div class="ig">
+              <div class="ig-top">
+                <span class="ig-av"><img src="scenes/logo-cmtec-web.png" alt="C&amp;M" /></span>
+                <div class="ig-id"><b>cm.tecnologia</b><small>C&amp;M Tecnologia · PT</small></div>
+              </div>
+              <div class="ig-stats"><span><b>99</b>posts</span><span><b>56</b>seguidores</span><span><b>IA</b>autopost</span></div>
+              <p class="ig-bio">Automação com IA p/ clínicas e PMEs — carrosséis &amp; stories diários, no automático 🤖</p>
+              <div class="ig-grid" id="igGrid"></div>
+            </div>
+          </div>
+          <p class="device-cap">O nosso feed real — gerado e publicado pela nossa IA.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 · VOZ (Inês — LIVE voice via /api/ines) -->
     <section class="scene" id="voz" data-scene="4">
       <div class="wrap center">
-        <p class="kicker reveal"><span class="dot"></span>E agora, por voz</p>
-        <h2 class="reveal">A <span class="grad">Inês</span> atende<br/>o telefone.</h2>
-        <p class="lede reveal">A mesma inteligência — agora a falar. Atende chamadas, responde e marca, com voz natural.</p>
+        <p class="kicker reveal"><span class="dot"></span>Atendimento por voz</p>
+        <h2 class="reveal">Nenhuma chamada<br/><span class="grad">fica por atender.</span></h2>
+        <p class="lede reveal d-only">A Inês atende as chamadas que não consegue atender: responde a dúvidas, dá informações e marca consultas, com voz natural — para nenhum telefonema ficar perdido. Não acredita que é IA? <strong>Fale mesmo com ela: toque no botão e faça uma pergunta por voz.</strong></p>
+        <p class="lede reveal m-only">A Inês atende as chamadas perdidas e marca consultas, com voz natural. <strong>Fale mesmo com ela: toque no botão.</strong></p>
         <div class="voice reveal" id="voice">
-          <button class="voice-btn magnetic" id="voiceBtn" aria-label="Simular chamada">
+          <button class="voice-btn magnetic" id="voiceBtn" aria-label="Falar com a Inês ao vivo">
             <span class="voice-ic">☎</span>
           </button>
           <div class="waves" id="waves" aria-hidden="true"></div>
-          <p class="voice-status" id="voiceStatus">Toca para simular uma chamada</p>
+          <p class="voice-status" id="voiceStatus">Toca para falar com a Inês ao vivo</p>
           <div class="voice-script" id="voiceScript"></div>
+          <button class="voice-demo-link" id="voiceDemo" type="button">ou vê um exemplo de conversa ↓</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5b · SOBRE NÓS -->
+    <section class="scene" id="sobre" data-scene="5">
+      <div class="wrap wide">
+        <div class="panel reveal">
+          <p class="kicker"><span class="dot"></span>Sobre nós</p>
+          <h2>Conheça a <span class="grad">C&amp;M Tecnologia.</span></h2>
+          <p class="lede d-only">Uma software house portuguesa <strong>nova — e diferente</strong>. A nossa operação interna é movida a Inteligência Artificial, o que nos deixa entregar ao nível de uma grande agência, com a rapidez e o preço de uma equipa enxuta. E não falamos de teoria: <strong>construímos os nossos próprios produtos</strong> — uma loja online, assistentes de IA para WhatsApp e voz, painéis de gestão e automação de redes — e é com eles que tiramos o trabalho repetitivo do prato de clínicas e PMEs. Começámos há pouco, com tudo para provar e zero vícios — por isso tratamos cada projeto como se fosse o nosso.</p>
+          <p class="lede m-only">Software house portuguesa <strong>movida a IA</strong> — entregamos como uma grande agência, com a rapidez e o preço de uma equipa enxuta. <strong>Usamos todos os dias o que vendemos.</strong></p>
+          <div class="about-stats">
+            <div class="stat"><b>Movida a IA</b><small>A nossa operação corre com IA — rápidos, sem inchaço e sem desculpas.</small></div>
+            <div class="stat"><b>Produtos reais</b><small>Cronos, Madalena, Inês, painéis — usamos todos os dias o que vendemos.</small></div>
+            <div class="stat"><b>Em Lisboa 🇵🇹</b><small>Equipa portuguesa, a pensar em clínicas e PMEs como a sua.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5c · FAQ -->
+    <section class="scene" id="faq" data-scene="5">
+      <div class="wrap wide">
+        <div class="panel reveal">
+          <p class="kicker"><span class="dot"></span>Perguntas frequentes</p>
+          <h2>Ainda com <span class="grad">dúvidas?</span></h2>
+          <div class="faq">
+            <details class="faq-item"><summary>Isto serve para o meu tipo de negócio?</summary><p>Foi pensado sobretudo para clínicas, consultórios e PMEs de serviços. Mas se recebe mensagens, chamadas ou marcações, há sempre algo para automatizar — e em 30 minutos dizemos-lhe exatamente o quê, no seu caso.</p></details>
+            <details class="faq-item"><summary>A IA vai responder mal aos meus clientes?</summary><p>A Madalena e a Inês seguem o tom e as regras do seu negócio, e passam-lhe a conversa sempre que é preciso uma pessoa. Nada de respostas robóticas — e você vê tudo o que elas fazem no painel.</p></details>
+            <details class="faq-item"><summary>Quanto tempo demora a ter isto a funcionar?</summary><p>Depende do que precisa, mas costuma montar-se em poucos dias. Tratamos de tudo — configuração, ligações e testes — e só fica no ar quando estiver à sua medida.</p></details>
+            <details class="faq-item"><summary>Tenho de perceber de tecnologia?</summary><p>Não. Falamos consigo sem "informatiquês". Montamos, operamos e mostramos os resultados num painel simples. O seu trabalho é só atender os clientes que vão chegando.</p></details>
+            <details class="faq-item"><summary>E os meus dados e os dos meus clientes?</summary><p>Levamos isso a sério. Tudo corre em infraestrutura segura e em conformidade com o RGPD. Os dados são seus — nunca os usamos para mais nada.</p></details>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- 6 · CTA -->
     <section class="scene" id="contacto" data-scene="5">
-      <div class="wrap">
+      <div class="wrap wide">
         <div class="orbit reveal" aria-hidden="true" id="orbit"></div>
-        <p class="kicker reveal"><span class="dot"></span>Vamos a isto</p>
-        <h2 class="reveal">Ponha o seu negócio<br/><span class="grad">em piloto automático.</span></h2>
-        <p class="lede reveal">Em 30 minutos mostramos-lhe o que podemos automatizar já esta semana. Sem compromisso.</p>
-        <div class="hero-cta reveal">
-          <a class="btn-primary magnetic" href="https://cmtecnologia.pt" target="_blank" rel="noopener" data-cta>Solicitar Orçamento</a>
-          <a class="btn-ghost magnetic" href="#hero">Voltar ao início</a>
+        <div class="panel reveal">
+        <p class="kicker"><span class="dot"></span>Vamos a isto</p>
+        <h2>Ponha o seu negócio<br/><span class="grad">em piloto automático.</span></h2>
+        <p class="lede d-only">Conte-nos o que faz e o que mais o atrapalha. Em 30 minutos mostramos-lhe, no seu caso, o que dá para automatizar já esta semana — sem compromisso e sem "informatiquês".</p>
+        <p class="lede m-only">Diga-nos o que o atrapalha. Em 30 minutos mostramos o que dá para automatizar já — sem compromisso.</p>
+        <form class="lead-form" id="leadForm">
+          <div class="lead-row">
+            <input type="text" name="nome" required placeholder="O seu nome ou empresa" autocomplete="name" />
+            <input type="text" name="contacto" required placeholder="WhatsApp ou email" />
+          </div>
+          <textarea name="msg" rows="2" placeholder="O que precisa? (ex.: automatizar as marcações e o WhatsApp da clínica)"></textarea>
+          <div class="lead-actions">
+            <button type="submit" class="btn-primary form-send">Enviar pedido →</button>
+            <a class="btn-ghost" href="https://wa.me/351964977047?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20automa%C3%A7%C3%A3o%20com%20IA." target="_blank" rel="noopener">ou WhatsApp direto</a>
+          </div>
+          <p class="form-note" id="formNote">Ao enviar, abrimos o WhatsApp com a sua mensagem pronta — a Madalena responde em segundos.</p>
+        </form>
         </div>
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <span class="brand-mark sm">C<span>&amp;</span>M</span>
-    <span>C&amp;M Tecnologia · Automação com IA em Portugal</span>
-    <a href="https://cmtecnologia.pt" target="_blank" rel="noopener">cmtecnologia.pt</a>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img class="foot-logo" src="scenes/logo-cmtec-web.png" alt="C&amp;M Tecnologia" width="150" height="150" loading="lazy" />
+        <p class="foot-tag">Automação inteligente com IA para clínicas e PMEs. A IA trata do resto — 24&nbsp;horas por dia, 7&nbsp;dias por semana.</p>
+        <a class="foot-wa" href="https://wa.me/351964977047?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20C%26M%20Tecnologia." target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" aria-hidden="true" width="18" height="18"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.6c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3z" fill="currentColor" opacity=".2"/><path d="M12.5 9.6c-.2-.5-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.3 1.4 3.5c.2.2 2.4 3.8 6 5.2 3 1.2 3.6 1 4.2.9.6-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.1-.3-.2-.7-.4-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.8.2-.2.3-.9 1.1-1.1 1.3-.2.2-.4.3-.7.1-.4-.2-1.5-.6-2.9-1.8-1.1-1-1.8-2.2-2-2.6-.2-.3 0-.5.2-.7l.5-.6c.2-.2.2-.3.4-.6.1-.2.1-.4 0-.6-.1-.2-.8-2-1.1-2.7z" fill="currentColor"/></svg>
+          +351&nbsp;964&nbsp;977&nbsp;047
+        </a>
+        <div class="foot-socials">
+          <a href="https://www.instagram.com/cm.tecnologia/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2c3.2 0 3.6.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.43.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23a3.7 3.7 0 0 1-.9 1.38 3.7 3.7 0 0 1-1.38.9c-.43.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.43-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.43-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.51.01-4.75.07-.9.04-1.39.2-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.12.32-.28.81-.32 1.71C4.01 8.49 4 8.86 4 12s.01 3.51.07 4.75c.04.9.2 1.39.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.32.12.81.28 1.71.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.39-.2 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.12-.32.28-.81.32-1.71.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.2-1.39-.32-1.71a2.85 2.85 0 0 0-.69-1.06 2.85 2.85 0 0 0-1.06-.69c-.32-.12-.81-.28-1.71-.32C15.51 4.01 15.14 4 12 4zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 1.8A3.14 3.14 0 1 0 15.14 12 3.14 3.14 0 0 0 12 8.86zm5.14-1.95a1.15 1.15 0 1 1-1.15 1.15 1.15 1.15 0 0 1 1.15-1.15z"/></svg></a>
+          <a href="https://www.tiktok.com/@cmtecnologia" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 3c.35 2.1 1.5 3.45 3.5 3.62v2.63c-1.3.08-2.46-.3-3.5-.95v5.7c0 3.35-2.65 5.9-5.86 5.5-2.6-.32-4.4-2.6-4.16-5.22.22-2.4 2.3-4.28 4.7-4.18.2 0 .4.02.6.06v2.74a2.3 2.3 0 0 0-.72-.12c-1.16 0-2.06 1-1.98 2.18.07 1 .92 1.85 1.92 1.9 1.2.06 2.2-.9 2.2-2.12V3h2.96z"/></svg></a>
+          <a href="https://www.linkedin.com/company/cmtecnologia" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0zM3.3 8.4h3.3V21H3.3zm5.4 0h3.16v1.72h.05c.44-.83 1.5-1.7 3.1-1.7 3.32 0 3.93 2.18 3.93 5V21h-3.3v-5.9c0-1.4-.03-3.2-1.96-3.2-1.96 0-2.26 1.53-2.26 3.1V21H8.7z"/></svg></a>
+        </div>
+      </div>
+      <nav class="foot-col">
+        <h4>Navegar</h4>
+        <a href="#trabalhos">Trabalhos</a>
+        <a href="#madalena">Madalena &amp; Inês</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#faq">Perguntas frequentes</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <nav class="foot-col">
+        <h4>O que fazemos</h4>
+        <a href="#trabalhos">Sites &amp; Lojas</a>
+        <a href="#madalena">WhatsApp com IA</a>
+        <a href="#voz">Atendimento por voz</a>
+        <a href="#painel">Painéis &amp; automação</a>
+      </nav>
+      <div class="foot-col">
+        <h4>Contactos</h4>
+        <span class="foot-meta">📍 Lisboa, Portugal</span>
+        <span class="foot-meta">⏰ Seg–Sex · 9h–18h</span>
+        <a href="https://cmtecnologia.pt" target="_blank" rel="noopener">cmtecnologia.pt</a>
+        <a class="foot-cta" href="#contacto">Solicitar orçamento →</a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 C&amp;M Tecnologia · Feito com ❤️ em Lisboa 🇵🇹</span>
+      <img class="foot-base-logo" src="scenes/logo-cmtec-web.png" alt="C&amp;M Tecnologia" width="40" height="40" loading="lazy" />
+    </div>
   </footer>
 
   <!-- premium showcase modal -->
@@ -174,7 +311,7 @@
       </div>
       <div class="modal-viewport" id="modalViewport">
         <img class="modal-shot" id="modalShot" alt="Pré-visualização do site" />
-        <iframe class="modal-iframe" id="modalIframe" title="Site ao vivo" hidden></iframe>
+        <iframe class="modal-iframe" id="modalIframe" title="Site ao vivo" hidden sandbox="allow-scripts allow-same-origin allow-popups allow-forms" referrerpolicy="no-referrer"></iframe>
       </div>
       <div class="modal-foot"><span id="modalHint">A percorrer o site…</span></div>
     </div>
@@ -191,5 +328,6 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="app.js" defer></script>
+  <script src="voice-live.js" defer></script>
 </body>
 </html>
