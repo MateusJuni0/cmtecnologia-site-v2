@@ -57,14 +57,23 @@
     bgvideo.muted = true;
     if (isTouch || reduced) {
       bgvideo.loop = true;
+      bgvideo.playsInline = true;
+      const kickPlay = () => { const p = bgvideo.play(); if (p && typeof p.catch === 'function') p.catch(() => {}); };
       if (isTouch) {
         const srcEl = bgvideo.querySelector('source');
         if (srcEl) {
-          bgvideo.addEventListener('error', function onErr() { if (srcEl.src.indexOf('bg-mobile') !== -1) { srcEl.src = 'scenes/bg-master.mp4'; bgvideo.load(); bgvideo.play().catch(() => {}); } bgvideo.removeEventListener('error', onErr); });
+          bgvideo.addEventListener('error', function onErr() { if (srcEl.src.indexOf('bg-mobile') !== -1) { srcEl.src = 'scenes/bg-master.mp4'; bgvideo.load(); kickPlay(); } bgvideo.removeEventListener('error', onErr); });
           srcEl.src = 'scenes/bg-mobile.mp4'; bgvideo.load();
         }
       }
-      bgvideo.play().catch(() => {});
+      // Android Chrome often won't re-fire autoplay after a programmatic load(): retry when
+      // the source is decodable, on the first user gesture, and with a couple of nudges.
+      bgvideo.addEventListener('loadeddata', kickPlay);
+      bgvideo.addEventListener('canplay', kickPlay);
+      ['touchstart', 'pointerdown', 'scroll'].forEach((ev) => window.addEventListener(ev, kickPlay, { once: true, passive: true }));
+      kickPlay();
+      setTimeout(kickPlay, 400);
+      setTimeout(kickPlay, 1500);
     } else {
       bgvideo.loop = false; bgvideo.pause();
       let target = 0, cur = 0;
