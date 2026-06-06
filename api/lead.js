@@ -19,6 +19,18 @@ export default async function handler(req, res) {
   const { name, contact, need, transcript, source } = body || {};
   if (!name && !contact) { res.status(400).json({ error: 'empty lead' }); return; }
 
+  // Best-effort instant alert to Telegram (independent of email; no-op if env not set)
+  const TG_TOKEN = process.env.TG_BOT_TOKEN, TG_CHAT = process.env.TG_LEAD_CHAT_ID;
+  if (TG_TOKEN && TG_CHAT) {
+    const tgText = `🐰 Novo lead — ${source || 'site'}\n👤 ${name || '—'}\n📞 ${contact || '—'}\n📝 ${need || '—'}`;
+    try {
+      await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
+        method: 'POST', headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ chat_id: TG_CHAT, text: tgText, disable_web_page_preview: true }),
+      });
+    } catch (e) { /* non-blocking */ }
+  }
+
   const KEY = process.env.RESEND_API_KEY;
   if (!KEY) { res.status(200).json({ ok: false, note: 'RESEND_API_KEY not configured' }); return; }
 

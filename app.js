@@ -235,6 +235,18 @@
   if (waForm) waForm.addEventListener('submit', (e) => { e.preventDefault(); const t = waText.value; waText.value = ''; waSend(t); });
   observeOnce('#madalena', waStart);
 
+  /* ---------- cookie notice ---------- */
+  const cookieBar = document.getElementById('cookieBar');
+  if (cookieBar) {
+    let consented = false;
+    try { consented = !!localStorage.getItem('cmtec-cookie'); } catch (e) {}
+    if (!consented) cookieBar.hidden = false;
+    const closeCookie = (v) => { try { localStorage.setItem('cmtec-cookie', v); } catch (e) {} cookieBar.hidden = true; };
+    const ca = document.getElementById('cookieAccept'), cd = document.getElementById('cookieDecline');
+    if (ca) ca.addEventListener('click', () => closeCookie('accept'));
+    if (cd) cd.addEventListener('click', () => closeCookie('decline'));
+  }
+
   /* ---------- Voice · Inês ---------- */
   const voiceBtn = document.getElementById('voiceBtn');
   const wavesEl = document.getElementById('waves');
