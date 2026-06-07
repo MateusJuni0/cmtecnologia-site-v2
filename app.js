@@ -72,8 +72,13 @@
       bgvideo.addEventListener('canplay', kickPlay);
       ['touchstart', 'pointerdown', 'scroll'].forEach((ev) => window.addEventListener(ev, kickPlay, { once: true, passive: true }));
       kickPlay();
-      setTimeout(kickPlay, 400);
-      setTimeout(kickPlay, 1500);
+      // Watchdog: for ~10s, keep nudging until the video is actually playing. Covers any
+      // Android timing quirk where the events above don't restart playback on their own.
+      let _vtries = 0;
+      const _vwatch = setInterval(() => {
+        if (bgvideo.paused && !bgvideo.ended) kickPlay();
+        if ((!bgvideo.paused && bgvideo.currentTime > 0.2) || ++_vtries > 20) clearInterval(_vwatch);
+      }, 500);
     } else {
       bgvideo.loop = false; bgvideo.pause();
       let target = 0, cur = 0;
