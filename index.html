@@ -59,7 +59,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=20260606b" />
+<link rel="stylesheet" href="styles.css?v=20260606c" />
 <!-- Vercel Web Analytics (enable in project dashboard) -->
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
 <script defer src="/_vercel/insights/script.js"></script>
@@ -71,8 +71,13 @@
 
   <!-- background: ONE continuous host video, scroll-scrubbed (desktop) / looping (mobile) -->
   <div class="bg" id="bg" aria-hidden="true">
-    <video id="bgvideo" class="bgvideo" autoplay muted loop playsinline preload="auto" poster="scenes/scene-1-hero.jpg">
+    <!-- desktop: scroll-scrubbed -->
+    <video id="bgvideo" class="bgvideo bg-desktop" muted loop playsinline preload="none" poster="scenes/scene-1-hero.jpg">
       <source src="scenes/bg-master.mp4" type="video/mp4" />
+    </video>
+    <!-- mobile: native HTML autoplay loop (Android-safe — no JS load()) -->
+    <video id="bgvideo-m" class="bgvideo bg-mobile" autoplay muted loop playsinline preload="auto" poster="scenes/scene-1-hero.jpg">
+      <source src="scenes/bg-mobile.mp4" type="video/mp4" />
     </video>
   </div>
   <div class="scrim" aria-hidden="true"></div>
@@ -386,7 +391,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="app.js?v=20260606b" defer></script>
+  <script src="app.js?v=20260606c" defer></script>
   <script src="voice-live.js" defer></script>
 </body>
 </html>

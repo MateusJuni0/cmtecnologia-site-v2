@@ -51,53 +51,48 @@
     navLinks.forEach((a) => a.addEventListener('click', closeMenu));
   }
 
-  // ---- ONE continuous background video: scroll-scrubbed (desktop), looping (mobile) ----
+  // ---- background video: desktop = scroll-scrubbed (#bgvideo) / mobile = native autoplay loop (#bgvideo-m) ----
   const bgvideo = document.getElementById('bgvideo');
-  if (bgvideo) {
-    bgvideo.muted = true;
-    if (isTouch || reduced) {
-      bgvideo.loop = true;
-      bgvideo.playsInline = true;
-      const kickPlay = () => { const p = bgvideo.play(); if (p && typeof p.catch === 'function') p.catch(() => {}); };
-      if (isTouch) {
-        const srcEl = bgvideo.querySelector('source');
-        if (srcEl) {
-          bgvideo.addEventListener('error', function onErr() { if (srcEl.src.indexOf('bg-mobile') !== -1) { srcEl.src = 'scenes/bg-master.mp4'; bgvideo.load(); kickPlay(); } bgvideo.removeEventListener('error', onErr); });
-          srcEl.src = 'scenes/bg-mobile.mp4'; bgvideo.load();
-        }
-      }
-      // Android Chrome often won't re-fire autoplay after a programmatic load(): retry when
-      // the source is decodable, on the first user gesture, and with a couple of nudges.
-      bgvideo.addEventListener('loadeddata', kickPlay);
-      bgvideo.addEventListener('canplay', kickPlay);
-      ['touchstart', 'pointerdown', 'scroll'].forEach((ev) => window.addEventListener(ev, kickPlay, { once: true, passive: true }));
-      kickPlay();
-      // Watchdog: for ~10s, keep nudging until the video is actually playing. Covers any
-      // Android timing quirk where the events above don't restart playback on their own.
-      let _vtries = 0;
-      const _vwatch = setInterval(() => {
-        if (bgvideo.paused && !bgvideo.ended) kickPlay();
-        if ((!bgvideo.paused && bgvideo.currentTime > 0.2) || ++_vtries > 20) clearInterval(_vwatch);
-      }, 500);
+  const bgmobile = document.getElementById('bgvideo-m');
+  const mobileLayout = window.matchMedia('(max-width: 768px)').matches;
+
+  // Mobile clip plays purely via the HTML `autoplay` attribute — no load()/source swap, which
+  // was the exact JS step that left it frozen on Android. Just a light safety nudge here.
+  if (bgmobile) {
+    if (mobileLayout) {
+      bgmobile.muted = true; bgmobile.playsInline = true;
+      const kick = () => { const p = bgmobile.play(); if (p && typeof p.catch === 'function') p.catch(() => {}); };
+      bgmobile.addEventListener('canplay', kick);
+      bgmobile.addEventListener('loadeddata', kick);
+      ['touchstart', 'pointerdown', 'scroll'].forEach((ev) => window.addEventListener(ev, kick, { once: true, passive: true }));
+      kick();
     } else {
-      bgvideo.loop = false; bgvideo.pause();
-      let target = 0, cur = 0;
-      const onScrub = () => {
-        const max = document.documentElement.scrollHeight - window.innerHeight;
-        target = max > 0 ? Math.min(1, Math.max(0, (window.scrollY || 0) / max)) : 0;
-      };
-      if (lenis) lenis.on('scroll', onScrub);
-      window.addEventListener('scroll', onScrub, { passive: true });
-      onScrub();
-      const tick = () => {
-        cur += (target - cur) * 0.085;
-        const dur = bgvideo.duration;
-        if (dur && isFinite(dur)) { try { bgvideo.currentTime = cur * (dur - 0.06); } catch (e) {} }
-        requestAnimationFrame(tick);
-      };
-      if (bgvideo.readyState >= 1) requestAnimationFrame(tick);
-      else bgvideo.addEventListener('loadedmetadata', () => requestAnimationFrame(tick), { once: true });
+      bgmobile.removeAttribute('autoplay'); bgmobile.preload = 'none'; bgmobile.pause();
     }
+  }
+
+  // Desktop clip is scroll-scrubbed (hidden on mobile, so skip it there to save data).
+  if (bgvideo && !mobileLayout && !reduced) {
+    bgvideo.muted = true; bgvideo.loop = false; bgvideo.preload = 'auto'; bgvideo.pause();
+    bgvideo.load();
+    let target = 0, cur = 0;
+    const onScrub = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      target = max > 0 ? Math.min(1, Math.max(0, (window.scrollY || 0) / max)) : 0;
+    };
+    if (lenis) lenis.on('scroll', onScrub);
+    window.addEventListener('scroll', onScrub, { passive: true });
+    onScrub();
+    const tick = () => {
+      cur += (target - cur) * 0.085;
+      const dur = bgvideo.duration;
+      if (dur && isFinite(dur)) { try { bgvideo.currentTime = cur * (dur - 0.06); } catch (e) {} }
+      requestAnimationFrame(tick);
+    };
+    if (bgvideo.readyState >= 1) requestAnimationFrame(tick);
+    else bgvideo.addEventListener('loadedmetadata', () => requestAnimationFrame(tick), { once: true });
+  } else if (bgvideo) {
+    bgvideo.preload = 'none'; bgvideo.pause();
   }
 
   const sections = Array.from(document.querySelectorAll('section.scene'));
