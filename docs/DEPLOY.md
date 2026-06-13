@@ -54,12 +54,16 @@ GitHub (repo cmtecnologia-site-v2, push main)
 - **Apex não dá pelo `route dns`** se já houver um CNAME/A proxied — editar o registo no dashboard CF (trocar o Target para `<uuid>.cfargotunnel.com`, manter Proxied).
 - **Porta interna 3000, host `127.0.0.1:3002`** (3000=supabase-studio, 3001=cronos-web já ocupadas).
 
-### Pendências
-- **Pull GHCR:** imagem privada → a VPS não faz `docker pull`. Resolver com **público** (toggle na UI) ou **token read:packages** na VPS; até lá, deploy via tarball (acima).
-- **`TG_BOT_TOKEN=""`** (vazio, herdado do Vercel) → alertas de lead no Telegram não disparam; o email (Resend) funciona. Pôr token real se quiser alertas TG.
-- **Lixo DNS:** `staging.cmtecnologia.pt` aponta para `cm-templates` (404, registo antigo). `vps.cmtecnologia.pt` serve como staging real.
-- **Branch:** `feat/vps-migration` ainda não mergeada para `main` (Vercel em `main` = fallback intacto). Ao mergear: remover a branch do trigger e o step de export-tarball do workflow.
-- **Decommission Vercel** (projeto `cmtecnologia-site-v2`) após o período de fallback.
+### Resolvido (2026-06-13, pós-cutover)
+- ✅ **Deploy reproduzível:** `scripts/deploy-vps.sh` (1 comando, método tarball). O pull GHCR continua privado — tornar público (UI) é opcional/futuro.
+- ✅ **Alertas de lead no Telegram:** `TG_BOT_TOKEN`/`TG_LEAD_CHAT_ID` estavam inválidos (token vazio + o chat id era o comando `vercel env add …` colado por engano). Agora reusam o bot+chat do **Lince** (`TELEGRAM_BOT_TOKEN`/`TELEGRAM_CHAT_ID` de `/opt/hermes/.env`) → leads chegam ao TG do Mateus. Email Resend continua a funcionar (testado, `ok:true`).
+- ✅ **DNS limpo:** `staging.cmtecnologia.pt` → cmtec-site (staging oficial); `vps.cmtecnologia.pt` e o lixo `staging.cronosgame.com.br.cmtecnologia.pt` apagados. Ingress = apex+www+staging+catch-all.
+
+### Em aberto (salvaguarda deliberada, não falha)
+- **Vercel = fallback ativo:** `feat/vps-migration` mantida fora de `main` de propósito, para o deploy Vercel servir de rollback nas primeiras 24–48h. Ao fechar: merge → `main`, remover a branch do trigger + o step de export-tarball, e **decommission do projeto Vercel**.
+
+### Gotcha extra
+- **Editar o ingress determinísticamente** (reescrever o ficheiro inteiro). Remover linhas com skip-logic apagou o catch-all `http_status:404` por engano → túnel inválido (erro 1033). Validar sempre com um smoke test aos 3 hosts após restart.
 
 ### Regras duras
 1. **NUNCA buildar na VPS** — build Next/imagem pede RAM; a VPS já faz swap e tem a DB de produção do Cronos.
