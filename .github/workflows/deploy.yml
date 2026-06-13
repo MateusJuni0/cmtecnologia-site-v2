@@ -46,3 +46,18 @@ jobs:
             ${{ env.IMAGE }}:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      # One-shot tarball so the VPS can `docker load` without pulling from GHCR
+      # (used while the package visibility / pull-auth is being sorted). Cheap,
+      # 1-day retention; safe to remove once GHCR pull works on the VPS.
+      - name: Export image tarball
+        run: |
+          docker pull ${{ env.IMAGE }}:latest
+          docker save ${{ env.IMAGE }}:latest | gzip > cmtec-site-image.tar.gz
+          ls -lh cmtec-site-image.tar.gz
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cmtec-site-image
+          path: cmtec-site-image.tar.gz
+          retention-days: 1
