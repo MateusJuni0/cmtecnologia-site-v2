@@ -1,0 +1,16 @@
+{
+  "name": "cmtecnologia-site-v2",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "cmtecnologia.pt — static site + Inês/Madalena/lead functions, self-hosted on the VPS via Express.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
