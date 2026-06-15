@@ -1,22 +1,34 @@
 # C&M Tecnologia
 
-> Software house portuguesa que põe Inteligência Artificial a trabalhar para clínicas e PMEs. Reunimos o atendimento, as marcações, as redes sociais e as finanças do negócio num só painel — a funcionar 24 horas por dia. Slogan: "Todo o seu negócio, a trabalhar por si."
+> Software house portuguesa movida a Inteligência Artificial, sediada em Lisboa. Cria sites e lojas online de alta performance, chatbots de IA para WhatsApp (texto e voz), atendimento por voz, automação de redes sociais e um painel único de gestão — sobretudo para clínicas e PMEs. Slogan: "Todo o seu negócio, a trabalhar por si."
 
 ## O que a C&M Tecnologia faz
-- Atendimento automático 24/7 no WhatsApp (a assistente "Madalena"): responde a clientes, tira dúvidas e marca consultas a qualquer hora.
-- Atendimento por voz (a assistente "Inês"): atende as chamadas que ficariam perdidas.
-- Sites e lojas online de alta performance, que transformam visitas em clientes.
-- Um painel de gestão único onde o cliente vê tudo: Instagram, anúncios, WhatsApp, marcações, métricas e finanças.
-- Redes sociais no automático: conteúdo publicado todos os dias, na marca do cliente.
+- **Sites e lojas online**: desenvolvimento à medida, rápido, responsivo no telemóvel e preparado para aparecer no Google (sem temas de prateleira).
+- **Chatbots de IA no WhatsApp** (assistente "Madalena"): responde por texto ou áudio, com memória de cada cliente, marca na agenda e faz seguimento — 24/7.
+- **Atendimento por voz** (assistente "Inês"): atende chamadas que ficariam perdidas, responde a dúvidas e marca consultas com voz natural.
+- **Automação de redes sociais**: conteúdo (carrosséis, stories, legendas) gerado e publicado por IA, todos os dias, na marca do cliente.
+- **Painel único de gestão**: redes, anúncios, WhatsApp, marcações, métricas e finanças num só ecrã, em tempo real.
+- **SEO semântico e GEO** (Generative Engine Optimization): otimização à volta de temas e entidades, com dados estruturados, para aparecer no Google e ser citável por assistentes de IA (ChatGPT, Perplexity, Gemini).
 
 ## Para quem
-Clínicas, consultórios e PMEs em Portugal que querem deixar de perder clientes e libertar a equipa do trabalho repetitivo, com a rapidez e o preço de uma equipa enxuta.
+Clínicas, consultórios e PMEs de serviços em Portugal que querem deixar de perder clientes e libertar a equipa do trabalho repetitivo — com a rapidez e o preço de uma equipa enxuta.
 
 ## Como funciona
-O cliente conta o que faz e o que o atrapalha; em cerca de 30 minutos a C&M mostra o que dá para automatizar. A IA trata da operação repetitiva; o dono do negócio foca-se em crescer.
+O cliente conta o que faz e o que o atrapalha; em cerca de 30 minutos a C&M mostra o que dá para automatizar. A C&M monta, opera e mantém; o dono do negócio foca-se em crescer.
+
+## Diferencial
+Software house nova, com a operação interna movida a IA. Constrói e usa os próprios produtos (a loja Cronos, a Madalena no WhatsApp, a Inês por voz, painéis e automação de redes) — usa todos os dias o que vende.
+
+## Páginas
+- Site principal: https://cmtecnologia.pt/
+- Guia — Automação com IA para clínicas e PMEs em Portugal: https://cmtecnologia.pt/guia-automacao-ia.html
+- Perguntas frequentes: https://cmtecnologia.pt/#faq
+- Contacto: https://cmtecnologia.pt/#contacto
 
 ## Contacto
 - Website: https://cmtecnologia.pt
 - WhatsApp: +351 964 977 047
 - Localização: Lisboa, Portugal
 - Instagram: https://www.instagram.com/cm.tecnologia/
+- LinkedIn: https://www.linkedin.com/company/cmtecnologia
+- TikTok: https://www.tiktok.com/@cmtecnologia
