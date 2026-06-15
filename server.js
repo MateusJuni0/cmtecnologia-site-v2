@@ -27,6 +27,39 @@ app.post('/api/ines', ines);
 app.post('/api/madalena', madalena);
 app.post('/api/lead', lead);
 
+// --- SEO: 301 redirects for legacy URLs from the previous Next.js site -------
+// These paths existed on the old (Vercel/Next.js) cmtecnologia.pt and were
+// indexed by Google. After the v2 single-page cutover they 404, which Search
+// Console flags as "Não encontrado (404)" and which wastes crawl budget. A 301
+// to the closest live section clears the error and preserves link signals.
+// (2026-06-15 — see docs/DEPLOY.md / Search Console indexing fix.)
+const LEGACY_REDIRECTS = {
+  '/healthcare': '/',
+  '/setup-1h': '/#contacto',
+  '/case-studies': '/#trabalhos',
+  '/case-studies/cronohomeservice': '/#trabalhos',
+  '/case-studies/dental': '/#trabalhos',
+  '/case-studies/pediatria': '/#trabalhos',
+};
+
+app.use((req, res, next) => {
+  // Normalise a single trailing slash (except root) for the lookup.
+  const p =
+    req.path.length > 1 && req.path.endsWith('/')
+      ? req.path.slice(0, -1)
+      : req.path;
+
+  // Browsers and crawlers always request /favicon.ico; map it to the real icon
+  // (the page declares scenes/favicon-192.png, so /favicon.ico itself 404s).
+  if (p === '/favicon.ico') return res.redirect(301, '/scenes/favicon-192.png');
+
+  if (LEGACY_REDIRECTS[p]) return res.redirect(301, LEGACY_REDIRECTS[p]);
+  // Any other legacy case-study sub-path also maps to the works section.
+  if (p.startsWith('/case-studies/')) return res.redirect(301, '/#trabalhos');
+
+  next();
+});
+
 // Static multi-page site: index.html, app.js, styles.css, guia, robots.txt,
 // sitemap.xml, scenes/ (videos), etc. Clean URLs via the html extension.
 // dotfiles ignored so .git / .env-style paths are never served. Unknown paths
