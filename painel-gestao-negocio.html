@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Painel único de gestão de negócio | C&amp;M Tecnologia</title>
+<meta name="description" content="Um só ecrã com redes, anúncios, WhatsApp, marcações, métricas e finanças — em tempo real, sem saltar entre apps. Software de gestão para PME em Portugal." />
+<meta name="theme-color" content="#0b0616" />
+<link rel="canonical" href="https://cmtecnologia.pt/painel-gestao-negocio.html" />
+<link rel="icon" type="image/png" href="scenes/favicon-192.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Painel único de gestão de negócio — C&amp;M Tecnologia" />
+<meta property="og:description" content="Redes, anúncios, WhatsApp, marcações, métricas e finanças num só ecrã, em tempo real. Pare de saltar entre apps para gerir o negócio." />
+<meta property="og:url" content="https://cmtecnologia.pt/painel-gestao-negocio.html" />
+<meta property="og:image" content="https://cmtecnologia.pt/scenes/og-cover.jpg" />
+<meta property="og:locale" content="pt_PT" />
+<meta property="og:site_name" content="C&amp;M Tecnologia" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Painel único de gestão de negócio — C&amp;M Tecnologia" />
+<meta name="twitter:description" content="Redes, anúncios, WhatsApp, marcações, métricas e finanças num só ecrã, em tempo real. Pare de saltar entre apps para gerir o negócio." />
+<meta name="twitter:image" content="https://cmtecnologia.pt/scenes/og-cover.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0712; --bg-2:#120b22; --ink:#f3effb; --muted:#b9b1cf; --soft:#8f88a6;
+    --violet:#a78bfa; --violet-2:#8b5cf6; --cyan:#38bdf8; --edge:rgba(255,255,255,.08); --edge-2:rgba(255,255,255,.14);
+    --font-d:"Space Grotesk",system-ui,sans-serif; --font-b:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,rgba(139,92,246,.18),transparent 60%),var(--bg);
+    color:var(--ink);font-family:var(--font-b);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--edge);position:sticky;top:0;background:rgba(10,7,18,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);z-index:10}
+  header.top img{height:30px;width:auto;display:block}
+  header.top .cta{font-family:var(--font-d);font-weight:600;font-size:14px;color:#0a0712;background:linear-gradient(110deg,var(--violet-2),var(--cyan));padding:9px 16px;border-radius:999px}
+  header.top .cta:hover{text-decoration:none;transform:translateY(-1px)}
+  .kicker{font-family:var(--font-d);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--cyan);margin:48px 0 10px}
+  h1{font-family:var(--font-d);font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+  h2{font-family:var(--font-d);font-weight:600;font-size:clamp(22px,4vw,30px);line-height:1.2;margin:46px 0 12px;letter-spacing:-.01em}
+  h3{font-family:var(--font-d);font-weight:600;font-size:19px;margin:28px 0 8px}
+  p{color:var(--muted);margin:0 0 16px}
+  .lead{font-size:19px;color:var(--ink)}
+  .grad{background:linear-gradient(110deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .meta{font-size:13px;color:var(--soft);margin:0 0 8px}
+  ul,ol{color:var(--muted);padding-left:22px;margin:0 0 16px}
+  li{margin:8px 0}
+  strong{color:var(--ink);font-weight:600}
+  .card{background:linear-gradient(165deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--edge);border-radius:16px;padding:20px 22px;margin:18px 0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+  th,td{text-align:left;padding:12px 12px;border-bottom:1px solid var(--edge)}
+  th{font-family:var(--font-d);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+  td{color:var(--muted)}
+  td:first-child{color:var(--ink);font-weight:500}
+  details{border:1px solid var(--edge);border-radius:12px;padding:4px 18px;margin:10px 0;background:rgba(255,255,255,.02)}
+  details summary{font-family:var(--font-d);font-weight:600;color:var(--ink);cursor:pointer;padding:14px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";float:right;color:var(--violet);font-size:20px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:0 0 14px}
+  .cta-band{text-align:center;margin:56px 0 20px;padding:34px 24px;border:1px solid var(--edge-2);border-radius:20px;background:radial-gradient(600px 300px at 50% -20%,rgba(139,92,246,.22),transparent)}
+  .cta-band a.btn{display:inline-block;font-family:var(--font-d);font-weight:600;color:#0a0712;background:linear-gradient(110deg,var(--violet-2),var(--cyan));padding:13px 26px;border-radius:999px;margin-top:10px}
+  .cta-band a.btn:hover{text-decoration:none;transform:translateY(-1px)}
+  footer.foot{border-top:1px solid var(--edge);margin-top:60px;padding:34px 0;color:var(--soft);font-size:14px;text-align:center}
+  footer.foot a{color:var(--muted)}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Início","item":"https://cmtecnologia.pt/"},
+        {"@type":"ListItem","position":2,"name":"Painel único de gestão","item":"https://cmtecnologia.pt/painel-gestao-negocio.html"}
+      ]
+    },
+    {
+      "@type":"Service",
+      "name":"Painel único de gestão de negócio",
+      "serviceType":"Painel de gestão e automação",
+      "provider":{"@type":"Organization","name":"C&M Tecnologia","url":"https://cmtecnologia.pt/"},
+      "areaServed":{"@type":"Country","name":"Portugal"},
+      "description":"Um só ecrã com redes sociais, anúncios, WhatsApp, marcações, métricas e finanças em tempo real, sem saltar entre várias apps."
+    },
+    {
+      "@type":"FAQPage",
+      "inLanguage":"pt-PT",
+      "mainEntity":[
+        {"@type":"Question","name":"O que é um painel único de gestão de negócio?","acceptedAnswer":{"@type":"Answer","text":"É um só ecrã onde o dono do negócio vê, em tempo real, tudo o que importa: redes sociais, anúncios, mensagens de WhatsApp, marcações, métricas e finanças. Em vez de abrir cinco apps diferentes, tem a visão completa num lugar só."}},
+        {"@type":"Question","name":"Substitui as ferramentas que já uso?","acceptedAnswer":{"@type":"Answer","text":"Não tem de substituir. O painel liga-se às ferramentas que já usa — Instagram, WhatsApp, anúncios, agenda — e junta a informação num só sítio. Continua a trabalhar como sempre, mas vê tudo de uma vez."}},
+        {"@type":"Question","name":"Serve para a minha pequena empresa?","acceptedAnswer":{"@type":"Answer","text":"Sim. É pensado sobretudo para PMEs, clínicas, consultórios e negócios locais que têm a informação espalhada por várias apps e folhas de cálculo e perdem tempo a saltar entre elas."}},
+        {"@type":"Question","name":"Tenho de perceber de tecnologia para usar?","acceptedAnswer":{"@type":"Answer","text":"Não. Tratamos da configuração e ligação a tudo, e entregamos um painel simples de ler. O dono só precisa de abrir e perceber o que está a correr bem e o que precisa de atenção."}},
+        {"@type":"Question","name":"Os dados ficam seguros?","acceptedAnswer":{"@type":"Answer","text":"Sim. Os dados são usados apenas para a gestão do próprio negócio e ficam protegidos, em conformidade com o RGPD."}},
+        {"@type":"Question","name":"Quanto custa um painel de gestão à medida?","acceptedAnswer":{"@type":"Answer","text":"Não há preço de tabela — cada negócio liga ferramentas diferentes. Fazemos uma proposta personalizada e gratuita depois de perceber o que precisa, com um valor de arranque e uma manutenção mensal acessível."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="top">
+    <a href="/" aria-label="C&amp;M Tecnologia — início"><img src="scenes/logo-cmtec-web.png" alt="C&amp;M Tecnologia" width="40" height="40" /></a>
+    <a class="cta" href="https://wa.me/351964977047" rel="noopener">Falar connosco</a>
+  </header>
+
+  <main class="wrap">
+    <p class="kicker">Software de gestão · PME</p>
+    <h1>Todo o seu negócio num <span class="grad">só painel</span></h1>
+    <p class="meta">Por C&amp;M Tecnologia · Lisboa · Última atualização: junho de 2026</p>
+    <p class="lead">Redes sociais, anúncios, WhatsApp, marcações, métricas e finanças — tudo num só ecrã, em tempo real, sem andar a saltar entre apps. É o painel de gestão que dá ao dono a visão completa do negócio de uma vez.</p>
+
+    <h2>O que é o painel único de gestão</h2>
+    <p>Um painel único de gestão é um software de gestão para PME que reúne, num só ecrã, toda a informação que o dono precisa para tomar decisões: o que está a acontecer nas redes, como correm os anúncios, que mensagens chegaram no WhatsApp, que marcações há para hoje, quanto se vendeu e quanto entrou em caixa.</p>
+    <p>Em vez de abrir o Instagram, depois o WhatsApp, depois a plataforma de anúncios e depois uma folha de cálculo, o dono abre <strong>um dashboard de negócio</strong> e percebe num relance o que está a correr bem e o que precisa de atenção.</p>
+
+    <h2>O que vê num só ecrã</h2>
+    <p>O painel junta as áreas que normalmente vivem em sítios separados:</p>
+    <h3>Redes sociais</h3>
+    <p>Publicações, alcance e mensagens das redes onde o negócio está presente, sem ter de abrir cada app uma a uma.</p>
+    <h3>Anúncios</h3>
+    <p>Quanto se está a gastar, quantos contactos cada campanha trouxe e quais estão de facto a dar resultado.</p>
+    <h3>WhatsApp</h3>
+    <p>As conversas com clientes num só sítio, com aviso do que ainda está por responder — ligado ao atendimento automático quando faz sentido.</p>
+    <h3>Marcações</h3>
+    <p>A agenda do dia e da semana, com as marcações que entraram pelos vários canais reunidas numa só vista.</p>
+    <h3>Métricas</h3>
+    <p>Os números que importam — contactos, vendas, taxa de resposta — apresentados de forma simples, sem relatórios complicados.</p>
+    <h3>Finanças</h3>
+    <p>Uma visão clara do que entra e do que sai, para saber a saúde do negócio sem esperar pelo fecho do mês.</p>
+
+    <h2>O problema de ter tudo espalhado por várias apps</h2>
+    <p>Quando cada parte do negócio vive numa app diferente, o dono paga um preço todos os dias:</p>
+    <ul>
+      <li><strong>Perde tempo a saltar entre ecrãs.</strong> Abrir cinco aplicações para perceber como vai o dia é trabalho que não rende.</li>
+      <li><strong>Não tem a visão de conjunto.</strong> É difícil ligar o que se gasta em anúncios ao que entra em vendas quando os números estão em sítios diferentes.</li>
+      <li><strong>Coisas importantes passam ao lado.</strong> Uma mensagem por responder ou uma marcação esquecida custam clientes.</li>
+      <li><strong>Decisões à base de palpite.</strong> Sem números juntos e atualizados, decide-se no escuro em vez de com base no que está mesmo a acontecer.</li>
+    </ul>
+    <div class="card">O painel único ataca exatamente isto: junta tudo num lugar só, atualizado em tempo real, para o dono decidir depressa e com confiança.</div>
+
+    <h2>Para quem faz sentido</h2>
+    <p>Um painel único de gestão faz mais sentido para <strong>PMEs, clínicas, consultórios e negócios locais</strong> que já usam várias ferramentas — redes sociais, WhatsApp, anúncios, agenda — e sentem que perdem tempo e clareza a saltar entre elas. Se gere o negócio com a informação espalhada por apps e folhas de cálculo, há quase sempre margem para juntar tudo num só ecrã.</p>
+    <p>Combina bem com a <a href="/guia-automacao-ia.html">automação com IA</a>: o painel mostra o panorama e a automação trata do trabalho repetitivo por trás.</p>
+
+    <h2>Como funciona</h2>
+    <ol>
+      <li><strong>Conversa inicial (~30 min).</strong> Contam-nos como é o negócio e que ferramentas já usam no dia a dia.</li>
+      <li><strong>Escolha do que mostrar.</strong> Definimos juntos o que faz sentido ver no painel — redes, anúncios, WhatsApp, marcações, métricas, finanças.</li>
+      <li><strong>Ligação às ferramentas.</strong> Ligamos o painel às apps que já usa, para a informação aparecer sozinha, sem inserir nada à mão.</li>
+      <li><strong>Arranque e ajustes.</strong> O painel começa a funcionar e afina-se com base no que o dono mais consulta.</li>
+      <li><strong>Acompanhamento.</strong> Vamos melhorando a vista e acrescentamos novas áreas à medida que o negócio cresce.</li>
+    </ol>
+
+    <h2>Vários sistemas vs. um painel único</h2>
+    <table>
+      <thead><tr><th>Situação</th><th>Várias apps separadas</th><th>Painel único</th></tr></thead>
+      <tbody>
+        <tr><td>Ver como vai o dia</td><td>Abrir cinco aplicações</td><td>Um só ecrã, num relance</td></tr>
+        <tr><td>Anúncios vs. vendas</td><td>Números em sítios diferentes</td><td>Lado a lado, ligados</td></tr>
+        <tr><td>Mensagens por responder</td><td>Passam ao lado</td><td>Avisadas no painel</td></tr>
+        <tr><td>Marcações</td><td>Espalhadas por canais</td><td>Reunidas numa vista</td></tr>
+        <tr><td>Finanças</td><td>Só ao fecho do mês</td><td>Em tempo real</td></tr>
+        <tr><td>Decisões</td><td>À base de palpite</td><td>Com base nos números</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Perguntas frequentes</h2>
+    <details><summary>O que é um painel único de gestão de negócio?</summary><p>É um só ecrã onde o dono do negócio vê, em tempo real, tudo o que importa: redes sociais, anúncios, mensagens de WhatsApp, marcações, métricas e finanças. Em vez de abrir cinco apps diferentes, tem a visão completa num lugar só.</p></details>
+    <details><summary>Substitui as ferramentas que já uso?</summary><p>Não tem de substituir. O painel liga-se às ferramentas que já usa — Instagram, WhatsApp, anúncios, agenda — e junta a informação num só sítio. Continua a trabalhar como sempre, mas vê tudo de uma vez.</p></details>
+    <details><summary>Serve para a minha pequena empresa?</summary><p>Sim. É pensado sobretudo para PMEs, clínicas, consultórios e negócios locais que têm a informação espalhada por várias apps e folhas de cálculo e perdem tempo a saltar entre elas.</p></details>
+    <details><summary>Tenho de perceber de tecnologia para usar?</summary><p>Não. Tratamos da configuração e ligação a tudo, e entregamos um painel simples de ler. O dono só precisa de abrir e perceber o que está a correr bem e o que precisa de atenção.</p></details>
+    <details><summary>Os dados ficam seguros?</summary><p>Sim. Os dados são usados apenas para a gestão do próprio negócio e ficam protegidos, em conformidade com o RGPD.</p></details>
+    <details><summary>Quanto custa um painel de gestão à medida?</summary><p>Não há preço de tabela — cada negócio liga ferramentas diferentes. Fazemos uma proposta personalizada e gratuita depois de perceber o que precisa, com um valor de arranque e uma manutenção mensal acessível.</p></details>
+
+    <p style="margin-top:28px">Quer ir mais fundo? Veja o nosso <a href="/guia-automacao-ia.html">guia de automação com IA</a> ou volte à <a href="/">página inicial</a> para conhecer tudo o que fazemos.</p>
+
+    <div class="cta-band">
+      <h2 style="margin:0 0 6px">Quer ver o seu negócio todo num só painel?</h2>
+      <p style="margin:0">Mostramos-lhe em cerca de 30 minutos, sem compromisso.</p>
+      <a class="btn" href="https://wa.me/351964977047" rel="noopener">Falar com a C&amp;M no WhatsApp</a>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p><a href="/">C&amp;M Tecnologia</a> · Lisboa, Portugal · <a href="https://cmtecnologia.pt/">cmtecnologia.pt</a></p>
+  </footer>
+</body>
+</html>

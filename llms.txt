@@ -21,6 +21,11 @@ Software house nova, com a operação interna movida a IA. Constrói e usa os pr
 
 ## Páginas
 - Site principal: https://cmtecnologia.pt/
+- Chatbot de WhatsApp com IA (assistente Madalena): https://cmtecnologia.pt/chatbot-whatsapp-ia.html
+- Atendimento telefónico por voz com IA (assistente Inês): https://cmtecnologia.pt/atendimento-por-voz-ia.html
+- Criação de sites e lojas online em Portugal: https://cmtecnologia.pt/criacao-sites-lojas-online.html
+- Automação de redes sociais com IA: https://cmtecnologia.pt/automacao-redes-sociais-ia.html
+- Painel único de gestão de negócio: https://cmtecnologia.pt/painel-gestao-negocio.html
 - Guia — Automação com IA para clínicas e PMEs em Portugal: https://cmtecnologia.pt/guia-automacao-ia.html
 - Perguntas frequentes: https://cmtecnologia.pt/#faq
 - Contacto: https://cmtecnologia.pt/#contacto

@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chatbot de WhatsApp com IA para empresas e clínicas | C&amp;M Tecnologia</title>
+<meta name="description" content="Atendimento automático no WhatsApp 24/7 com IA: responde aos clientes na hora, marca consultas e nunca deixa uma mensagem sem resposta. Para clínicas e PMEs." />
+<meta name="theme-color" content="#0b0616" />
+<link rel="canonical" href="https://cmtecnologia.pt/chatbot-whatsapp-ia.html" />
+<link rel="icon" type="image/png" href="scenes/favicon-192.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Chatbot de WhatsApp com IA para empresas e clínicas — C&amp;M Tecnologia" />
+<meta property="og:description" content="Um assistente de WhatsApp que responde 24/7, marca consultas e não perde clientes. Explicado de forma simples, sem termos técnicos." />
+<meta property="og:url" content="https://cmtecnologia.pt/chatbot-whatsapp-ia.html" />
+<meta property="og:image" content="https://cmtecnologia.pt/scenes/og-cover.jpg" />
+<meta property="og:locale" content="pt_PT" />
+<meta property="og:site_name" content="C&amp;M Tecnologia" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Chatbot de WhatsApp com IA para empresas e clínicas" />
+<meta name="twitter:description" content="Um assistente de WhatsApp que responde 24/7, marca consultas e não perde clientes. Explicado de forma simples." />
+<meta name="twitter:image" content="https://cmtecnologia.pt/scenes/og-cover.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0712; --bg-2:#120b22; --ink:#f3effb; --muted:#b9b1cf; --soft:#8f88a6;
+    --violet:#a78bfa; --violet-2:#8b5cf6; --cyan:#38bdf8; --edge:rgba(255,255,255,.08); --edge-2:rgba(255,255,255,.14);
+    --font-d:"Space Grotesk",system-ui,sans-serif; --font-b:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,rgba(139,92,246,.18),transparent 60%),var(--bg);
+    color:var(--ink);font-family:var(--font-b);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--edge);position:sticky;top:0;background:rgba(10,7,18,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);z-index:10}
+  header.top img{height:30px;width:auto;display:block}
+  header.top .cta{font-family:var(--font-d);font-weight:600;font-size:14px;color:#0a0712;background:linear-gradient(110deg,var(--violet-2),var(--cyan));padding:9px 16px;border-radius:999px}
+  header.top .cta:hover{text-decoration:none;transform:translateY(-1px)}
+  .kicker{font-family:var(--font-d);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--cyan);margin:48px 0 10px}
+  h1{font-family:var(--font-d);font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+  h2{font-family:var(--font-d);font-weight:600;font-size:clamp(22px,4vw,30px);line-height:1.2;margin:46px 0 12px;letter-spacing:-.01em}
+  h3{font-family:var(--font-d);font-weight:600;font-size:19px;margin:28px 0 8px}
+  p{color:var(--muted);margin:0 0 16px}
+  .lead{font-size:19px;color:var(--ink)}
+  .grad{background:linear-gradient(110deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .meta{font-size:13px;color:var(--soft);margin:0 0 8px}
+  ul,ol{color:var(--muted);padding-left:22px;margin:0 0 16px}
+  li{margin:8px 0}
+  strong{color:var(--ink);font-weight:600}
+  .card{background:linear-gradient(165deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--edge);border-radius:16px;padding:20px 22px;margin:18px 0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+  th,td{text-align:left;padding:12px 12px;border-bottom:1px solid var(--edge)}
+  th{font-family:var(--font-d);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+  td{color:var(--muted)}
+  td:first-child{color:var(--ink);font-weight:500}
+  details{border:1px solid var(--edge);border-radius:12px;padding:4px 18px;margin:10px 0;background:rgba(255,255,255,.02)}
+  details summary{font-family:var(--font-d);font-weight:600;color:var(--ink);cursor:pointer;padding:14px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";float:right;color:var(--violet);font-size:20px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:0 0 14px}
+  .cta-band{text-align:center;margin:56px 0 20px;padding:34px 24px;border:1px solid var(--edge-2);border-radius:20px;background:radial-gradient(600px 300px at 50% -20%,rgba(139,92,246,.22),transparent)}
+  .cta-band a.btn{display:inline-block;font-family:var(--font-d);font-weight:600;color:#0a0712;background:linear-gradient(110deg,var(--violet-2),var(--cyan));padding:13px 26px;border-radius:999px;margin-top:10px}
+  .cta-band a.btn:hover{text-decoration:none;transform:translateY(-1px)}
+  footer.foot{border-top:1px solid var(--edge);margin-top:60px;padding:34px 0;color:var(--soft);font-size:14px;text-align:center}
+  footer.foot a{color:var(--muted)}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Início","item":"https://cmtecnologia.pt/"},
+        {"@type":"ListItem","position":2,"name":"Chatbot de WhatsApp com IA","item":"https://cmtecnologia.pt/chatbot-whatsapp-ia.html"}
+      ]
+    },
+    {
+      "@type":"Service",
+      "name":"Chatbot de WhatsApp com IA",
+      "serviceType":"Chatbot de IA para WhatsApp",
+      "provider":{"@type":"Organization","name":"C&M Tecnologia","url":"https://cmtecnologia.pt/"},
+      "areaServed":{"@type":"Country","name":"Portugal"}
+    },
+    {
+      "@type":"FAQPage",
+      "inLanguage":"pt-PT",
+      "mainEntity":[
+        {"@type":"Question","name":"O chatbot consegue marcar consultas sozinho?","acceptedAnswer":{"@type":"Answer","text":"Sim. O cliente diz quando lhe dá jeito e a marcação fica feita na conversa, sem ninguém ter de andar a trocar dezenas de mensagens. Fica logo registada para a equipa."}},
+        {"@type":"Question","name":"E quando a pergunta é difícil ou delicada?","acceptedAnswer":{"@type":"Answer","text":"O assistente responde ao que sabe e, quando o caso pede critério humano, passa a conversa para uma pessoa da equipa, sem o cliente sentir corte no atendimento."}},
+        {"@type":"Question","name":"Usa o número de WhatsApp do meu negócio?","acceptedAnswer":{"@type":"Answer","text":"Sim. O assistente trabalha no número do negócio, com o nome e o tom da marca. Para o cliente é a mesma conversa de sempre, só que responde sempre e na hora."}},
+        {"@type":"Question","name":"Quanto tempo demora a ter o chatbot a funcionar?","acceptedAnswer":{"@type":"Answer","text":"Um atendimento automático no WhatsApp costuma estar a funcionar em poucos dias. Numa conversa de cerca de 30 minutos percebemos o negócio e mostramos o que dá para automatizar primeiro."}},
+        {"@type":"Question","name":"Os dados dos meus clientes ficam seguros?","acceptedAnswer":{"@type":"Answer","text":"Sim. Os dados ficam protegidos e usados apenas para o atendimento do próprio negócio, em conformidade com o RGPD."}},
+        {"@type":"Question","name":"Quanto custa um chatbot de WhatsApp com IA?","acceptedAnswer":{"@type":"Answer","text":"Não há preço de tabela — cada negócio é diferente. Fazemos uma proposta personalizada e gratuita depois de perceber o que precisa, com um valor de arranque e uma manutenção mensal acessível."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="top">
+    <a href="/" aria-label="C&amp;M Tecnologia — início"><img src="scenes/logo-cmtec-web.png" alt="C&amp;M Tecnologia" width="40" height="40" /></a>
+    <a class="cta" href="https://wa.me/351964977047" rel="noopener">Falar connosco</a>
+  </header>
+
+  <main class="wrap">
+    <p class="kicker">Serviço · Atendimento no WhatsApp</p>
+    <h1>Chatbot de WhatsApp com IA para empresas e <span class="grad">clínicas</span></h1>
+    <p class="meta">Por C&amp;M Tecnologia · Lisboa · Última atualização: junho de 2026</p>
+    <p class="lead">Se o seu negócio recebe mensagens a toda a hora e não consegue responder a todas, um chatbot de WhatsApp com IA resolve isso. Responde aos clientes 24 horas por dia, marca consultas na conversa e nunca deixa uma mensagem por responder.</p>
+
+    <h2>O que é um chatbot de WhatsApp com IA</h2>
+    <p>Um chatbot de WhatsApp com IA é um assistente automático que conversa com os seus clientes diretamente no WhatsApp do negócio. Percebe o que a pessoa escreve, responde com a informação certa e age — marca uma consulta, tira uma dúvida ou encaminha para a equipa — sem precisar de alguém colado ao telemóvel.</p>
+    <p>Não é um menu de opções nem aquelas respostas automáticas rígidas. É um assistente que entende linguagem natural, responde como uma pessoa da casa e só chama um humano quando o caso pede. Na C&amp;M Tecnologia, este assistente chama-se <strong>Madalena</strong>.</p>
+
+    <h2>O que ele faz por si</h2>
+    <h3>Responde 24/7, mesmo de madrugada</h3>
+    <p>O cliente escreve às 22h ou ao domingo e tem resposta na hora. Deixa de perder negócio para quem respondeu primeiro.</p>
+    <h3>Marca consultas na conversa</h3>
+    <p>O cliente diz quando lhe dá jeito e a marcação fica feita ali mesmo, sem trocar dez mensagens para combinar uma hora.</p>
+    <h3>Tem memória de cada cliente</h3>
+    <p>Lembra-se do histórico de quem já falou consigo, por isso o atendimento é personalizado e o cliente não tem de repetir tudo de novo.</p>
+    <h3>Faz seguimento de quem ficou a meio</h3>
+    <p>Quando uma conversa fica pendurada, o assistente retoma o contacto no momento certo, para não deixar marcações nem pedidos a cair.</p>
+    <h3>Passa para um humano quando é preciso</h3>
+    <p>Nas perguntas difíceis ou delicadas, encaminha a conversa para uma pessoa da equipa, sem que o cliente sinta corte no atendimento.</p>
+
+    <h2>Para que negócios faz sentido</h2>
+    <p>Um chatbot de WhatsApp com IA faz mais sentido para <strong>clínicas, consultórios e PMEs de serviços</strong> que recebem muitos contactos e querem deixar de perder clientes sem contratar mais gente. Se o atendimento e as marcações ocupam horas da equipa todos os dias, há quase sempre margem para automatizar.</p>
+    <ul>
+      <li><strong>Clínicas e consultórios</strong> — dentárias, estética, fisioterapia, medicina, veterinária: muitas marcações e perguntas repetidas.</li>
+      <li><strong>PMEs de serviços</strong> — salões, ginásios, escolas, oficinas, imobiliárias: contactos constantes que não podem ficar sem resposta.</li>
+      <li><strong>Qualquer negócio que viva do WhatsApp</strong> — se a maior parte dos clientes fala consigo por aí, é onde mais se perde e mais se ganha.</li>
+    </ul>
+    <div class="card">A regra simples: se há mensagens a ficar sem resposta e clientes a desistir por isso, um chatbot de WhatsApp com IA paga-se depressa.</div>
+
+    <h2>Como pomos isto a funcionar</h2>
+    <p>Não tem de perceber de tecnologia. Tratamos da parte difícil e entregamos tudo a funcionar.</p>
+    <ol>
+      <li><strong>Conversa inicial (~30 min).</strong> Conta-nos o que faz e o que mais o atrapalha no atendimento.</li>
+      <li><strong>Configuração com a informação do negócio.</strong> O assistente aprende as suas respostas, preços, horários e o tom da marca.</li>
+      <li><strong>Ligação ao seu WhatsApp.</strong> Fica a atender no número do negócio, com o nome da casa.</li>
+      <li><strong>Arranque em poucos dias.</strong> Começa a responder e a marcar, e afina-se com base nas conversas reais.</li>
+    </ol>
+    <p>Quer ver o panorama completo do que dá para automatizar? Leia o nosso <a href="/guia-automacao-ia.html">guia de automação com IA</a> ou conheça também o <a href="/atendimento-por-voz-ia.html">atendimento telefónico por voz com IA</a>.</p>
+
+    <h2>WhatsApp manual vs. com IA</h2>
+    <table>
+      <thead><tr><th>Situação</th><th>WhatsApp manual</th><th>WhatsApp com IA</th></tr></thead>
+      <tbody>
+        <tr><td>Mensagem às 22h</td><td>Fica sem resposta até de manhã</td><td>Resposta imediata</td></tr>
+        <tr><td>Marcar consulta</td><td>Várias mensagens trocadas</td><td>Feita na conversa</td></tr>
+        <tr><td>Fim de semana</td><td>Tudo parado</td><td>Continua a atender</td></tr>
+        <tr><td>Cliente que ficou a meio</td><td>Esquecido</td><td>Seguimento automático</td></tr>
+        <tr><td>Foco da equipa</td><td>Preso a responder o mesmo</td><td>Livre para o que importa</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Perguntas frequentes</h2>
+    <details><summary>O chatbot consegue marcar consultas sozinho?</summary><p>Sim. O cliente diz quando lhe dá jeito e a marcação fica feita na conversa, sem ninguém ter de andar a trocar dezenas de mensagens. Fica logo registada para a equipa.</p></details>
+    <details><summary>E quando a pergunta é difícil ou delicada?</summary><p>O assistente responde ao que sabe e, quando o caso pede critério humano, passa a conversa para uma pessoa da equipa, sem o cliente sentir corte no atendimento.</p></details>
+    <details><summary>Usa o número de WhatsApp do meu negócio?</summary><p>Sim. O assistente trabalha no número do negócio, com o nome e o tom da marca. Para o cliente é a mesma conversa de sempre, só que responde sempre e na hora.</p></details>
+    <details><summary>Quanto tempo demora a ter o chatbot a funcionar?</summary><p>Um atendimento automático no WhatsApp costuma estar a funcionar em poucos dias. Numa conversa de cerca de 30 minutos percebemos o negócio e mostramos o que dá para automatizar primeiro.</p></details>
+    <details><summary>Os dados dos meus clientes ficam seguros?</summary><p>Sim. Os dados ficam protegidos e usados apenas para o atendimento do próprio negócio, em conformidade com o RGPD.</p></details>
+    <details><summary>Quanto custa um chatbot de WhatsApp com IA?</summary><p>Não há preço de tabela — cada negócio é diferente. Fazemos uma proposta personalizada e gratuita depois de perceber o que precisa, com um valor de arranque e uma manutenção mensal acessível.</p></details>
+
+    <div class="cta-band">
+      <h2 style="margin:0 0 6px">Quer um assistente a atender o seu WhatsApp 24/7?</h2>
+      <p style="margin:0">Mostramos-lhe em cerca de 30 minutos, sem compromisso.</p>
+      <a class="btn" href="https://wa.me/351964977047" rel="noopener">Falar com a C&amp;M no WhatsApp</a>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p><a href="/">C&amp;M Tecnologia</a> · Lisboa, Portugal · <a href="https://cmtecnologia.pt/">cmtecnologia.pt</a></p>
+  </footer>
+</body>
+</html>
