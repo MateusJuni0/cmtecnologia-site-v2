@@ -60,10 +60,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20260606c" />
-<!-- Vercel Web Analytics (enable in project dashboard) -->
+<!-- Vercel Web Analytics — cookieless/anonymous, loaded only if the visitor hasn't declined (see app.js) -->
 <script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};</script>
-<script defer src="/_vercel/insights/script.js"></script>
-<script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 <body>
   <!-- scroll progress -->
@@ -275,7 +273,7 @@
             <details class="faq-item"><summary>A IA vai responder mal aos meus clientes?</summary><p>A Madalena e a Inês seguem o tom e as regras do seu negócio, e passam-lhe a conversa sempre que é preciso uma pessoa. Nada de respostas robóticas — e você vê tudo o que elas fazem no painel.</p></details>
             <details class="faq-item"><summary>Quanto tempo demora a ter isto a funcionar?</summary><p>Depende do que precisa, mas costuma montar-se em poucos dias. Tratamos de tudo — configuração, ligações e testes — e só fica no ar quando estiver à sua medida.</p></details>
             <details class="faq-item"><summary>Tenho de perceber de tecnologia?</summary><p>Não. Falamos consigo sem "informatiquês". Montamos, operamos e mostramos os resultados num painel simples. O seu trabalho é só atender os clientes que vão chegando.</p></details>
-            <details class="faq-item"><summary>E os meus dados e os dos meus clientes?</summary><p>Levamos isso a sério. Tudo corre em infraestrutura segura e em conformidade com o RGPD. Os dados são seus — nunca os usamos para mais nada.</p></details>
+            <details class="faq-item"><summary>E os meus dados e os dos meus clientes?</summary><p>Levamos isso a sério. Tudo corre em infraestrutura segura e em conformidade com o RGPD. Os dados são seus — nunca os usamos para mais nada. Veja a nossa <a href="/politica-privacidade.html">Política de Privacidade</a>.</p></details>
           </div>
         </div>
       </div>
@@ -301,6 +299,7 @@
             <a class="btn-ghost" href="https://wa.me/351964977047?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20automa%C3%A7%C3%A3o%20com%20IA." target="_blank" rel="noopener">ou WhatsApp direto</a>
           </div>
           <p class="form-note" id="formNote">Ao enviar, abrimos o WhatsApp com a sua mensagem pronta — a Madalena responde em segundos.</p>
+          <p class="form-consent">Ao enviar, concorda que tratemos os seus dados para responder ao seu pedido, nos termos da <a href="/politica-privacidade.html">Política de Privacidade</a>.</p>
         </form>
         </div>
       </div>
@@ -348,13 +347,17 @@
     </div>
     <div class="foot-base">
       <span>© 2026 C&amp;M Tecnologia · Feito com ❤️ em Lisboa 🇵🇹</span>
+      <nav class="foot-legal" aria-label="Informação legal">
+        <a href="/politica-privacidade.html">Política de Privacidade</a>
+        <a href="/politica-privacidade.html#cookies">Cookies</a>
+      </nav>
       <img class="foot-base-logo" src="scenes/logo-cmtec-web.png" alt="C&amp;M Tecnologia" width="40" height="40" loading="lazy" />
     </div>
   </footer>
 
   <!-- cookie notice (GDPR) -->
   <div class="cookie" id="cookieBar" hidden>
-    <p>Usamos cookies essenciais e estatísticas anónimas para melhorar a sua experiência. <a href="#contacto">Falar connosco</a>.</p>
+    <p>Usamos cookies essenciais e estatísticas anónimas para melhorar a sua experiência. Saiba mais na <a href="/politica-privacidade.html#cookies">Política de Cookies</a>.</p>
     <div class="cookie-actions">
       <button type="button" id="cookieDecline" class="cookie-btn ghost">Recusar</button>
       <button type="button" id="cookieAccept" class="cookie-btn">Aceitar</button>
