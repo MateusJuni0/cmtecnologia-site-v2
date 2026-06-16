@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atendimento telefónico por voz com IA (secretária virtual) | C&amp;M Tecnologia</title>
+<meta name="description" content="Assistente de voz com IA que atende as chamadas que ficariam perdidas, responde a dúvidas e marca consultas. Uma secretária virtual para clínicas e PMEs." />
+<meta name="theme-color" content="#0b0616" />
+<link rel="canonical" href="https://cmtecnologia.pt/atendimento-por-voz-ia.html" />
+<link rel="icon" type="image/png" href="scenes/favicon-192.png" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Atendimento telefónico por voz com IA (secretária virtual) — C&amp;M Tecnologia" />
+<meta property="og:description" content="Uma assistente de voz que atende as chamadas perdidas, responde a dúvidas e marca consultas. Explicado de forma simples, sem termos técnicos." />
+<meta property="og:url" content="https://cmtecnologia.pt/atendimento-por-voz-ia.html" />
+<meta property="og:image" content="https://cmtecnologia.pt/scenes/og-cover.jpg" />
+<meta property="og:locale" content="pt_PT" />
+<meta property="og:site_name" content="C&amp;M Tecnologia" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Atendimento telefónico por voz com IA (secretária virtual)" />
+<meta name="twitter:description" content="Uma assistente de voz que atende as chamadas perdidas, responde a dúvidas e marca consultas. Explicado de forma simples." />
+<meta name="twitter:image" content="https://cmtecnologia.pt/scenes/og-cover.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#0a0712; --bg-2:#120b22; --ink:#f3effb; --muted:#b9b1cf; --soft:#8f88a6;
+    --violet:#a78bfa; --violet-2:#8b5cf6; --cyan:#38bdf8; --edge:rgba(255,255,255,.08); --edge-2:rgba(255,255,255,.14);
+    --font-d:"Space Grotesk",system-ui,sans-serif; --font-b:"Inter",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:radial-gradient(1200px 700px at 80% -10%,rgba(139,92,246,.18),transparent 60%),var(--bg);
+    color:var(--ink);font-family:var(--font-b);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--cyan);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:760px;margin:0 auto;padding:0 22px}
+  header.top{display:flex;align-items:center;justify-content:space-between;padding:22px 0;border-bottom:1px solid var(--edge);position:sticky;top:0;background:rgba(10,7,18,.82);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);z-index:10}
+  header.top img{height:30px;width:auto;display:block}
+  header.top .cta{font-family:var(--font-d);font-weight:600;font-size:14px;color:#0a0712;background:linear-gradient(110deg,var(--violet-2),var(--cyan));padding:9px 16px;border-radius:999px}
+  header.top .cta:hover{text-decoration:none;transform:translateY(-1px)}
+  .kicker{font-family:var(--font-d);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12px;color:var(--cyan);margin:48px 0 10px}
+  h1{font-family:var(--font-d);font-weight:700;font-size:clamp(30px,6vw,46px);line-height:1.1;margin:0 0 16px;letter-spacing:-.02em}
+  h2{font-family:var(--font-d);font-weight:600;font-size:clamp(22px,4vw,30px);line-height:1.2;margin:46px 0 12px;letter-spacing:-.01em}
+  h3{font-family:var(--font-d);font-weight:600;font-size:19px;margin:28px 0 8px}
+  p{color:var(--muted);margin:0 0 16px}
+  .lead{font-size:19px;color:var(--ink)}
+  .grad{background:linear-gradient(110deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .meta{font-size:13px;color:var(--soft);margin:0 0 8px}
+  ul,ol{color:var(--muted);padding-left:22px;margin:0 0 16px}
+  li{margin:8px 0}
+  strong{color:var(--ink);font-weight:600}
+  .card{background:linear-gradient(165deg,rgba(255,255,255,.04),rgba(255,255,255,.015));border:1px solid var(--edge);border-radius:16px;padding:20px 22px;margin:18px 0}
+  table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+  th,td{text-align:left;padding:12px 12px;border-bottom:1px solid var(--edge)}
+  th{font-family:var(--font-d);color:var(--ink);font-weight:600;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+  td{color:var(--muted)}
+  td:first-child{color:var(--ink);font-weight:500}
+  details{border:1px solid var(--edge);border-radius:12px;padding:4px 18px;margin:10px 0;background:rgba(255,255,255,.02)}
+  details summary{font-family:var(--font-d);font-weight:600;color:var(--ink);cursor:pointer;padding:14px 0;list-style:none}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";float:right;color:var(--violet);font-size:20px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:0 0 14px}
+  .cta-band{text-align:center;margin:56px 0 20px;padding:34px 24px;border:1px solid var(--edge-2);border-radius:20px;background:radial-gradient(600px 300px at 50% -20%,rgba(139,92,246,.22),transparent)}
+  .cta-band a.btn{display:inline-block;font-family:var(--font-d);font-weight:600;color:#0a0712;background:linear-gradient(110deg,var(--violet-2),var(--cyan));padding:13px 26px;border-radius:999px;margin-top:10px}
+  .cta-band a.btn:hover{text-decoration:none;transform:translateY(-1px)}
+  footer.foot{border-top:1px solid var(--edge);margin-top:60px;padding:34px 0;color:var(--soft);font-size:14px;text-align:center}
+  footer.foot a{color:var(--muted)}
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"BreadcrumbList",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Início","item":"https://cmtecnologia.pt/"},
+        {"@type":"ListItem","position":2,"name":"Atendimento por voz com IA","item":"https://cmtecnologia.pt/atendimento-por-voz-ia.html"}
+      ]
+    },
+    {
+      "@type":"Service",
+      "name":"Atendimento telefónico por voz com IA",
+      "serviceType":"Atendimento telefónico automático por voz",
+      "provider":{"@type":"Organization","name":"C&M Tecnologia","url":"https://cmtecnologia.pt/"},
+      "areaServed":{"@type":"Country","name":"Portugal"}
+    },
+    {
+      "@type":"FAQPage",
+      "inLanguage":"pt-PT",
+      "mainEntity":[
+        {"@type":"Question","name":"A assistente de voz parece um robô?","acceptedAnswer":{"@type":"Answer","text":"Não soa àqueles menus de teclas. A Inês fala de forma natural, percebe o que a pessoa diz por palavras e responde como uma secretária da casa. Quem liga é atendido como deve ser."}},
+        {"@type":"Question","name":"O que acontece às chamadas que não consigo atender?","acceptedAnswer":{"@type":"Answer","text":"Em vez de tocarem e perderem-se, passam a ser atendidas pela assistente de voz. Ela percebe o pedido, responde ou marca, e regista o contacto para a equipa seguir depois."}},
+        {"@type":"Question","name":"A assistente consegue marcar consultas por chamada?","acceptedAnswer":{"@type":"Answer","text":"Sim. Durante a chamada percebe quando dá jeito à pessoa e deixa a marcação feita e registada, sem ninguém ter de andar a coordenar agendas à mão."}},
+        {"@type":"Question","name":"E quando o caso pede uma pessoa?","acceptedAnswer":{"@type":"Answer","text":"Nos casos mais delicados, a assistente regista o pedido e o contacto e encaminha para a equipa, para que alguém ligue de volta. Nada se perde."}},
+        {"@type":"Question","name":"Quanto tempo demora a pôr isto a funcionar?","acceptedAnswer":{"@type":"Answer","text":"Costuma estar a funcionar em poucos dias. Numa conversa de cerca de 30 minutos percebemos o negócio e configuramos a assistente com as respostas e o tom da marca."}},
+        {"@type":"Question","name":"Quanto custa o atendimento por voz com IA?","acceptedAnswer":{"@type":"Answer","text":"Não há preço de tabela — cada negócio é diferente. Fazemos uma proposta personalizada e gratuita depois de perceber o que precisa, com um valor de arranque e uma manutenção mensal acessível."}}
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+  <header class="top">
+    <a href="/" aria-label="C&amp;M Tecnologia — início"><img src="scenes/logo-cmtec-web.png" alt="C&amp;M Tecnologia" width="40" height="40" /></a>
+    <a class="cta" href="https://wa.me/351964977047" rel="noopener">Falar connosco</a>
+  </header>
+
+  <main class="wrap">
+    <p class="kicker">Serviço · Atendimento por voz</p>
+    <h1>Atendimento telefónico por voz com IA, a sua <span class="grad">secretária virtual</span></h1>
+    <p class="meta">Por C&amp;M Tecnologia · Lisboa · Última atualização: junho de 2026</p>
+    <p class="lead">Cada chamada que toca e ninguém atende é, quase sempre, um cliente que não volta a ligar. Uma assistente de voz com IA atende essas chamadas perdidas, responde a dúvidas, marca consultas e regista o contacto para a sua equipa. Como uma secretária virtual que nunca está ocupada.</p>
+
+    <h2>O que é o atendimento por voz com IA</h2>
+    <p>O atendimento por voz com IA é uma assistente que atende o telefone do negócio por si. Quando a chamada não pode ser atendida pela equipa — está em ponta, fora de horas ou todos ocupados — é ela que atende, percebe o que a pessoa quer por palavras, responde e resolve o que dá para resolver.</p>
+    <p>Não é uma gravação nem um menu de teclas a dizer "carregue 1 para marcações". É uma conversa normal, falada, com alguém que percebe o pedido e age. Na C&amp;M Tecnologia, esta assistente de voz chama-se <strong>Inês</strong>.</p>
+
+    <h2>O que a Inês faz</h2>
+    <h3>Atende as chamadas que ficariam perdidas</h3>
+    <p>Em hora de ponta, fora de horas ou ao fim de semana, a Inês atende em vez de deixar o telefone a tocar até cair.</p>
+    <h3>Percebe o pedido</h3>
+    <p>Ouve o que a pessoa diz, por palavras, e percebe se é uma dúvida, uma marcação ou um assunto que precisa de seguimento.</p>
+    <h3>Responde às perguntas comuns</h3>
+    <p>Horários, moradas, preços, serviços, como chegar — responde na hora ao que se pergunta todos os dias.</p>
+    <h3>Marca consultas</h3>
+    <p>Combina a hora que dá jeito à pessoa e deixa a marcação feita, sem coordenar agendas à mão.</p>
+    <h3>Regista o contacto para a equipa</h3>
+    <p>De cada chamada fica um registo — quem ligou, o que queria, o que ficou combinado — para a equipa seguir sem perder nada.</p>
+
+    <h2>Porque é que chamadas perdidas custam dinheiro</h2>
+    <p>Numa clínica ou numa PME de serviços, o telefone é dinheiro. Quem liga quer marcar, comprar ou tirar uma dúvida agora — e raramente espera. As contas são simples:</p>
+    <ul>
+      <li><strong>Quem não é atendido liga a outro.</strong> A maior parte das pessoas não deixa mensagem nem volta a tentar: liga ao concorrente seguinte.</li>
+      <li><strong>As horas de ponta são as piores.</strong> É quando entram mais chamadas e a equipa está mais ocupada — exatamente quando mais clientes se perdem.</li>
+      <li><strong>Fora de horas, tudo cai.</strong> Chamadas à hora de almoço, à noite ou ao fim de semana ficam sem ninguém do outro lado.</li>
+    </ul>
+    <div class="card">Uma só marcação recuperada por dia costuma pagar o serviço várias vezes. A assistente de voz existe precisamente para essas chamadas não caírem.</div>
+
+    <h2>Para que negócios faz sentido</h2>
+    <p>O atendimento por voz com IA faz mais sentido para <strong>clínicas, consultórios e PMEs de serviços</strong> que recebem muitas chamadas e não conseguem atendê-las todas. Se há chamadas a perder-se em hora de ponta ou fora de horas, e cada uma podia ser uma marcação, há margem clara para automatizar.</p>
+
+    <h2>Como funciona, passo a passo</h2>
+    <p>Não tem de perceber de tecnologia. Tratamos da parte difícil e entregamos tudo a funcionar.</p>
+    <ol>
+      <li><strong>Conversa inicial (~30 min).</strong> Conta-nos como funciona o seu atendimento e que chamadas mais lhe escapam.</li>
+      <li><strong>Configuração com a informação do negócio.</strong> A Inês aprende horários, serviços, preços e o tom da marca.</li>
+      <li><strong>Ligação ao seu número.</strong> Definimos quando ela atende — sempre, só fora de horas ou só quando ninguém pega.</li>
+      <li><strong>Arranque em poucos dias.</strong> Começa a atender, a marcar e a registar, e afina-se com base nas chamadas reais.</li>
+    </ol>
+    <p>Quer ver tudo o que dá para automatizar? Leia o nosso <a href="/guia-automacao-ia.html">guia de automação com IA</a> ou conheça também o <a href="/chatbot-whatsapp-ia.html">chatbot de WhatsApp com IA</a> para o atendimento escrito.</p>
+
+    <h2>Atendimento manual vs. por voz com IA</h2>
+    <table>
+      <thead><tr><th>Situação</th><th>Atendimento manual</th><th>Por voz com IA</th></tr></thead>
+      <tbody>
+        <tr><td>Chamada em hora de ponta</td><td>Toca e perde-se</td><td>Atendida e registada</td></tr>
+        <tr><td>Chamada fora de horas</td><td>Ninguém atende</td><td>Atendida na hora</td></tr>
+        <tr><td>Marcar consulta ao telefone</td><td>Só com a equipa livre</td><td>Feita na chamada</td></tr>
+        <tr><td>Quem ligou e não foi atendido</td><td>Perde-se sem rasto</td><td>Contacto registado</td></tr>
+        <tr><td>Foco da equipa</td><td>Cortado a cada toque</td><td>Livre para quem está à frente</td></tr>
+      </tbody>
+    </table>
+
+    <h2>Perguntas frequentes</h2>
+    <details><summary>A assistente de voz parece um robô?</summary><p>Não soa àqueles menus de teclas. A Inês fala de forma natural, percebe o que a pessoa diz por palavras e responde como uma secretária da casa. Quem liga é atendido como deve ser.</p></details>
+    <details><summary>O que acontece às chamadas que não consigo atender?</summary><p>Em vez de tocarem e perderem-se, passam a ser atendidas pela assistente de voz. Ela percebe o pedido, responde ou marca, e regista o contacto para a equipa seguir depois.</p></details>
+    <details><summary>A assistente consegue marcar consultas por chamada?</summary><p>Sim. Durante a chamada percebe quando dá jeito à pessoa e deixa a marcação feita e registada, sem ninguém ter de andar a coordenar agendas à mão.</p></details>
+    <details><summary>E quando o caso pede uma pessoa?</summary><p>Nos casos mais delicados, a assistente regista o pedido e o contacto e encaminha para a equipa, para que alguém ligue de volta. Nada se perde.</p></details>
+    <details><summary>Quanto tempo demora a pôr isto a funcionar?</summary><p>Costuma estar a funcionar em poucos dias. Numa conversa de cerca de 30 minutos percebemos o negócio e configuramos a assistente com as respostas e o tom da marca.</p></details>
+    <details><summary>Quanto custa o atendimento por voz com IA?</summary><p>Não há preço de tabela — cada negócio é diferente. Fazemos uma proposta personalizada e gratuita depois de perceber o que precisa, com um valor de arranque e uma manutenção mensal acessível.</p></details>
+
+    <div class="cta-band">
+      <h2 style="margin:0 0 6px">Quer deixar de perder chamadas (e clientes)?</h2>
+      <p style="margin:0">Mostramos-lhe em cerca de 30 minutos, sem compromisso.</p>
+      <a class="btn" href="https://wa.me/351964977047" rel="noopener">Falar com a C&amp;M no WhatsApp</a>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <p><a href="/">C&amp;M Tecnologia</a> · Lisboa, Portugal · <a href="https://cmtecnologia.pt/">cmtecnologia.pt</a></p>
+    <p style="margin-top:8px"><a href="/politica-privacidade.html">Política de Privacidade</a> · <a href="/termos.html">Termos e Condições</a> · <a href="https://www.livroreclamacoes.pt/" target="_blank" rel="noopener">Livro de Reclamações</a></p>
+  </footer>
+</body>
+</html>

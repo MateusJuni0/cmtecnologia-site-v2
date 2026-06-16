@@ -1,0 +1,7 @@
+# Self-hosting (VPS) artifacts that Vercel must ignore while it remains the
+# fallback host. Keeps the Vercel build serving the static site + api/ only.
+server.js
+Dockerfile
+.dockerignore
+.github
+docs

@@ -31,3 +31,6 @@ User-agent: meta-externalagent
 Allow: /
 
 Sitemap: https://cmtecnologia.pt/sitemap.xml
+
+# Guia para assistentes de IA (padrão emergente llms.txt):
+# https://cmtecnologia.pt/llms.txt
