@@ -7,9 +7,10 @@ name: Build & push cmtecnologia.pt image (VPS)
 
 on:
   push:
-    # feat/vps-migration is included so the image builds during the cutover
-    # while main stays untouched (Vercel fallback). Drop it after the merge.
-    branches: [main, feat/vps-migration]
+    # Single source of truth: main. feat/vps-migration was merged into main
+    # on 2026-06-16 — the VPS migration is fully consolidated, so production
+    # and all future work live on main only.
+    branches: [main]
     paths-ignore:
       - 'docs/**'
       - '**/*.md'
