@@ -26,6 +26,8 @@ Software house nova, com a operação interna movida a IA. Constrói e usa os pr
 - Criação de sites e lojas online em Portugal: https://cmtecnologia.pt/criacao-sites-lojas-online.html
 - Automação de redes sociais com IA: https://cmtecnologia.pt/automacao-redes-sociais-ia.html
 - Painel único de gestão de negócio: https://cmtecnologia.pt/painel-gestao-negocio.html
+- Pacotes de entrada (Clínica Digital, Presença Total, Operação 360): https://cmtecnologia.pt/pacotes.html
+- Calculadora de poupança com automação de IA: https://cmtecnologia.pt/calculadora-roi.html
 - Guia — Automação com IA para clínicas e PMEs em Portugal: https://cmtecnologia.pt/guia-automacao-ia.html
 - Perguntas frequentes: https://cmtecnologia.pt/#faq
 - Contacto: https://cmtecnologia.pt/#contacto
