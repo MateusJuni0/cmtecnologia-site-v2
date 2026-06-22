@@ -20,7 +20,8 @@ Auditoria externa Manus avaliada criticamente (~40% aproveitável; errou stack=N
 - **`/pacotes`** — 3 packs de entrada (Clínica Digital, Presença Total, Operação 360) por escopo, sem preço de tabela. Mata o paradoxo da escolha. JSON-LD Service+OfferCatalog+FAQPage.
 - **`/calculadora-roi`** — lead magnet honesto (cálculo client-side, fator 0.6 conservador + disclaimer), liga ao `/api/lead`.
 - Ligadas no sitemap, llms.txt e footer da home. Rotas 200, JSON-LD válido. **Performance mobile: Mateus dispensou (não mexer).**
-- Falta: PR + aprovação Mateus + merge + deploy. **Gargalo real (fora deste sprint) = autoridade off-site** (GBP só se houver contacto presencial; senão diretórios PT + LinkedIn + backlinks).
+- Aprovado pelo Mateus → push + **PR #2** aberto. Falta: merge + deploy (VPS via GH Actions → GHCR, ver `docs/DEPLOY.md`) + re-submeter sitemap no GSC.
+- **Gargalo real (fora deste sprint) = autoridade off-site.** GBP: **Mateus É elegível como Service-Area Business** (atende por telefone + desloca-se ao cliente, sem local físico → morada escondida, NIF chega). Plano à parte: GBP SAB + diretórios PT + LinkedIn empresa + backlinks.
 
 ## Stack
 - Site estático (HTML/JS/CSS + `scenes/` vídeos) + 3 funções ex-Vercel (`api/ines|madalena|lead.js`) servidas por **Express** (`server.js`) — funções reutilizadas verbatim.
