@@ -62,8 +62,10 @@ Objectivo: observar se a entidade e mencionada, em que contexto, e com que conco
 | Analytics | Sessoes organicas | `nao medido` |
 | Analytics | Conversoes organicas | `nao medido` |
 | IA | Menções em testes manuais | `nao medido` |
-| Técnico | URLs canónicas no sitemap | `17 local / 10 produção antes do deploy` |
-| Técnico | RSS e well-known llms | `implementados localmente / produção pendente` |
+| Técnico | URLs canónicas no sitemap | `20 LIVE; 20/20 HTTP 200` |
+| Técnico | RSS e well-known llms | `18 itens RSS; llms e aliases well-known LIVE` |
+| Técnico | Lighthouse | `100 Performance / 100 Accessibility / 100 Best Practices / 100 SEO` |
+| Técnico | Auditor AEO externo | `98/100; Foundational 100; Intelligence 92` |
 
 ## Rotina de Medicao
 

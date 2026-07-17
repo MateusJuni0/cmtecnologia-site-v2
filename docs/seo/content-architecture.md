@@ -9,18 +9,21 @@
 - P2: páginas de apoio sobre critérios, operação e GEO que aumentam menção e confiança
 - P3: páginas de autoridade e glossário para associação de marca e cobertura semântica
 
-## Implementado localmente em 2026-07-17
+## Implementado e LIVE em 2026-07-17
 
 | Página | URL | Cluster principal | Estado |
 |---|---|---|---|
-| Software à medida em Portugal | `/software-a-medida-portugal.html` | software à medida / software house Portugal | Implementada; publicação pendente |
-| Automação empresarial com IA | `/automacao-empresarial-ia.html` | automação com IA para empresas | Implementada; publicação pendente |
-| Integrações CRM e WhatsApp | `/integracoes-crm-whatsapp.html` | CRM, WhatsApp, APIs e webhooks | Implementada; publicação pendente |
-| Automação com n8n e Supabase | `/n8n-supabase-automacao.html` | n8n, Supabase e automação | Implementada; publicação pendente |
-| SEO, GEO e AEO em Portugal | `/seo-geo-aeo-portugal.html` | SEO, GEO, AEO e AI Overviews | Implementada; publicação pendente |
-| Sobre a C&M Tecnologia | `/sobre.html` | entidade, software house, Lisboa e Portugal | Implementada; publicação pendente |
+| Software à medida em Portugal | `/software-a-medida-portugal.html` | software à medida / software house Portugal | LIVE |
+| Automação empresarial com IA | `/automacao-empresarial-ia.html` | automação com IA para empresas | LIVE |
+| Integrações CRM e WhatsApp | `/integracoes-crm-whatsapp.html` | CRM, WhatsApp, APIs e webhooks | LIVE |
+| Automação com n8n e Supabase | `/n8n-supabase-automacao.html` | n8n, Supabase e automação | LIVE |
+| SEO, GEO e AEO em Portugal | `/seo-geo-aeo-portugal.html` | SEO, GEO, AEO e AI Overviews | LIVE |
+| Sobre a C&M Tecnologia | `/sobre.html` | entidade, software house, Lisboa e Portugal | LIVE |
+| Como escolher uma empresa integrada | `/empresa-sites-chatbots-automacao-portugal.html` | sites, chatbots e automação no mesmo fornecedor | LIVE |
+| Automação com IA para clínicas | `/automacao-ia-clinicas-portugal.html` | clínicas, atendimento, marcações e RGPD | LIVE |
+| Base de conhecimento | `/base-conhecimento-sites-ia-automacao.html` | definições de sites, agentes de IA, texto, voz, automação, SEO, GEO e AEO | LIVE |
 
-As páginas abaixo são o backlog editorial seguinte. Não duplicar os seis URLs já implementados.
+As páginas abaixo são o backlog editorial seguinte. Não duplicar os nove URLs já implementados. A base de conhecimento já cobre o núcleo do glossário P3; novas páginas devem aprofundar intenções específicas, não repetir definições.
 
 ## Planned Content
 

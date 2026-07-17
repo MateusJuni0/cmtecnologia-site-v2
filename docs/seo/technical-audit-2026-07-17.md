@@ -1,6 +1,18 @@
 # Auditoria Tecnica SEO, GEO e AEO - 2026-07-17
 
-> Este documento separa o baseline observado em produção das correções implementadas localmente. Enquanto não houver deploy autorizado, a coluna de produção continua a refletir o baseline.
+> O baseline histórico abaixo foi preservado para comparação. A release final foi publicada e verificada em produção no mesmo dia.
+
+## Estado LIVE final
+
+- `20` páginas canónicas no sitemap; `20/20` respondem HTTP 200
+- `18` itens no RSS; `llms.txt`, `llms-full.txt` e aliases well-known ativos
+- `18` páginas não legais com definição direta, `<dfn>`, data visível e resposta answer-first
+- base pública de conhecimento com `DefinedTermSet`, FAQ, fontes e ligações aos serviços
+- auditor AEO externo: `98/100`, Foundational `100`, Intelligence `92`
+- Lighthouse em produção: `100/100` em Performance, Accessibility, Best Practices e SEO
+- Google Fonts eliminadas; WOFF2 self-hosted, preload e cache imutável
+- sitemap reenviado no Search Console; nova base detetada e adicionada à fila prioritária de rastreamento
+- commit live: `bdc8d040381bd39456098fc645acf73b13141ce1`
 
 ## Estado Pós-Implementação Local
 

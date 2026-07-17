@@ -1,5 +1,16 @@
 # BRAIN.md — cmtecnologia-site-v2
 
+## Release LIVE (2026-07-17) — answer-first, knowledge e Core Web Vitals
+- **Release:** commit `bdc8d040381bd39456098fc645acf73b13141ce1`; GitHub Actions run `29607118913` concluído; container `f787ccdb325f97059a24630a0fef7b16d944f50e00a5d8c3b3025cf008b7df6b`; image ID `sha256:6048d06158d364a557cc7b46eb80477686f6df2da979f2fbe739050afa396b4a`; Compose SHA-256 `e9efd2a21cd0a00b9ca2ca9f5bc5c9c49803d034a2f30b949151dc8dc3aed5ed`.
+- **Rollback:** imagem `ghcr.io/mateusjuni0/cmtecnologia-site-v2:rollback-0f41d7a5707a-20260717T193323Z`; Compose `/opt/cmtec-site/backups/docker-compose.yml.20260717T193323Z.pre-bdc8d04`.
+- **AEO/GEO:** definições diretas e semânticas `<dfn>` nas 18 páginas não legais; nova `/base-conhecimento-sites-ia-automacao.html` com `DefinedTermSet`, FAQ, glossário, limites, fontes e ligações aos serviços; sitemap = 20 URLs; RSS = 18 itens; `llms.txt` e `llms-full.txt` atualizados.
+- **Performance:** Google Fonts removidas das 20 páginas canónicas; Inter e Space Grotesk self-hosted em WOFF2 com preload, licença OFL e cache imutável. Lighthouse em produção: Performance `100`, Accessibility `100`, Best Practices `100`, SEO `100`; FCP `0,9 s`, LCP `1,4 s`, TBT `0 ms`, CLS `0`.
+- **Validação:** `npm run validate:seo` = 20 páginas, 18 itens, 0 warnings; `npm audit --omit=dev` = 0 vulnerabilidades; 20/20 URLs públicas = HTTP 200; browser desktop/mobile sem overflow, imagens quebradas, erros de consola ou pedidos falhados; health `{"ok":true}`; restart count `0`.
+- **Auditoria AEO externa:** `98/100` (antes `97`), Foundational `100`, Intelligence `92`; Evidence Density, Freshness e Structural Clarity `100`, Quotability `95`, Content Depth `85`, Answer Readiness `70`. O falso negativo “0% lead with definitions” foi rastreado ao código público do auditor: regex limitada a inglês (`is|are|was|means|refers to|defined as`) nos primeiros 200 caracteres, sem `é|são|significa`; o site tem definições visíveis em português nas 18 páginas comerciais.
+- **Google Search Console:** sitemap final reenviado com sucesso; o painel já processou a versão anterior de 19 URLs e detetou a nova base via sitemap. A URL nova foi adicionada com sucesso à fila de rastreamento prioritário; a indexação final continua sob controlo do Google.
+- **Gargalo real restante:** autoridade off-site — verificar o Google Business Profile por vídeo, obter avaliações reais, consistência NAP, diretórios portugueses relevantes, LinkedIn e backlinks editoriais. Não existem garantias legítimas de primeiro lugar ou de recomendação universal por IAs.
+- **Preservação:** os oito ficheiros/backups untracked anteriores continuam intocados; artefactos temporários locais/remotos foram removidos e os rollbacks materiais foram preservados.
+
 ## Release LIVE (2026-07-17) — SEO, GEO e AEO
 - **Objetivo:** aumentar descoberta não-branded no Google e citações/recomendações em ChatGPT, Gemini, Perplexity e Google AI Overviews para os serviços reais da C&M Tecnologia em Portugal.
 - **Regra factual:** não inventar clientes, avaliações, métricas, certificações, casos de estudo ou resultados. Rankings e recomendações por IA são resultados a medir, nunca garantias.
