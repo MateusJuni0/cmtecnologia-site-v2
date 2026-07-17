@@ -90,6 +90,9 @@ for (const pageUrl of sitemapUrls) {
     /<link\s+rel="alternate"\s+type="application\/rss\+xml"[^>]+href="([^"]+)"/i,
   );
   const h1Count = [...html.matchAll(/<h1\b/gi)].length;
+  const headingLevels = [...html.matchAll(/<h([1-6])\b/gi)].map(([, level]) =>
+    Number(level),
+  );
   const jsonLdBlocks = [...html.matchAll(/<script\s+type="application\/ld\+json">([\s\S]*?)<\/script>/gi)];
   const visibleText = decodeEntities(
     html
@@ -121,6 +124,15 @@ for (const pageUrl of sitemapUrls) {
   }
   if (h1Count !== 1) {
     errors.push(`${relativePath}: expected exactly one h1, found ${h1Count}`);
+  }
+  for (let index = 1; index < headingLevels.length; index += 1) {
+    const previousLevel = headingLevels[index - 1];
+    const currentLevel = headingLevels[index];
+    if (currentLevel > previousLevel + 1) {
+      errors.push(
+        `${relativePath}: heading hierarchy skips from h${previousLevel} to h${currentLevel}`,
+      );
+    }
   }
   if (jsonLdBlocks.length === 0) {
     errors.push(`${relativePath}: no JSON-LD block found`);
