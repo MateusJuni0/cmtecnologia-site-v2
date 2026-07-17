@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Atualizações C&amp;M Tecnologia</title>
+    <link>https://cmtecnologia.pt/</link>
+    <description>Guias, serviços e recursos sobre software à medida, automação com IA, WhatsApp, voz, websites, GEO e operação digital em Portugal.</description>
+    <language>pt-PT</language>
+    <lastBuildDate>Fri, 17 Jul 2026 12:00:00 +0100</lastBuildDate>
+    <atom:link href="https://cmtecnologia.pt/feed.xml" rel="self" type="application/rss+xml" />
+    <ttl>1440</ttl>
+
+    <item>
+      <title>Como escolher uma empresa de sites, chatbots e automação</title>
+      <link>https://cmtecnologia.pt/empresa-sites-chatbots-automacao-portugal.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/empresa-sites-chatbots-automacao-portugal.html</guid>
+      <description>Critérios objetivos para comparar software houses, freelancers, agências e ferramentas quando site, atendimento e operação precisam de funcionar juntos.</description>
+      <pubDate>Fri, 17 Jul 2026 11:00:00 +0100</pubDate>
+      <category>Escolha de fornecedor</category>
+    </item>
+
+    <item>
+      <title>Automação com IA para clínicas em Portugal</title>
+      <link>https://cmtecnologia.pt/automacao-ia-clinicas-portugal.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/automacao-ia-clinicas-portugal.html</guid>
+      <description>Guia para clínicas dentárias, medicina estética e fisioterapia automatizarem atendimento e marcações com RGPD, supervisão e handoff humano.</description>
+      <pubDate>Fri, 17 Jul 2026 11:00:00 +0100</pubDate>
+      <category>Automação para clínicas</category>
+    </item>
+
+    <item>
+      <title>Software à medida em Portugal</title>
+      <link>https://cmtecnologia.pt/software-a-medida-portugal.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/software-a-medida-portugal.html</guid>
+      <description>Quando compensa desenvolver software personalizado, como comparar com soluções de prateleira e que cuidados considerar em Portugal.</description>
+      <pubDate>Fri, 17 Jul 2026 10:00:00 +0100</pubDate>
+      <category>Software à medida</category>
+    </item>
+
+    <item>
+      <title>Automação empresarial com IA</title>
+      <link>https://cmtecnologia.pt/automacao-empresarial-ia.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/automacao-empresarial-ia.html</guid>
+      <description>Guia para automatizar atendimento, marcações, processos internos e reporting com supervisão humana e atenção ao RGPD.</description>
+      <pubDate>Fri, 17 Jul 2026 10:00:00 +0100</pubDate>
+      <category>Automação com IA</category>
+    </item>
+
+    <item>
+      <title>Integração de CRM com WhatsApp</title>
+      <link>https://cmtecnologia.pt/integracoes-crm-whatsapp.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/integracoes-crm-whatsapp.html</guid>
+      <description>Como ligar conversas, contactos, consentimento, handoff humano, APIs e webhooks num fluxo comercial auditável.</description>
+      <pubDate>Fri, 17 Jul 2026 10:00:00 +0100</pubDate>
+      <category>Integrações</category>
+    </item>
+
+    <item>
+      <title>Automação com n8n e Supabase</title>
+      <link>https://cmtecnologia.pt/n8n-supabase-automacao.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/n8n-supabase-automacao.html</guid>
+      <description>Arquitetura, segurança, webhooks, RLS e trade-offs para automatizar fluxos empresariais com n8n e Supabase.</description>
+      <pubDate>Fri, 17 Jul 2026 10:00:00 +0100</pubDate>
+      <category>Integrações</category>
+    </item>
+
+    <item>
+      <title>SEO, GEO e AEO em Portugal</title>
+      <link>https://cmtecnologia.pt/seo-geo-aeo-portugal.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/seo-geo-aeo-portugal.html</guid>
+      <description>Como alinhar SEO, GEO e AEO para melhorar descoberta, entendimento e citabilidade sem prometer rankings ou recomendações.</description>
+      <pubDate>Fri, 17 Jul 2026 10:00:00 +0100</pubDate>
+      <category>SEO, GEO e AEO</category>
+    </item>
+
+    <item>
+      <title>Sobre a C&amp;M Tecnologia</title>
+      <link>https://cmtecnologia.pt/sobre.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/sobre.html</guid>
+      <description>Identidade, serviços, método e princípios da software house portuguesa C&amp;M Tecnologia, com operação em Lisboa.</description>
+      <pubDate>Fri, 17 Jul 2026 10:00:00 +0100</pubDate>
+      <category>Empresa</category>
+    </item>
+
+    <item>
+      <title>C&amp;M Tecnologia — software house em Portugal</title>
+      <link>https://cmtecnologia.pt/</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/</guid>
+      <description>Sites, lojas online, software à medida, chatbots de WhatsApp, voz, automação e painéis de gestão para empresas em Portugal.</description>
+      <pubDate>Fri, 17 Jul 2026 09:00:00 +0100</pubDate>
+      <category>Empresa</category>
+    </item>
+
+    <item>
+      <title>Guia de automação com IA para empresas</title>
+      <link>https://cmtecnologia.pt/guia-automacao-ia.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/guia-automacao-ia.html</guid>
+      <description>Guia prático para clínicas e PMEs sobre atendimento, voz, marcações automáticas e gestão integrada.</description>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0100</pubDate>
+      <category>Automação com IA</category>
+    </item>
+
+    <item>
+      <title>Chatbot de WhatsApp com IA</title>
+      <link>https://cmtecnologia.pt/chatbot-whatsapp-ia.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/chatbot-whatsapp-ia.html</guid>
+      <description>Atendimento no WhatsApp por texto e áudio, com marcações, seguimento e passagem para uma pessoa quando necessário.</description>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0100</pubDate>
+      <category>WhatsApp com IA</category>
+    </item>
+
+    <item>
+      <title>Atendimento por voz com IA</title>
+      <link>https://cmtecnologia.pt/atendimento-por-voz-ia.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/atendimento-por-voz-ia.html</guid>
+      <description>Assistente de voz para atender chamadas, responder a dúvidas e apoiar marcações em clínicas e PMEs.</description>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0100</pubDate>
+      <category>Voz com IA</category>
+    </item>
+
+    <item>
+      <title>Criação de sites e lojas online</title>
+      <link>https://cmtecnologia.pt/criacao-sites-lojas-online.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/criacao-sites-lojas-online.html</guid>
+      <description>Websites e e-commerce à medida para empresas em Portugal, com desempenho, telemóvel e descoberta orgânica em foco.</description>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0100</pubDate>
+      <category>Desenvolvimento web</category>
+    </item>
+
+    <item>
+      <title>Automação de redes sociais com IA</title>
+      <link>https://cmtecnologia.pt/automacao-redes-sociais-ia.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/automacao-redes-sociais-ia.html</guid>
+      <description>Criação e publicação assistida de conteúdos sociais na linguagem e identidade visual da empresa.</description>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0100</pubDate>
+      <category>Automação com IA</category>
+    </item>
+
+    <item>
+      <title>Painel único de gestão de negócio</title>
+      <link>https://cmtecnologia.pt/painel-gestao-negocio.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/painel-gestao-negocio.html</guid>
+      <description>WhatsApp, marcações, campanhas, indicadores e finanças reunidos num painel operacional.</description>
+      <pubDate>Mon, 15 Jun 2026 09:00:00 +0100</pubDate>
+      <category>Software de gestão</category>
+    </item>
+
+    <item>
+      <title>Pacotes de automação e IA</title>
+      <link>https://cmtecnologia.pt/pacotes.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/pacotes.html</guid>
+      <description>Pontos de partida para sites, atendimento, automação e operação integrada em clínicas e PMEs.</description>
+      <pubDate>Mon, 22 Jun 2026 09:00:00 +0100</pubDate>
+      <category>Serviços</category>
+    </item>
+
+    <item>
+      <title>Calculadora de poupança com automação</title>
+      <link>https://cmtecnologia.pt/calculadora-roi.html</link>
+      <guid isPermaLink="true">https://cmtecnologia.pt/calculadora-roi.html</guid>
+      <description>Estimativa orientativa de horas e custos que podem ser reduzidos ao automatizar tarefas repetitivas.</description>
+      <pubDate>Mon, 22 Jun 2026 09:00:00 +0100</pubDate>
+      <category>Ferramentas</category>
+    </item>
+  </channel>
+</rss>

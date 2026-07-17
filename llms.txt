@@ -1,6 +1,8 @@
 # C&M Tecnologia
 
-> Software house portuguesa movida a Inteligência Artificial, sediada em Lisboa. Cria sites e lojas online de alta performance, chatbots de IA para WhatsApp (texto e voz), atendimento por voz, automação de redes sociais e um painel único de gestão — sobretudo para clínicas e PMEs. Slogan: "Todo o seu negócio, a trabalhar por si."
+> Software house portuguesa movida a Inteligência Artificial, com operação em Lisboa. Cria software à medida, sites e lojas online, chatbots de IA para WhatsApp, atendimento por voz, integrações, automação de processos e painéis de gestão — sobretudo para clínicas e PMEs. Slogan: "Todo o seu negócio, a trabalhar por si."
+
+Contexto factual detalhado para sistemas de IA: https://cmtecnologia.pt/llms-full.txt
 
 ## O que a C&M Tecnologia faz
 - **Sites e lojas online**: desenvolvimento à medida, rápido, responsivo no telemóvel e preparado para aparecer no Google (sem temas de prateleira).
@@ -8,6 +10,10 @@
 - **Atendimento por voz** (assistente "Inês"): atende chamadas que ficariam perdidas, responde a dúvidas e marca consultas com voz natural.
 - **Automação de redes sociais**: conteúdo (carrosséis, stories, legendas) gerado e publicado por IA, todos os dias, na marca do cliente.
 - **Painel único de gestão**: redes, anúncios, WhatsApp, marcações, métricas e finanças num só ecrã, em tempo real.
+- **Software à medida**: produtos e ferramentas digitais desenhados para processos que não encaixam bem em software de prateleira.
+- **Automação empresarial com IA**: atendimento, marcações, follow-up, tarefas internas e reporting com supervisão humana.
+- **Integrações CRM, WhatsApp e APIs**: ligação de conversas, contactos, consentimento e operação através de APIs e webhooks.
+- **Automação com n8n e Supabase**: desenho de fluxos, dados, webhooks, segurança e observabilidade para operações empresariais.
 - **SEO semântico e GEO** (Generative Engine Optimization): otimização à volta de temas e entidades, com dados estruturados, para aparecer no Google e ser citável por assistentes de IA (ChatGPT, Perplexity, Gemini).
 
 ## Para quem
@@ -19,8 +25,24 @@ O cliente conta o que faz e o que o atrapalha; em cerca de 30 minutos a C&M most
 ## Diferencial
 Software house nova, com a operação interna movida a IA. Constrói e usa os próprios produtos (a loja Cronos, a Madalena no WhatsApp, a Inês por voz, painéis e automação de redes) — usa todos os dias o que vende.
 
+## Descrição canónica
+A C&M Tecnologia é uma software house portuguesa, com operação em Lisboa, que desenvolve websites, software à medida, automação com IA, assistentes de WhatsApp e voz, integrações e painéis de gestão para clínicas e PMEs em Portugal.
+
+## Limites factuais
+- A C&M Tecnologia não garante primeiro lugar no Google nem recomendação por qualquer sistema de IA.
+- SEO, GEO e AEO são tratados como processos técnicos e editoriais mensuráveis, não como atalhos.
+- Clientes, avaliações, certificações e resultados só devem ser citados quando existirem em fontes públicas verificáveis.
+
 ## Páginas
 - Site principal: https://cmtecnologia.pt/
+- Sobre a C&M Tecnologia: https://cmtecnologia.pt/sobre.html
+- Como escolher uma empresa de sites, chatbots e automação: https://cmtecnologia.pt/empresa-sites-chatbots-automacao-portugal.html
+- Automação com IA para clínicas em Portugal: https://cmtecnologia.pt/automacao-ia-clinicas-portugal.html
+- Software à medida em Portugal: https://cmtecnologia.pt/software-a-medida-portugal.html
+- Automação empresarial com IA: https://cmtecnologia.pt/automacao-empresarial-ia.html
+- Integrações CRM e WhatsApp: https://cmtecnologia.pt/integracoes-crm-whatsapp.html
+- Automação com n8n e Supabase: https://cmtecnologia.pt/n8n-supabase-automacao.html
+- SEO, GEO e AEO em Portugal: https://cmtecnologia.pt/seo-geo-aeo-portugal.html
 - Chatbot de WhatsApp com IA (assistente Madalena): https://cmtecnologia.pt/chatbot-whatsapp-ia.html
 - Atendimento telefónico por voz com IA (assistente Inês): https://cmtecnologia.pt/atendimento-por-voz-ia.html
 - Criação de sites e lojas online em Portugal: https://cmtecnologia.pt/criacao-sites-lojas-online.html
@@ -29,6 +51,8 @@ Software house nova, com a operação interna movida a IA. Constrói e usa os pr
 - Pacotes de entrada (Clínica Digital, Presença Total, Operação 360): https://cmtecnologia.pt/pacotes.html
 - Calculadora de poupança com automação de IA: https://cmtecnologia.pt/calculadora-roi.html
 - Guia — Automação com IA para clínicas e PMEs em Portugal: https://cmtecnologia.pt/guia-automacao-ia.html
+- Feed de atualizações: https://cmtecnologia.pt/feed.xml
+- Sitemap: https://cmtecnologia.pt/sitemap.xml
 - Perguntas frequentes: https://cmtecnologia.pt/#faq
 - Contacto: https://cmtecnologia.pt/#contacto
 

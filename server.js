@@ -16,6 +16,18 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.disable('x-powered-by');
 
+// Canonicalise public page requests at the application layer as a fallback
+// when Cloudflare forwards the www host to this origin. Keep non-idempotent
+// API requests untouched so a redirect can never change a POST into a GET.
+app.use((req, res, next) => {
+  const isPublicRead = req.method === 'GET' || req.method === 'HEAD';
+  if (isPublicRead && req.hostname.toLowerCase() === 'www.cmtecnologia.pt') {
+    return res.redirect(301, `https://cmtecnologia.pt${req.originalUrl}`);
+  }
+
+  next();
+});
+
 // Inês posts base64-encoded WAV audio, so allow a generous JSON body.
 app.use(express.json({ limit: '25mb' }));
 
@@ -57,6 +69,41 @@ app.use((req, res, next) => {
   // Any other legacy case-study sub-path also maps to the works section.
   if (p.startsWith('/case-studies/')) return res.redirect(301, '/#trabalhos');
 
+  next();
+});
+
+// llms.txt is also exposed at the emerging well-known location. Google does
+// not require this file for AI features; it is a crawler-friendly discovery
+// aid for clients that choose to support the convention.
+app.get('/.well-known/llms.txt', (_req, res) => {
+  res.set('Content-Type', 'text/plain; charset=utf-8');
+  res.set('Cache-Control', 'public, max-age=3600');
+  res.sendFile(path.join(__dirname, 'llms.txt'));
+});
+
+app.get('/.well-known/llms-full.txt', (_req, res) => {
+  res.set('Content-Type', 'text/plain; charset=utf-8');
+  res.set('Cache-Control', 'public, max-age=3600');
+  res.sendFile(path.join(__dirname, 'llms-full.txt'));
+});
+
+// The application and public website share one project directory. Deny source,
+// operational documentation and local backup paths before express.static so a
+// non-Docker launch cannot expose files that .dockerignore normally removes.
+app.use((req, res, next) => {
+  const publicPath = req.path.toLowerCase();
+  const isPrivatePath =
+    publicPath === '/server.js' ||
+    publicPath === '/package.json' ||
+    publicPath === '/package-lock.json' ||
+    publicPath === '/dockerfile' ||
+    publicPath.endsWith('.md') ||
+    publicPath.includes('.bak') ||
+    publicPath.startsWith('/api/') ||
+    publicPath.startsWith('/docs/') ||
+    publicPath.startsWith('/scripts/');
+
+  if (isPrivatePath) return res.sendStatus(404);
   next();
 });
 

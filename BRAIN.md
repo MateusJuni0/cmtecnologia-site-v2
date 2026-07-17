@@ -1,5 +1,16 @@
 # BRAIN.md — cmtecnologia-site-v2
 
+## Release pronta localmente (2026-07-17) — SEO, GEO e AEO completo
+- **Objetivo:** aumentar descoberta não-branded no Google e citações/recomendações em ChatGPT, Gemini, Perplexity e Google AI Overviews para os serviços reais da C&M Tecnologia em Portugal.
+- **Escopo:** auditoria técnica e pública, pesquisa de palavras-chave/prompts, concorrência, entidade/disambiguação, backlinks, arquitetura de conteúdo, implementação local e verificação.
+- **Regra factual:** não inventar clientes, avaliações, métricas, certificações, casos de estudo ou resultados. Usar demonstrações reais, metodologia transparente e fontes verificáveis.
+- **Produção:** Mateus autorizou explicitamente o deploy nesta sessão; promoção deve seguir `docs/DEPLOY.md`, usar artefacto ligado ao SHA e preservar imagem anterior para rollback.
+- **Estado inicial:** `main` está 1 commit à frente de `origin/main`; existem ficheiros untracked anteriores (backups SEO e `docs/google-business-profile.md`) que pertencem ao utilizador e não devem ser revertidos/apagados.
+- **Entrega local:** 8 páginas novas (`software-a-medida-portugal`, `automacao-empresarial-ia`, `integracoes-crm-whatsapp`, `n8n-supabase-automacao`, `seo-geo-aeo-portugal`, `sobre`, `empresa-sites-chatbots-automacao-portugal`, `automacao-ia-clinicas-portugal`), CSS partilhado responsivo, homepage/malha interna, sitemap com 19 URLs, RSS com 17 itens, `llms.txt` + `llms-full.txt`, aliases `/.well-known/llms*.txt`, canonicalização `www → apex`, schema/proveniência e metadados atualizados.
+- **Estratégia e evidência:** documentação completa em `docs/seo/` (Brand DNA, keywords, 40 prompts GEO, arquitetura, auditoria, entidade, off-site e medição). Sem volume/KD inventado; concorrência e prioridades qualitativas.
+- **Verificação local:** `npm run validate:seo` passou (19 páginas, 17 itens, 0 warnings); JSON-LD/XML/Node válidos; 19 rotas `200`; redirects, aliases LLM, RSS, 404s e denylist de source/docs/backups passaram; browser real desktop+mobile sem overflow; `npm audit --omit=dev` = 0 vulnerabilidades; fontes oficiais novas responderam `200`.
+- **Produção:** ainda serve o baseline de 22 de junho. Próximos gates: commit/SHA, build GitHub Actions, captura da imagem anterior, deploy por tarball, smoke live, submissão do sitemap no GSC, verificação por vídeo do GBP e autoridade off-site. Rankings e menções por IA permanecem resultados a medir, nunca garantias.
+
 ## Status (2026-06-13)
 - **EM PRODUÇÃO NA VPS** — migrado da Vercel hoje. `cmtecnologia.pt` + `www` servem o container `cmtec-site` (VPS 72.60.88.137, `127.0.0.1:3002`) atrás do túnel Cloudflare dedicado `cmtec-site`. Vercel = fallback (deploy em `main`, intacto).
 - Verificado em produção: apex/www HTTP 200 `{ok:true}` em `/healthz`, **sem** `x-vercel-id`; `/api/madalena` responde com Gemini real.

@@ -3,10 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pacotes de automação com IA para clínicas e PMEs | C&amp;M Tecnologia</title>
-<meta name="description" content="Três pacotes de entrada para automatizar o seu negócio com IA: atendimento no WhatsApp, marcações, voz, redes sociais e painel de gestão. Escolha o ponto de partida — proposta personalizada e gratuita." />
+<title>Pacotes de Automação e IA | C&amp;M Tecnologia</title>
+<meta name="description" content="Compare pacotes de sites, automação e IA para clínicas e PMEs em Portugal. Veja o que inclui e peça uma recomendação ajustada à operação." />
 <meta name="theme-color" content="#0b0616" />
 <link rel="canonical" href="https://cmtecnologia.pt/pacotes.html" />
+<link rel="alternate" type="application/rss+xml" title="Atualizações C&amp;M Tecnologia" href="https://cmtecnologia.pt/feed.xml" />
 <link rel="icon" type="image/png" href="scenes/favicon-192.png" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Pacotes de automação com IA — C&amp;M Tecnologia" />
@@ -60,6 +61,9 @@
   .pack .go.ghost{color:var(--ink);background:transparent;border:1px solid var(--edge-2)}
   .pack .go:hover{text-decoration:none;transform:translateY(-1px)}
   .note{font-size:14px;color:var(--soft);text-align:center;margin:18px auto 0;max-width:620px}
+  details{border:1px solid var(--edge);border-radius:14px;padding:14px 16px;margin:10px 0;background:rgba(255,255,255,.025)}
+  summary{cursor:pointer;color:var(--ink);font-family:var(--font-d);font-weight:600}
+  details p{margin:10px 0 0}
   .cta-band{text-align:center;margin:56px 0 20px;padding:34px 24px;border:1px solid var(--edge-2);border-radius:20px;background:radial-gradient(600px 300px at 50% -20%,rgba(139,92,246,.22),transparent)}
   .cta-band a.btn{display:inline-block;font-family:var(--font-d);font-weight:600;color:#0a0712;background:linear-gradient(110deg,var(--violet-2),var(--cyan));padding:13px 26px;border-radius:999px;margin-top:10px}
   .cta-band a.btn:hover{text-decoration:none;transform:translateY(-1px)}
@@ -71,7 +75,30 @@
   "@context":"https://schema.org",
   "@graph":[
     {
+      "@type":"WebPage",
+      "@id":"https://cmtecnologia.pt/pacotes.html#webpage",
+      "url":"https://cmtecnologia.pt/pacotes.html",
+      "name":"Pacotes de Automação e IA | C&M Tecnologia",
+      "description":"Compare pacotes de sites, automação e IA para clínicas e PMEs em Portugal. Veja o que inclui e peça uma recomendação ajustada à operação.",
+      "inLanguage":"pt-PT",
+      "dateModified":"2026-07-17",
+      "isPartOf":{
+        "@type":"WebSite",
+        "@id":"https://cmtecnologia.pt/#website",
+        "url":"https://cmtecnologia.pt/",
+        "name":"C&M Tecnologia",
+        "publisher":{"@id":"https://cmtecnologia.pt/#org"}
+      },
+      "about":{"@id":"https://cmtecnologia.pt/#org"},
+      "breadcrumb":{"@id":"https://cmtecnologia.pt/pacotes.html#breadcrumbs"},
+      "mainEntity":[
+        {"@id":"https://cmtecnologia.pt/pacotes.html#service"},
+        {"@id":"https://cmtecnologia.pt/pacotes.html#faq"}
+      ]
+    },
+    {
       "@type":"BreadcrumbList",
+      "@id":"https://cmtecnologia.pt/pacotes.html#breadcrumbs",
       "itemListElement":[
         {"@type":"ListItem","position":1,"name":"Início","item":"https://cmtecnologia.pt/"},
         {"@type":"ListItem","position":2,"name":"Pacotes","item":"https://cmtecnologia.pt/pacotes.html"}
@@ -79,12 +106,14 @@
     },
     {
       "@type":"Service",
+      "@id":"https://cmtecnologia.pt/pacotes.html#service",
       "name":"Pacotes de automação com IA",
       "serviceType":"Automação de negócio com IA",
-      "provider":{"@type":"Organization","name":"C&M Tecnologia","url":"https://cmtecnologia.pt/"},
+      "provider":{"@id":"https://cmtecnologia.pt/#org"},
       "areaServed":{"@type":"Country","name":"Portugal"},
       "hasOfferCatalog":{
         "@type":"OfferCatalog",
+        "@id":"https://cmtecnologia.pt/pacotes.html#catalog",
         "name":"Pacotes de entrada",
         "itemListElement":[
           {"@type":"Offer","itemOffered":{"@type":"Service","name":"Pack Clínica Digital","description":"Atendimento no WhatsApp 24/7, marcações automáticas e lembretes de consulta para clínicas e consultórios."}},
@@ -95,10 +124,14 @@
     },
     {
       "@type":"FAQPage",
+      "@id":"https://cmtecnologia.pt/pacotes.html#faq",
+      "url":"https://cmtecnologia.pt/pacotes.html#faq",
       "inLanguage":"pt-PT",
+      "dateModified":"2026-07-17",
+      "publisher":{"@id":"https://cmtecnologia.pt/#org"},
       "mainEntity":[
-        {"@type":"Question","name":"Os pacotes têm preço fixo?","acceptedAnswer":{"@type":"Answer","text":"Não há preço de tabela — cada negócio é diferente. Os pacotes definem o que está incluído; o valor é uma proposta personalizada e gratuita, com um valor de arranque e uma manutenção mensal acessível, depois de percebermos o que precisa numa conversa de cerca de 30 minutos."}},
-        {"@type":"Question","name":"Posso começar por um pacote e crescer depois?","acceptedAnswer":{"@type":"Answer","text":"Sim. A maioria dos clientes começa pelo que mais lhe dói (atendimento ou marcações) e vai juntando o resto — voz, redes ou painel — à medida que ganha tempo e resultados."}},
+        {"@type":"Question","name":"Os pacotes têm preço fixo?","acceptedAnswer":{"@type":"Answer","text":"Não. Os pacotes definem um ponto de partida e o valor é apresentado numa proposta personalizada depois de conhecermos o âmbito, as integrações e a manutenção necessária."}},
+        {"@type":"Question","name":"Posso começar por um pacote e crescer depois?","acceptedAnswer":{"@type":"Answer","text":"Sim. É possível começar pelo problema prioritário, como atendimento ou marcações, validar esse fluxo e só depois acrescentar voz, redes, integrações ou painel."}},
         {"@type":"Question","name":"E se o meu negócio não encaixa em nenhum pacote?","acceptedAnswer":{"@type":"Answer","text":"Os pacotes são pontos de partida, não camisas de força. Montamos a combinação que faz sentido para o seu caso — diga-nos o que o atrapalha e desenhamos a partir daí."}}
       ]
     }
@@ -131,7 +164,7 @@
       </div>
 
       <div class="pack feat">
-        <span class="badge">Mais escolhido</span>
+        <span class="badge">Mais abrangente</span>
         <h3>Pack Presença Total</h3>
         <p class="who">Para PMEs que querem aparecer, vender e manter as redes ativas sem contratar ninguém.</p>
         <ul>
@@ -160,6 +193,22 @@
     <h2>Como decidimos o pacote certo consigo</h2>
     <p>Os pacotes são pontos de partida, não camisas de força. Numa conversa curta percebemos o que mais lhe custa hoje — atendimento, marcações, redes, chamadas — e montamos a combinação que faz sentido para o seu caso. Pode começar pequeno e juntar o resto quando ganhar tempo e resultados.</p>
     <p>Quer perceber primeiro o que dá para automatizar? Leia o nosso <a href="/guia-automacao-ia.html">guia de automação com IA</a> ou veja em detalhe o <a href="/chatbot-whatsapp-ia.html">chatbot de WhatsApp</a>, o <a href="/atendimento-por-voz-ia.html">atendimento por voz</a> e o <a href="/painel-gestao-negocio.html">painel de gestão</a>.</p>
+
+    <section id="faq">
+      <h2>Perguntas frequentes sobre os pacotes</h2>
+      <details>
+        <summary>Os pacotes têm preço fixo?</summary>
+        <p>Não. Os pacotes definem um ponto de partida e o valor é apresentado numa proposta personalizada depois de conhecermos o âmbito, as integrações e a manutenção necessária.</p>
+      </details>
+      <details>
+        <summary>Posso começar por um pacote e crescer depois?</summary>
+        <p>Sim. É possível começar pelo problema prioritário, como atendimento ou marcações, validar esse fluxo e só depois acrescentar voz, redes, integrações ou painel.</p>
+      </details>
+      <details>
+        <summary>E se o meu negócio não encaixa em nenhum pacote?</summary>
+        <p>Os pacotes são pontos de partida, não camisas de força. Montamos a combinação que faz sentido para o seu caso — diga-nos o que o atrapalha e desenhamos a partir daí.</p>
+      </details>
+    </section>
 
     <div class="cta-band">
       <h2 style="margin:0 0 6px">Não sabe qual escolher?</h2>

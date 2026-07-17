@@ -1,0 +1,110 @@
+# Plano de Medicao SEO, GEO e AEO
+
+## Objectivo
+
+Medir se a visibilidade da `C&M Tecnologia` está a melhorar em pesquisa tradicional, descoberta local e respostas de IA, separando progresso real de perceção.
+
+## Regra Base
+
+Sem acesso directo a ferramentas, o baseline deve ser registado como `nao medido`. Nao se inventam rankings, impressoes, cliques, reviews ou citacoes.
+
+## Fontes de Dados
+
+### Google Search Console
+
+Usar para medir queries brand e non-brand, paginas que recebem impressoes, CTR e posicao media.
+
+Clusters non-brand prioritarios:
+
+- `software house portugal`
+- `automacao ia portugal`
+- `chatbot whatsapp portugal`
+- `criacao de sites portugal`
+- `lojas online portugal`
+- `desenvolvimento web portugal`
+
+### Google Business Profile
+
+Usar para medir pesquisas por marca, pesquisas por categoria, visualizacoes, accoes e reviews depois de o perfil estar verificado.
+
+### Analytics, Cloudflare e logs
+
+Usar GA4, Cloudflare Web Analytics ou outra ferramenta apenas quando estiver efetivamente instalada e validada. Complementar com logs de acesso do Cloudflare/Express quando disponíveis. Medir:
+
+- sessoes organicas
+- landing pages organicas
+- engagement por página de serviço e ativo linkable
+- eventos de conversao primaria
+
+### Testes manuais de IA
+
+Frequencia: mensal.
+
+Plataformas minimas:
+
+- ChatGPT
+- Gemini
+- Perplexity
+
+Objectivo: observar se a entidade e mencionada, em que contexto, e com que concorrentes aparece.
+
+## Baseline Inicial
+
+| Area | KPI | Baseline 2026-07-17 |
+|---|---|---|
+| GSC | Impressoes brand | `nao medido` |
+| GSC | Impressoes non-brand | `nao medido` |
+| GSC | Cliques non-brand | `nao medido` |
+| GSC | Posicao media por cluster | `nao medido` |
+| GBP | Visualizacoes do perfil | `nao medido` |
+| GBP | Accoes no perfil | `nao medido` |
+| GBP | Reviews | `nao medido` |
+| Analytics | Sessoes organicas | `nao medido` |
+| Analytics | Conversoes organicas | `nao medido` |
+| IA | Menções em testes manuais | `nao medido` |
+| Técnico | URLs canónicas no sitemap | `17 local / 10 produção antes do deploy` |
+| Técnico | RSS e well-known llms | `implementados localmente / produção pendente` |
+
+## Rotina de Medicao
+
+### Semanal
+
+- confirmar uptime de `robots.txt`, `sitemap.xml`, `llms.txt` e principais paginas
+- verificar se novas paginas entram no sitemap
+- registar qualquer alteracao estrutural que afecte leitura por bots
+
+### Mensal
+
+- exportar GSC para queries e paginas
+- rever dados do GBP
+- rever a ferramenta de analytics e os logs efetivamente disponíveis
+- correr testes manuais em ChatGPT, Gemini e Perplexity
+- actualizar um snapshot comparavel face ao mes anterior
+
+## Framework dos Testes Manuais de IA
+
+Usar sempre o mesmo conjunto de prompts para comparabilidade. Exemplos:
+
+- `Que software houses em Portugal ajudam com automacao e IA?`
+- `Quem faz chatbots para WhatsApp em Portugal?`
+- `Empresas em Portugal que criam sites, e-commerce e automacao com IA`
+- `Melhores empresas de desenvolvimento web e automacao em Portugal`
+- `C&M Tecnologia`
+- executar também o conjunto fixo de `40` prompts em `geo-prompt-targets.md`, sem alterar a redação entre rondas
+
+Registar por plataforma:
+
+- se a marca aparece ou nao
+- em que posicao narrativa surge, se aplicavel
+- se a descricao esta correcta
+- se o link citado e o dominio canonico
+- que concorrentes aparecem ao lado
+
+## KPIs para 30 Dias
+
+- GBP verificado ou com processo de verificacao em curso
+- perfis principais off-site publicados e coerentes
+- baseline instrumental finalmente preenchido em GSC, GBP e analytics quando houver acesso
+- primeira ronda de testes manuais de IA registada
+
+## KPIs para 90 Dias
