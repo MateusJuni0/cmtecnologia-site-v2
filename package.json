@@ -6,7 +6,9 @@
   "description": "cmtecnologia.pt — static site + Inês/Madalena/lead functions, self-hosted on the VPS via Express.",
   "scripts": {
     "start": "node server.js",
-    "validate:seo": "node scripts/validate-seo.mjs"
+    "validate:seo": "node scripts/validate-seo.mjs",
+    "validate:indexnow": "node scripts/submit-indexnow.mjs --dry-run",
+    "submit:indexnow": "node scripts/submit-indexnow.mjs"
   },
   "engines": {
     "node": ">=20"

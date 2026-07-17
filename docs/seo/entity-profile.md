@@ -84,3 +84,31 @@ Associacoes que ajudam motores e LLMs a compreender a empresa:
 - `dashboards e paineis`
 
 ## Limites Factuais
+
+- nao afirmar clientes, reviews, premios, anos de mercado ou resultados sem fonte verificavel
+- nao usar `lider`, `numero um` ou `melhor de Portugal` como facto
+- nao apresentar demos e produtos proprios como trabalhos de clientes
+- nao publicar morada fisica enquanto o modelo confirmado for apenas area de servico
+- manter `fase pre-receita` nos documentos internos; nos perfis publicos, usar apenas informacao comercial verdadeira e atual
+
+## NAP e Canais Oficiais
+
+- Nome: `C&M Tecnologia`
+- Website: `https://cmtecnologia.pt`
+- Telefone: `+351 964 977 047`
+- Localidade/area de servico: `Lisboa, Portugal`
+- LinkedIn: `https://www.linkedin.com/company/cmtecnologia`
+- Instagram: `https://www.instagram.com/cm.tecnologia/`
+- TikTok: `https://www.tiktok.com/@cmtecnologia`
+- Google Business Profile: criado; verificacao por video pendente em 17 de julho de 2026
+
+Nao inventar uma morada para completar directorios. Se uma plataforma exigir morada legal, confirmar primeiro com Mateus.
+
+## Checklist de Consistencia
+
+1. Nome visivel sempre `C&M Tecnologia`.
+2. `CMTecnologia` apenas como variante de pesquisa/handle.
+3. Categoria principal sempre software house/software company.
+4. Geografia sempre Portugal; Lisboa apenas como operacao/area de servico confirmada.
+5. Servicos nucleares na mesma ordem: web/e-commerce, software a medida, automacao com IA, chatbots de texto e voz, integracoes.
+6. Website sempre HTTPS, sem `www` e sem parametros.

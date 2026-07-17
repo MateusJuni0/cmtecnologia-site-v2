@@ -86,3 +86,27 @@ Formato sugerido:
 - pitch curto com problema concreto
 - angulo utilitario: ROI, automacao operacional, atendimento com IA, e-commerce
 - oferecer um recurso util como a calculadora ou o guia em vez de autopromocao vaga
+
+## Sequencia de Execucao
+
+1. Fechar GBP e consistencia dos perfis oficiais.
+2. Criar perfis B2B em GoodFirms, TechBehemoths e Clutch com dados reais.
+3. Submeter citacoes locais apenas depois de confirmar os dados legais/NAP exigidos.
+4. Publicar um artigo tecnico original e um workflow open source antes de procurar inclusao em listas de recursos.
+5. Fazer outreach individual para media, newsletters e podcasts portugueses.
+6. Medir domínios, contexto editorial, queries e leads; remover canais sem qualidade.
+
+## Proibicoes
+
+- comprar pacotes de backlinks, reviews ou guest posts
+- usar PBNs, links sitewide, comentarios automáticos ou troca massiva de links
+- inventar clientes, testemunhos, premios, moradas ou numeros de resultado
+- criar Wikidata/Wikipedia sem fontes independentes e notoriedade suficiente
+
+## Dependencias Humanas
+
+- video de verificacao do Google Business Profile
+- confirmacao de morada legal, ano de fundacao, dimensao da equipa e email empresarial quando um diretorio os exigir
+- aprovacao antes de qualquer publicacao em conta externa ou contacto editorial em nome da empresa
+
+O inventario qualificado, copy e cadencia estao em `backlink-presence-plan-2026-07-17.md`.

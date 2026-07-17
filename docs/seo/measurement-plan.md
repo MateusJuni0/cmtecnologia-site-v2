@@ -52,10 +52,13 @@ Objectivo: observar se a entidade e mencionada, em que contexto, e com que conco
 
 | Area | KPI | Baseline 2026-07-17 |
 |---|---|---|
-| GSC | Impressoes brand | `nao medido` |
-| GSC | Impressoes non-brand | `nao medido` |
-| GSC | Cliques non-brand | `nao medido` |
-| GSC | Posicao media por cluster | `nao medido` |
+| GSC | Resultado global, ultimos 3 meses | `24 cliques; 328 impressoes; CTR 7,3%; posicao media 9,7` |
+| GSC | Impressoes brand | `parcialmente observadas; export completo pendente` |
+| GSC | Impressoes non-brand | `export completo pendente` |
+| GSC | Cliques non-brand | `export completo pendente` |
+| GSC | Posicao media por cluster | `export completo pendente` |
+| GSC | Cobertura reportada em 10-07-2026 | `11 indexadas; 7 excluidas; relatorio anterior a release de 17-07` |
+| GSC | Autoridade externa | `1 dominio de referencia; 2 links, ambos de dev.to` |
 | GBP | Visualizacoes do perfil | `nao medido` |
 | GBP | Accoes no perfil | `nao medido` |
 | GBP | Reviews | `nao medido` |
@@ -110,3 +113,18 @@ Registar por plataforma:
 - primeira ronda de testes manuais de IA registada
 
 ## KPIs para 90 Dias
+
+- pelo menos 80% das URLs canonicas do sitemap indexadas
+- 5 a 10 dominios de referencia legitimos e relevantes, sem compra de links
+- GBP verificado e perfis prioritarios coerentes com a entidade canonica
+- crescimento de impressoes non-brand face ao baseline exportado no primeiro mes
+- pelo menos uma ronda mensal completa dos 40 prompts, com historico comparavel
+- conversoes organicas medidas apenas depois de analytics e eventos estarem validados
+
+## Guardrails
+
+- nao interpretar IndexNow ou pedido de indexacao como garantia de inclusao
+- nao usar uma pesquisa isolada e personalizada como prova de ranking
+- nao alterar os 40 prompts entre rondas
+- nao perseguir volume de backlinks sem relevancia editorial e geografica
+- nao publicar metas de primeiro lugar como promessa comercial

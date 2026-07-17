@@ -316,6 +316,36 @@ if (!robots.includes(`Sitemap: ${origin}/sitemap.xml`)) {
   errors.push('robots.txt: canonical Sitemap directive missing');
 }
 
+const indexNowKey = 'de58e4308119421199d0387b93c0a9ad';
+const indexNowKeyPath = `${indexNowKey}.txt`;
+if (read(indexNowKeyPath).trim() !== indexNowKey) {
+  errors.push(`${indexNowKeyPath}: invalid IndexNow verification key`);
+}
+
+const indexNowScript = read('scripts/submit-indexnow.mjs');
+for (const requiredText of [
+  'https://api.indexnow.org/indexnow',
+  indexNowKey,
+  "readFileSync(path.join(projectRoot, 'sitemap.xml')",
+]) {
+  if (!indexNowScript.includes(requiredText)) {
+    errors.push(`scripts/submit-indexnow.mjs: missing required contract "${requiredText}"`);
+  }
+}
+
+const server = read('server.js');
+for (const requiredHeader of [
+  'Strict-Transport-Security',
+  'X-Content-Type-Options',
+  'X-Frame-Options',
+  'Referrer-Policy',
+  'Permissions-Policy',
+]) {
+  if (!server.includes(requiredHeader)) {
+    errors.push(`server.js: missing security header ${requiredHeader}`);
+  }
+}
+
 if (read('app.js').includes('/_vercel/')) {
   errors.push('app.js: stale Vercel runtime path found');
 }
@@ -334,6 +364,8 @@ const releaseArtifacts = new Set([
   'server.js',
   'service-pages.css',
   'sitemap.xml',
+  indexNowKeyPath,
+  'scripts/submit-indexnow.mjs',
   'scripts/validate-seo.mjs',
 ]);
 

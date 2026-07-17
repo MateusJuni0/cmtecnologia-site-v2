@@ -16,6 +16,19 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.disable('x-powered-by');
 
+// Baseline browser protections. The public site is always HTTPS through the
+// dedicated Cloudflare tunnel; the origin remains bound to localhost on VPS.
+app.use((_req, res, next) => {
+  res.set({
+    'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+    'X-Content-Type-Options': 'nosniff',
+    'X-Frame-Options': 'SAMEORIGIN',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'Permissions-Policy': 'camera=(), geolocation=(), payment=(), microphone=(self)',
+  });
+  next();
+});
+
 // Canonicalise public page requests at the application layer as a fallback
 // when Cloudflare forwards the www host to this origin. Keep non-idempotent
 // API requests untouched so a redirect can never change a POST into a GET.
