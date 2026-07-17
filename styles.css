@@ -150,6 +150,8 @@ h2 { font-family: var(--font-d); font-weight: 700; line-height: .98; letter-spac
 .lede { color: #dcd6f3; font-size: clamp(16px, 1.65vw, 21px); line-height: 1.6; margin-top: 26px; max-width: 540px; text-shadow: 0 2px 16px rgba(8,4,18,.85), 0 1px 3px rgba(8,4,18,.6); }
 .wrap.center .lede { margin-left: auto; margin-right: auto; }
 .lede strong { color: var(--ink); font-weight: 600; }
+.lede dfn { font-style: normal; }
+.hero-meta { margin-top: 12px; color: var(--muted); font-family: var(--font-d); font-size: 12px; letter-spacing: .04em; }
 
 /* ---- readability over bright video scenes ---- */
 h1, h2 { text-shadow: 0 3px 24px rgba(8,4,18,.6); }

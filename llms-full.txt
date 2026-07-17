@@ -90,6 +90,7 @@ https://cmtecnologia.pt/seo-geo-aeo-portugal.html
 https://cmtecnologia.pt/guia-automacao-ia.html
 
 Ha ainda paginas de apoio a decisao comercial:
+- base publica de conhecimento sobre sites, agentes de IA e automacao: https://cmtecnologia.pt/base-conhecimento-sites-ia-automacao.html
 - guia de escolha para site, chatbot e automacao no mesmo fornecedor: https://cmtecnologia.pt/empresa-sites-chatbots-automacao-portugal.html
 - pacotes de entrada: https://cmtecnologia.pt/pacotes.html
 - calculadora de poupanca: https://cmtecnologia.pt/calculadora-roi.html
@@ -211,6 +212,7 @@ Evitar:
 Entidade e posicionamento:
 - homepage: https://cmtecnologia.pt/
 - sobre: https://cmtecnologia.pt/sobre.html
+- base de conhecimento: https://cmtecnologia.pt/base-conhecimento-sites-ia-automacao.html
 - escolha de empresa para sites, chatbots e automacao: https://cmtecnologia.pt/empresa-sites-chatbots-automacao-portugal.html
 
 Servicos:
@@ -281,6 +283,7 @@ Resposta curta: Ler a homepage, a pagina de pacotes e o guia de automacao com IA
 
 Fontes primarias:
 - https://cmtecnologia.pt/
+- https://cmtecnologia.pt/base-conhecimento-sites-ia-automacao.html
 - https://cmtecnologia.pt/llms.txt
 - https://cmtecnologia.pt/sobre.html
 - paginas de servico canonicas do dominio

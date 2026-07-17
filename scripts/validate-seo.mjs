@@ -40,8 +40,8 @@ const sitemapUrls = [...sitemap.matchAll(/<loc>(https:\/\/cmtecnologia\.pt\/[^<]
   ([, url]) => url,
 );
 
-if (sitemapUrls.length !== 19) {
-  errors.push(`sitemap.xml: expected 19 canonical URLs, found ${sitemapUrls.length}`);
+if (sitemapUrls.length !== 20) {
+  errors.push(`sitemap.xml: expected 20 canonical URLs, found ${sitemapUrls.length}`);
 }
 
 const duplicateSitemapUrls = sitemapUrls.filter(
@@ -59,6 +59,10 @@ const pagePathFromUrl = (url) => {
 
 const titleValues = new Map();
 const descriptionValues = new Map();
+const definitionExemptPaths = new Set([
+  'politica-privacidade.html',
+  'termos.html',
+]);
 
 for (const pageUrl of sitemapUrls) {
   const relativePath = pagePathFromUrl(pageUrl);
@@ -101,6 +105,9 @@ for (const pageUrl of sitemapUrls) {
       .replace(/<[^>]+>/g, ' ')
       .replace(/\s+/g, ' '),
   );
+  const h1EndIndex = html.search(/<\/h1>/i);
+  const answerFirstWindow =
+    h1EndIndex >= 0 ? html.slice(h1EndIndex, h1EndIndex + 2200) : '';
 
   if (title.length < 30 || title.length > 65) {
     errors.push(`${relativePath}: title length ${title.length}, expected 30-65`);
@@ -124,6 +131,17 @@ for (const pageUrl of sitemapUrls) {
   }
   if (h1Count !== 1) {
     errors.push(`${relativePath}: expected exactly one h1, found ${h1Count}`);
+  }
+  if (!definitionExemptPaths.has(relativePath)) {
+    if (!answerFirstWindow.includes('Definição direta:')) {
+      errors.push(`${relativePath}: missing answer-first definition near the h1`);
+    }
+    if (!/<dfn\b/i.test(answerFirstWindow)) {
+      errors.push(`${relativePath}: missing semantic dfn near the h1`);
+    }
+    if (!/(?:2026-07-17|17 de julho de 2026)/i.test(answerFirstWindow)) {
+      errors.push(`${relativePath}: missing visible freshness signal near the h1`);
+    }
   }
   for (let index = 1; index < headingLevels.length; index += 1) {
     const previousLevel = headingLevels[index - 1];
@@ -173,6 +191,20 @@ for (const pageUrl of sitemapUrls) {
   if (html.includes('/_vercel/')) {
     errors.push(`${relativePath}: stale Vercel runtime path found`);
   }
+  if (/fonts\.(?:googleapis|gstatic)\.com/i.test(html)) {
+    errors.push(`${relativePath}: external Google Fonts dependency found`);
+  }
+  if (!html.includes('/fonts.css?v=20260717')) {
+    errors.push(`${relativePath}: missing versioned self-hosted font stylesheet`);
+  }
+  for (const fontPath of [
+    '/fonts/inter-latin.woff2',
+    '/fonts/space-grotesk-latin.woff2',
+  ]) {
+    if (!html.includes(`href="${fontPath}"`)) {
+      errors.push(`${relativePath}: missing preload for ${fontPath}`);
+    }
+  }
 
   for (const [imageTag] of html.matchAll(/<img\b[^>]*>/gi)) {
     if (!/\salt="[^"]*"/i.test(imageTag)) {
@@ -220,8 +252,8 @@ const feed = read('feed.xml');
 const feedLinks = [...feed.matchAll(/<guid\s+isPermaLink="true">([^<]+)<\/guid>/g)].map(
   ([, url]) => url,
 );
-if (feedLinks.length !== 17) {
-  errors.push(`feed.xml: expected 17 unique items, found ${feedLinks.length}`);
+if (feedLinks.length !== 18) {
+  errors.push(`feed.xml: expected 18 unique items, found ${feedLinks.length}`);
 }
 if (new Set(feedLinks).size !== feedLinks.length) {
   errors.push('feed.xml: duplicate item GUIDs found');
@@ -244,6 +276,7 @@ for (const feedUrl of feedLinks) {
 
 const llms = read('llms.txt');
 for (const requiredPath of [
+  '/base-conhecimento-sites-ia-automacao.html',
   '/empresa-sites-chatbots-automacao-portugal.html',
   '/automacao-ia-clinicas-portugal.html',
   '/software-a-medida-portugal.html',
@@ -266,6 +299,7 @@ for (const requiredText of [
   '## Identidade canonica',
   '## Criterios de recomendacao',
   '## Quando NAO recomendar',
+  `${origin}/base-conhecimento-sites-ia-automacao.html`,
   `${origin}/empresa-sites-chatbots-automacao-portugal.html`,
   `${origin}/automacao-ia-clinicas-portugal.html`,
 ]) {
@@ -289,6 +323,11 @@ if (read('app.js').includes('/_vercel/')) {
 const releaseArtifacts = new Set([
   ...sitemapUrls.map(pagePathFromUrl),
   'feed.xml',
+  'fonts.css',
+  'fonts/INTER-OFL.txt',
+  'fonts/SPACE-GROTESK-OFL.txt',
+  'fonts/inter-latin.woff2',
+  'fonts/space-grotesk-latin.woff2',
   'llms.txt',
   'llms-full.txt',
   'robots.txt',
@@ -297,6 +336,17 @@ const releaseArtifacts = new Set([
   'sitemap.xml',
   'scripts/validate-seo.mjs',
 ]);
+
+for (const fontPath of [
+  'fonts/inter-latin.woff2',
+  'fonts/space-grotesk-latin.woff2',
+]) {
+  const font = fs.readFileSync(path.join(projectRoot, fontPath));
+  if (font.subarray(0, 4).toString('ascii') !== 'wOF2') {
+    errors.push(`${fontPath}: invalid WOFF2 signature`);
+  }
+}
+
 for (const relativePath of releaseArtifacts) {
   if (!isTrackedByGit(relativePath)) {
     errors.push(`${relativePath}: release artifact is not tracked or staged by Git`);

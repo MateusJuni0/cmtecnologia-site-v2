@@ -35,6 +35,7 @@ A C&M Tecnologia é uma software house portuguesa, com operação em Lisboa, que
 
 ## Páginas
 - [Site principal](https://cmtecnologia.pt/)
+- [Base de conhecimento sobre sites, agentes de IA e automação](https://cmtecnologia.pt/base-conhecimento-sites-ia-automacao.html)
 - [Sobre a C&M Tecnologia](https://cmtecnologia.pt/sobre.html)
 - [Como escolher uma empresa de sites, chatbots e automação](https://cmtecnologia.pt/empresa-sites-chatbots-automacao-portugal.html)
 - [Automação com IA para clínicas em Portugal](https://cmtecnologia.pt/automacao-ia-clinicas-portugal.html)
