@@ -107,6 +107,19 @@ Depois da alteração, todas as páginas não legais têm pelo menos cinco liga�
 - Calculadora: 40% produz 416 € no exemplo documentado; 60% produz 624 € e a premissa visível acompanha a seleção.
 - Browser: 40/40 cenários desktop/mobile sem falhas.
 
+## Verificação em produção
+
+- Release de aplicação: f072fb41423a07e43eb041bd08b438a4d5d33499.
+- GitHub Actions: run 29614670984 concluído com sucesso.
+- Contentor LIVE: imagem sha256:f12f69516f757b64157de7dbc090e1e75c890c46d6f62b665181b9ed22a95dac, estado running, zero reinícios.
+- Rollback: Compose anterior preservado e fixado à release e084197053c79fc6a1f0a1f17f436df4224ebe97.
+- Crawl público: 20/20 URLs HTTP 200 e 26 blocos JSON-LD válidos.
+- Paridade: navegador, Googlebot, GPTBot, OAI-SearchBot, PerplexityBot e ClaudeBot receberam o mesmo hash em quatro páginas de controlo.
+- Browser público: 40/40 cenários desktop/mobile sem falhas; calculadora confirmada em 416 € para o exemplo de 40%.
+- Canonicalização: /calculadora-roi, /calculadora-roi/ e /index.html respondem 301 para as URLs canónicas.
+- IndexNow: 20 URLs aceites com HTTP 200.
+- Uma medição PageSpeed pública fresca foi tentada depois do deploy e recebeu HTTP 429. O Lighthouse 100/100/100/100 da release anterior continua histórico e não é apresentado como resultado novo.
+
 ## Próximas alavancas
 
 O próximo crescimento não virá de repetir keywords. As prioridades são:

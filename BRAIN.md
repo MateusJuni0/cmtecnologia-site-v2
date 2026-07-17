@@ -1,5 +1,25 @@
 # BRAIN.md — cmtecnologia-site-v2
 
+## Pendentes adiados por decisão do Mateus (2026-07-17)
+
+Não executar durante o loop técnico atual; retomar depois com confirmação humana:
+
+1. concluir o vídeo de verificação do Google Business Profile
+2. confirmar morada legal, ano de fundação, dimensão da equipa e email empresarial para diretórios
+3. obter autorização específica antes de publicar ou fazer outreach em contas externas da empresa
+
+## Release LIVE (2026-07-17) — loop externo SEO, GEO e AEO
+
+- **Release:** commit f072fb41423a07e43eb041bd08b438a4d5d33499; GitHub Actions run 29614670984 concluído com sucesso; contentor 67a067117bdb62f83244a8f43ea6d21c81628adad2001fd6bd53350401583c5d; image ID sha256:f12f69516f757b64157de7dbc090e1e75c890c46d6f62b665181b9ed22a95dac; Compose SHA-256 c1ef28ec0f34f0042df6efefe8aac6f536a0920aa898e7ef9ffa01a495544961.
+- **Rollback:** docker-compose.yml.rollback SHA-256 a8aad5fc22fd7304ca953d6b8f2a907ef23aa195384491b1399eedb8617f15a9, fixado à release e084197053c79fc6a1f0a1f17f436df4224ebe97; contentor running, restart count 0.
+- **Diagnóstico externo:** marca recuperada pelo nome, mas ausente no top 10 observado de sete intenções genéricas usadas como proxy; pesquisa Google direta foi bloqueada por /sorry/index e registada como não executada; GSC continua a fonte de ranking real. Gargalo principal: 1 domínio de referência / 2 links.
+- **Entrega:** fontes oficiais nas páginas antigas, entidade única https://cmtecnologia.pt/#org nas 20 páginas, malha interna reforçada, acessibilidade dos formulários, premissas transparentes na calculadora, alegação de ROI de voz removida e redirects 301 de URLs sem extensão para as canónicas .html.
+- **CONFLITO:** a entrada histórica de 2026-06-22 dizia que a calculadora usava fator fixo 0,6 “conservador”. A release f072fb4 removeu esse benchmark sem base: a percentagem é agora escolhida pelo utilizador entre 10% e 90%, aparece no resultado e segue para o pedido.
+- **Verificação LIVE:** 20/20 URLs HTTP 200; 26 blocos JSON-LD válidos; browser, Googlebot, GPTBot, OAI-SearchBot, PerplexityBot e ClaudeBot receberam hashes idênticos nas quatro páginas de controlo; 40/40 cenários desktop/mobile sem falhas; calculadora 40% = 416 € no exemplo; headers de segurança presentes; IndexNow aceitou 20 URLs com HTTP 200.
+- **Qualidade:** validate:seo = 20 páginas / 18 itens / 0 warnings; validate:indexnow = 20; npm audit produção = 0 vulnerabilidades. PageSpeed público fresco indisponível por HTTP 429; não reutilizar o Lighthouse 100/100/100/100 anterior como se fosse uma medição desta release.
+- **Relatório:** docs/seo/external-loop-audit-2026-07-17.md.
+- **Preservação:** docs/google-business-profile.md e os sete backups untracked continuam intocados; as três ações humanas permanecem adiadas no topo deste ficheiro.
+
 ## Release LIVE (2026-07-17) — indexação, segurança e autoridade
 - **Release:** commit `e084197053c79fc6a1f0a1f17f436df4224ebe97`; GitHub Actions run `29611336687` concluído com sucesso; container `e9cd058928daec4c75b02d40009962a35c02da9cfe9ce1e0b98b2348a62837c8`; image ID `sha256:bbcf6ef932daa73289846ff25b2d187aa2f82064376082f252a3228be78ec44f`; Compose SHA-256 `a8aad5fc22fd7304ca953d6b8f2a907ef23aa195384491b1399eedb8617f15a9`.
 - **Rollback:** Compose `/opt/cmtec-site/docker-compose.yml.rollback`, SHA-256 `e9efd2a21cd0a00b9ca2ca9f5bc5c9c49803d034a2f30b949151dc8dc3aed5ed`, fixado à release anterior `bdc8d040381bd39456098fc645acf73b13141ce1`; imagem ativa anterior também etiquetada como `:rollback`.
