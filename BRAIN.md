@@ -1,5 +1,16 @@
 # BRAIN.md — cmtecnologia-site-v2
 
+## Release LIVE (2026-07-17) — indexação, segurança e autoridade
+- **Release:** commit `e084197053c79fc6a1f0a1f17f436df4224ebe97`; GitHub Actions run `29611336687` concluído com sucesso; container `e9cd058928daec4c75b02d40009962a35c02da9cfe9ce1e0b98b2348a62837c8`; image ID `sha256:bbcf6ef932daa73289846ff25b2d187aa2f82064376082f252a3228be78ec44f`; Compose SHA-256 `a8aad5fc22fd7304ca953d6b8f2a907ef23aa195384491b1399eedb8617f15a9`.
+- **Rollback:** Compose `/opt/cmtec-site/docker-compose.yml.rollback`, SHA-256 `e9efd2a21cd0a00b9ca2ca9f5bc5c9c49803d034a2f30b949151dc8dc3aed5ed`, fixado à release anterior `bdc8d040381bd39456098fc645acf73b13141ce1`; imagem ativa anterior também etiquetada como `:rollback`.
+- **Indexação:** pedidos manuais aceites pelo Google para a base de conhecimento, automação IA para clínicas, software à medida e automação empresarial; IndexNow público em `/de58e4308119421199d0387b93c0a9ad.txt`; submissão das 20 URLs canónicas aceite com HTTP `202` após o deploy.
+- **GSC baseline:** últimos 3 meses até 15-07 = `24 cliques`, `328 impressões`, `CTR 7,3%`, posição média `9,7`; cobertura de 10-07 = `11 indexadas`, `7 excluídas`; autoridade externa = `1 domínio`, `2 links`, ambos de `dev.to`; sem ações manuais e sem problemas de segurança.
+- **Segurança/trust:** HSTS 1 ano com subdomínios, nosniff, SAMEORIGIN, Referrer-Policy e Permissions-Policy ativos em produção.
+- **Autoridade:** auditoria CITE conservadora = `38/100` antes desta release e aproximadamente `40/100` após HSTS; plano 30/60/90, perfis prioritários, copy canónica e outreach legítimo documentados em `docs/seo/`.
+- **Verificação:** `npm run validate:indexnow` = 20 URLs; `npm run validate:seo` = 20 páginas, 18 itens e 0 warnings; `npm audit --omit=dev` = 0 vulnerabilidades; 20/20 URLs públicas = HTTP 200; chave IndexNow exata = HTTP 200; health interno/externo OK; restart count `0`; SHA ativo igual ao commit aprovado.
+- **Bloqueios humanos:** concluir o vídeo do Google Business Profile; confirmar morada legal, ano de fundação, dimensão da equipa e email empresarial antes de criar diretórios; aprovar qualquer publicação ou outreach em contas externas. Não inventar dados nem comprar backlinks/reviews.
+- **Preservação:** os oito ficheiros/backups untracked anteriores continuam intocados.
+
 ## Release LIVE (2026-07-17) — answer-first, knowledge e Core Web Vitals
 - **Release:** commit `bdc8d040381bd39456098fc645acf73b13141ce1`; GitHub Actions run `29607118913` concluído; container `f787ccdb325f97059a24630a0fef7b16d944f50e00a5d8c3b3025cf008b7df6b`; image ID `sha256:6048d06158d364a557cc7b46eb80477686f6df2da979f2fbe739050afa396b4a`; Compose SHA-256 `e9efd2a21cd0a00b9ca2ca9f5bc5c9c49803d034a2f30b949151dc8dc3aed5ed`.
 - **Rollback:** imagem `ghcr.io/mateusjuni0/cmtecnologia-site-v2:rollback-0f41d7a5707a-20260717T193323Z`; Compose `/opt/cmtec-site/backups/docker-compose.yml.20260717T193323Z.pre-bdc8d04`.
