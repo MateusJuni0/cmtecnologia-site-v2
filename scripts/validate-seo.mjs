@@ -170,6 +170,9 @@ for (const pageUrl of sitemapUrls) {
   if (/noindex|noai/i.test(html)) {
     errors.push(`${relativePath}: blocking noindex/noai directive found`);
   }
+  if (html.includes('/_vercel/')) {
+    errors.push(`${relativePath}: stale Vercel runtime path found`);
+  }
 
   for (const [imageTag] of html.matchAll(/<img\b[^>]*>/gi)) {
     if (!/\salt="[^"]*"/i.test(imageTag)) {
@@ -277,6 +280,10 @@ if (llmsFull.trim().split(/\s+/u).length < 1500) {
 const robots = read('robots.txt');
 if (!robots.includes(`Sitemap: ${origin}/sitemap.xml`)) {
   errors.push('robots.txt: canonical Sitemap directive missing');
+}
+
+if (read('app.js').includes('/_vercel/')) {
+  errors.push('app.js: stale Vercel runtime path found');
 }
 
 const releaseArtifacts = new Set([

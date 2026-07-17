@@ -244,31 +244,6 @@
   if (waForm) waForm.addEventListener('submit', (e) => { e.preventDefault(); const t = waText.value; waText.value = ''; waSend(t); });
   observeOnce('#madalena', waStart);
 
-  /* ---------- cookie notice (GDPR) ---------- */
-  // Loads Vercel's anonymous, cookieless analytics — but never if the visitor declined.
-  let analyticsLoaded = false;
-  const loadAnalytics = () => {
-    if (analyticsLoaded) return;
-    analyticsLoaded = true;
-    ['/_vercel/insights/script.js', '/_vercel/speed-insights/script.js'].forEach((src) => {
-      const s = document.createElement('script');
-      s.defer = true; s.src = src;
-      document.head.appendChild(s);
-    });
-  };
-  const cookieBar = document.getElementById('cookieBar');
-  let choice = null;
-  try { choice = localStorage.getItem('cmtec-cookie'); } catch (e) {}
-  // Honour a previous decision; only load stats when not explicitly declined.
-  if (choice !== 'decline') loadAnalytics();
-  if (cookieBar) {
-    if (!choice) cookieBar.hidden = false;
-    const closeCookie = (v) => { try { localStorage.setItem('cmtec-cookie', v); } catch (e) {} cookieBar.hidden = true; };
-    const ca = document.getElementById('cookieAccept'), cd = document.getElementById('cookieDecline');
-    if (ca) ca.addEventListener('click', () => { closeCookie('accept'); loadAnalytics(); });
-    if (cd) cd.addEventListener('click', () => closeCookie('decline'));
-  }
-
   /* ---------- Voice · Inês ---------- */
   const voiceBtn = document.getElementById('voiceBtn');
   const wavesEl = document.getElementById('waves');
