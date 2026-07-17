@@ -74,6 +74,9 @@ for (const pageUrl of sitemapUrls) {
   const description = decodeEntities(
     matchOne(html, /<meta\s+name="description"\s+content="([^"]*)"/i),
   );
+  const author = decodeEntities(
+    matchOne(html, /<meta\s+name="author"\s+content="([^"]*)"/i),
+  );
   const canonical = matchOne(
     html,
     /<link\s+rel="canonical"\s+href="([^"]+)"\s*\/?\s*>/i,
@@ -103,6 +106,9 @@ for (const pageUrl of sitemapUrls) {
     errors.push(
       `${relativePath}: description length ${description.length}, expected 100-165`,
     );
+  }
+  if (author !== 'C&M Tecnologia') {
+    errors.push(`${relativePath}: missing canonical author metadata`);
   }
   if (canonical !== pageUrl) {
     errors.push(`${relativePath}: canonical is "${canonical}", expected "${pageUrl}"`);
