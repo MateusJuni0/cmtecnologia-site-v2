@@ -63,6 +63,23 @@ const definitionExemptPaths = new Set([
   'politica-privacidade.html',
   'termos.html',
 ]);
+const evidenceRequiredPaths = new Set([
+  'base-conhecimento-sites-ia-automacao.html',
+  'empresa-sites-chatbots-automacao-portugal.html',
+  'automacao-ia-clinicas-portugal.html',
+  'software-a-medida-portugal.html',
+  'automacao-empresarial-ia.html',
+  'integracoes-crm-whatsapp.html',
+  'n8n-supabase-automacao.html',
+  'seo-geo-aeo-portugal.html',
+  'criacao-sites-lojas-online.html',
+  'chatbot-whatsapp-ia.html',
+  'atendimento-por-voz-ia.html',
+  'automacao-redes-sociais-ia.html',
+  'painel-gestao-negocio.html',
+  'calculadora-roi.html',
+  'guia-automacao-ia.html',
+]);
 
 for (const pageUrl of sitemapUrls) {
   const relativePath = pagePathFromUrl(pageUrl);
@@ -182,6 +199,9 @@ for (const pageUrl of sitemapUrls) {
   if (/https:\/\/cmtecnologia\.pt\/#organization/.test(html)) {
     errors.push(`${relativePath}: legacy #organization entity identifier found`);
   }
+  if (!html.includes(`${origin}/#org`)) {
+    errors.push(`${relativePath}: missing canonical organization entity identifier`);
+  }
   if (/\uFFFD|Ã[\u0080-\u00bf\u2010-\u2122]|Â[\u0080-\u00bf]|â(?:€|€™|€œ|€˜|€“|€”)/u.test(html)) {
     errors.push(`${relativePath}: probable UTF-8 mojibake found`);
   }
@@ -231,6 +251,37 @@ for (const pageUrl of sitemapUrls) {
     if (!fs.existsSync(targetPath)) {
       errors.push(`${relativePath}: broken internal link "${href}"`);
     }
+  }
+
+  const canonicalInternalLinks = new Set();
+  const authorityLinks = new Set();
+  for (const [, href] of html.matchAll(/<a\b[^>]*\shref="([^"]+)"/gi)) {
+    if (href.startsWith('#')) continue;
+    const targetUrl = new URL(href, pageUrl);
+    if (
+      targetUrl.origin === origin &&
+      targetUrl.pathname !== new URL(pageUrl).pathname &&
+      sitemapUrls.includes(`${origin}${targetUrl.pathname}`)
+    ) {
+      canonicalInternalLinks.add(targetUrl.pathname);
+    }
+    if (
+      targetUrl.protocol === 'https:' &&
+      targetUrl.origin !== origin &&
+      !['wa.me', 'www.livroreclamacoes.pt'].includes(targetUrl.hostname)
+    ) {
+      authorityLinks.add(targetUrl.href);
+    }
+  }
+  if (!definitionExemptPaths.has(relativePath) && canonicalInternalLinks.size < 5) {
+    errors.push(
+      `${relativePath}: expected at least 5 unique canonical internal page links, found ${canonicalInternalLinks.size}`,
+    );
+  }
+  if (evidenceRequiredPaths.has(relativePath) && authorityLinks.size < 2) {
+    errors.push(
+      `${relativePath}: expected at least 2 external authority sources, found ${authorityLinks.size}`,
+    );
   }
 
   const duplicateTitleOwner = titleValues.get(title);
@@ -344,6 +395,46 @@ for (const requiredHeader of [
   if (!server.includes(requiredHeader)) {
     errors.push(`server.js: missing security header ${requiredHeader}`);
   }
+}
+for (const requiredCanonicalContract of [
+  "fileName.endsWith('.html')",
+  "requestPath === '/index'",
+  'CANONICAL_HTML_PATHS.has(canonicalPath)',
+]) {
+  if (!server.includes(requiredCanonicalContract)) {
+    errors.push(
+      `server.js: missing HTML canonical redirect contract "${requiredCanonicalContract}"`,
+    );
+  }
+}
+
+const home = read('index.html');
+for (const accessibleControl of [
+  'name="nome" required aria-label=',
+  'name="contacto" required aria-label=',
+  'name="msg" rows="2" aria-label=',
+]) {
+  if (!home.includes(accessibleControl)) {
+    errors.push(
+      `index.html: missing accessible lead control contract "${accessibleControl}"`,
+    );
+  }
+}
+
+const calculator = read('calculadora-roi.html');
+for (const calculatorContract of [
+  'id="percentagemAutomatizavel"',
+  'percentagemAutomatizavel / 100',
+  'percentagem escolhida',
+]) {
+  if (!calculator.includes(calculatorContract)) {
+    errors.push(
+      `calculadora-roi.html: missing transparent estimate contract "${calculatorContract}"`,
+    );
+  }
+}
+if (/cerca de\s*(?:<strong>)?60%|valor conservador|AUTOMATION_FACTOR/i.test(calculator)) {
+  errors.push('calculadora-roi.html: unsupported fixed automation benchmark found');
 }
 
 if (read('app.js').includes('/_vercel/')) {

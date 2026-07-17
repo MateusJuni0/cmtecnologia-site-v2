@@ -96,9 +96,15 @@
       "applicationCategory":"BusinessApplication",
       "operatingSystem":"Web",
       "offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},
-      "provider":{"@type":"Organization","name":"C&M Tecnologia","url":"https://cmtecnologia.pt/"},
+      "provider":{"@id":"https://cmtecnologia.pt/#org"},
       "inLanguage":"pt-PT",
-      "description":"Ferramenta gratuita que estima, com os números do próprio negócio, a poupança mensal possível ao automatizar tarefas repetitivas com IA."
+      "description":"Ferramenta gratuita que estima, com os números e a percentagem de automatização escolhidos pelo utilizador, a poupança mensal possível ao automatizar tarefas repetitivas com IA."
+    },
+    {
+      "@type":"Organization",
+      "@id":"https://cmtecnologia.pt/#org",
+      "name":"C&M Tecnologia",
+      "url":"https://cmtecnologia.pt/"
     }
   ]
 }
@@ -132,6 +138,11 @@
         <p class="hint">Quanto custa, por hora, o tempo de quem faz esse trabalho.</p>
         <input id="custoHora" type="number" min="1" step="0.5" inputmode="decimal" placeholder="ex.: 12" />
       </div>
+      <div class="field">
+        <label for="percentagemAutomatizavel">Percentagem das horas que estima poder automatizar</label>
+        <p class="hint">Escolha uma premissa para simular. Não é um benchmark da C&amp;M; validamos a percentagem real ao mapear o processo.</p>
+        <input id="percentagemAutomatizavel" type="number" min="10" max="90" step="10" inputmode="numeric" value="40" />
+      </div>
       <button class="go" id="calcBtn" type="button">Calcular poupança</button>
       <p class="err" id="calcErr"></p>
 
@@ -139,14 +150,14 @@
         <p class="sub">Estimativa de poupança por mês</p>
         <p class="big grad" id="monthly">—</p>
         <p class="year" id="yearly"></p>
-        <p class="disclaimer">Estimativa indicativa, calculada a partir dos seus números, assumindo que cerca de <strong>60%</strong> dessas horas passam a ser tratadas pela automação. O valor real depende do seu fluxo — confirmamo-lo no diagnóstico gratuito.</p>
+        <p class="disclaimer" id="assumption">Estimativa indicativa, calculada a partir dos seus números e da percentagem escolhida. O valor real depende do processo, da adoção, das exceções e da qualidade da implementação.</p>
 
         <div class="leadbox">
           <h2>Quer esta poupança no seu negócio?</h2>
           <p style="margin:0 0 12px">Deixe o contacto e dizemos-lhe, em cerca de 30 minutos, como lá chegar — sem compromisso.</p>
           <div class="lead-row">
-            <input id="leadNome" type="text" placeholder="O seu nome ou empresa" autocomplete="name" />
-            <input id="leadContacto" type="text" placeholder="WhatsApp ou email" />
+            <input id="leadNome" type="text" aria-label="O seu nome ou empresa" placeholder="O seu nome ou empresa" autocomplete="name" />
+            <input id="leadContacto" type="text" aria-label="WhatsApp ou email" placeholder="WhatsApp ou email" />
           </div>
           <button id="leadBtn" type="button">Pedir proposta gratuita</button>
           <p class="leadmsg" id="leadMsg"></p>
@@ -155,8 +166,12 @@
     </div>
 
     <h2>Como é feita a conta</h2>
-    <p>Multiplicamos as horas repetitivas pela parte que costuma ser automatizável (cerca de 60%, um valor conservador), pelo custo por hora e pelas semanas do mês. É a sua própria operação a falar — não uma promessa nossa. Quando falarmos, ajustamos a estimativa ao seu caso real e mostramos o que faz sentido automatizar primeiro.</p>
-    <p>Veja também os nossos <a href="/pacotes.html">pacotes de entrada</a> ou o <a href="/guia-automacao-ia.html">guia de automação com IA</a>.</p>
+    <p>Multiplicamos pessoas × horas repetitivas por semana × percentagem escolhida × custo por hora × 4,33 semanas por mês. A percentagem é uma hipótese do utilizador, não uma média de mercado nem uma promessa nossa. Quando falarmos, mapeamos tarefas, exceções e validações humanas para estimar um cenário realista.</p>
+    <p><strong>Exemplo:</strong> duas pessoas, 10 horas repetitivas por semana, 40% de automatização e 12 € por hora resultam numa estimativa de cerca de 416 € por mês. Alterar qualquer premissa altera o resultado.</p>
+
+    <h2>Limites e referências</h2>
+    <p>A calculadora não inclui custo de implementação, manutenção, falhas, sazonalidade ou tempo de adoção. Um caso de negócio completo deve comparar esses custos com métricas observadas num piloto. Quando há dados pessoais, o desenho também deve respeitar o <a href="https://commission.europa.eu/law/law-topic/data-protection/data-protection-eu_en" target="_blank" rel="noopener">quadro europeu de proteção de dados</a> e as orientações do <a href="https://www.edpb.europa.eu/" target="_blank" rel="noopener">Comité Europeu para a Proteção de Dados</a>.</p>
+    <p>Veja os nossos <a href="/pacotes.html">pacotes de entrada</a>, o <a href="/guia-automacao-ia.html">guia de automação com IA</a>, os casos de <a href="/automacao-empresarial-ia.html">automação empresarial</a> e as <a href="/integracoes-crm-whatsapp.html">integrações de CRM e WhatsApp</a>.</p>
 
     <div class="cta-band">
       <h2 style="margin:0 0 6px">Prefere falar já?</h2>
@@ -172,7 +187,6 @@
 
   <script>
     (function () {
-      var AUTOMATION_FACTOR = 0.6;
       var WEEKS_PER_MONTH = 4.33;
       var eur = new Intl.NumberFormat('pt-PT', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
       var lastEstimate = null;
@@ -183,20 +197,23 @@
         var colaboradores = num('colaboradores');
         var horasSemana = num('horasSemana');
         var custoHora = num('custoHora');
+        var percentagemAutomatizavel = num('percentagemAutomatizavel');
         var err = document.getElementById('calcErr');
         err.textContent = '';
 
-        if (!(colaboradores > 0) || !(horasSemana > 0) || !(custoHora > 0)) {
-          err.textContent = 'Preencha os três campos com números maiores que zero.';
+        if (!(colaboradores > 0) || !(horasSemana > 0) || !(custoHora > 0) || !(percentagemAutomatizavel >= 10 && percentagemAutomatizavel <= 90)) {
+          err.textContent = 'Preencha os campos e escolha uma percentagem entre 10% e 90%.';
           document.getElementById('result').classList.remove('show');
           return;
         }
 
-        var monthly = Math.round(colaboradores * horasSemana * AUTOMATION_FACTOR * custoHora * WEEKS_PER_MONTH);
-        lastEstimate = { colaboradores: colaboradores, horasSemana: horasSemana, custoHora: custoHora, monthly: monthly };
+        var automationFactor = percentagemAutomatizavel / 100;
+        var monthly = Math.round(colaboradores * horasSemana * automationFactor * custoHora * WEEKS_PER_MONTH);
+        lastEstimate = { colaboradores: colaboradores, horasSemana: horasSemana, custoHora: custoHora, percentagemAutomatizavel: percentagemAutomatizavel, monthly: monthly };
 
         document.getElementById('monthly').textContent = eur.format(monthly);
         document.getElementById('yearly').textContent = 'Cerca de ' + eur.format(monthly * 12) + ' por ano.';
+        document.getElementById('assumption').textContent = 'Estimativa indicativa com ' + percentagemAutomatizavel + '% das horas automatizadas. O valor real depende do processo, da adoção, das exceções e da qualidade da implementação.';
         document.getElementById('result').classList.add('show');
       }
 
@@ -213,7 +230,8 @@
 
         var need = lastEstimate
           ? ('Calculadora de ROI — ' + lastEstimate.colaboradores + ' pessoa(s), ' + lastEstimate.horasSemana
-             + 'h/sem, ' + lastEstimate.custoHora + '€/h → poupança estimada ' + eur.format(lastEstimate.monthly) + '/mês.')
+             + 'h/sem, ' + lastEstimate.custoHora + '€/h, ' + lastEstimate.percentagemAutomatizavel
+             + '% automatizável → poupança estimada ' + eur.format(lastEstimate.monthly) + '/mês.')
           : 'Pedido pela calculadora de ROI.';
 
         btn.disabled = true;

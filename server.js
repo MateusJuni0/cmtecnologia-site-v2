@@ -3,6 +3,7 @@
 // The Vercel handlers in api/*.js are (req, res) style, so Express runs them
 // verbatim — no changes to the function code. See docs/DEPLOY.md.
 import express from 'express';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -36,6 +37,41 @@ app.use((req, res, next) => {
   const isPublicRead = req.method === 'GET' || req.method === 'HEAD';
   if (isPublicRead && req.hostname.toLowerCase() === 'www.cmtecnologia.pt') {
     return res.redirect(301, `https://cmtecnologia.pt${req.originalUrl}`);
+  }
+
+  next();
+});
+
+// Every indexable page has one canonical public URL. Express's extensions
+// fallback is convenient, but without redirects /page and /page/ would return
+// the same HTML as /page.html. Consolidate those variants before static files.
+const CANONICAL_HTML_PATHS = new Set(
+  fs
+    .readdirSync(__dirname)
+    .filter((fileName) => fileName.endsWith('.html') && fileName !== 'index.html')
+    .map((fileName) => '/' + fileName),
+);
+
+app.use((req, res, next) => {
+  const isPublicRead = req.method === 'GET' || req.method === 'HEAD';
+  if (!isPublicRead) return next();
+
+  const queryIndex = req.originalUrl.indexOf('?');
+  const query = queryIndex >= 0 ? req.originalUrl.slice(queryIndex) : '';
+  const requestPath =
+    req.path.length > 1 && req.path.endsWith('/')
+      ? req.path.slice(0, -1)
+      : req.path;
+
+  if (requestPath === '/index' || requestPath === '/index.html') {
+    return res.redirect(301, '/' + query);
+  }
+
+  if (!path.extname(requestPath)) {
+    const canonicalPath = requestPath + '.html';
+    if (CANONICAL_HTML_PATHS.has(canonicalPath)) {
+      return res.redirect(301, canonicalPath + query);
+    }
   }
 
   next();
