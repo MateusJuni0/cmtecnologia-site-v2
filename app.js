@@ -228,7 +228,7 @@
       waAdd('in', reply); waHistory.push({ role: 'madalena', text: reply });
       if (j && j.lead && (j.lead.contact || j.lead.name) && !waLeadSent) {
         waLeadSent = true;
-        fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ source: 'Madalena (WhatsApp)', origem: new URLSearchParams(location.search).get('origem'), name: j.lead.name, contact: j.lead.contact, need: j.lead.need, transcript: waHistory.slice() }) }).catch(() => {});
+        fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ source: 'Madalena (WhatsApp)', origem: new URLSearchParams(location.search).get('origem'), name: j.lead.name, contact: j.lead.contact, need: j.lead.need, transcript: waHistory.slice() }) }).then((r) => { if (!r.ok) waLeadSent = false; }).catch(() => { waLeadSent = false; }); // retry next turn if it did not land
       }
     } catch (e) { typ.remove(); waAdd('in', 'Estou com um problema de ligação — tente outra vez daqui a pouco. 🙏'); }
     waBusy = false; if (waBtn) waBtn.disabled = false;

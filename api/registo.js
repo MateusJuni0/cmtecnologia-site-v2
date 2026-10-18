@@ -9,17 +9,20 @@ const DADOS = process.env.SITE_DATA_DIR || '/var/lib/cmtec-site-data';
 // (it accepts 25 MB bodies), so new lines are dropped instead of filling the host disk.
 const MAX_FICHEIRO = 5 * 1024 * 1024;
 
+// Returns true when the line was written, so a caller can tell "kept" from "lost".
 export function registar(ficheiro, linha) {
   try {
     fs.mkdirSync(DADOS, { recursive: true });
     const destino = path.join(DADOS, ficheiro);
     if (fs.existsSync(destino) && fs.statSync(destino).size > MAX_FICHEIRO) {
       console.error(`registo ${ficheiro} acima de ${MAX_FICHEIRO} bytes: linha descartada`);
-      return;
+      return false;
     }
     fs.appendFileSync(destino, JSON.stringify(linha) + '\n', { mode: 0o600 });
+    return true;
   } catch (e) {
     console.error(`registo ${ficheiro} falhou: ${String(e).slice(0, 200)}`);
+    return false;
   }
 }
 

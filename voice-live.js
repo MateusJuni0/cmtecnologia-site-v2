@@ -98,7 +98,7 @@
       if (j.reply) { addLine('ines', 'Inês', j.reply); history.push({ role: 'ines', text: j.reply }); }
       if (j.lead && (j.lead.contact || j.lead.name) && !leadSent) {
         leadSent = true;
-        fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ source: 'Inês (voz)', origem: new URLSearchParams(location.search).get('origem'), name: j.lead.name, contact: j.lead.contact, need: j.lead.need, transcript: history.slice() }) }).catch(() => {});
+        fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ source: 'Inês (voz)', origem: new URLSearchParams(location.search).get('origem'), name: j.lead.name, contact: j.lead.contact, need: j.lead.need, transcript: history.slice() }) }).then((r) => { if (!r.ok) leadSent = false; }).catch(() => { leadSent = false; }); // retry next turn if it did not land
       }
       if (j.audio) await speak(j.audio);
       if (active) listen();
