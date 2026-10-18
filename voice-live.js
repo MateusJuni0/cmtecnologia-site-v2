@@ -156,11 +156,23 @@
     return btoa(bin);
   }
 
+  /* ---- no microphone: Instagram's own browser may never open it (the app decides, not the page), and a
+     visitor from the bio link would hit a dead end. Point them to the system browser or the contact form. ---- */
+  const fallbackEl = document.getElementById('voiceFallback');
+  const inInstagram = /Instagram/i.test(navigator.userAgent);
+  const IG_HINT = 'Se o microfone não abrir aqui no Instagram, toca nos três pontos (⋯) em cima e abre no navegador.';
+  function showFallback(reason) {
+    if (!fallbackEl) return;
+    fallbackEl.querySelector('span').textContent = inInstagram ? IG_HINT : reason;
+    fallbackEl.hidden = false;
+  }
+  if (inInstagram) showFallback(IG_HINT);
+
   async function startCall() {
-    if (!supported) { setStatus('O teu navegador não suporta voz ao vivo — vê o exemplo escrito ↓'); return; }
+    if (!supported) { setStatus('O teu navegador não suporta voz ao vivo — vê o exemplo escrito ↓'); showFallback('Sem voz neste navegador?'); return; }
     setStatus('… a pedir acesso ao microfone');
     try { stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } }); }
-    catch (e) { setStatus('Preciso do microfone para falar 🎙️ (autorize e tente de novo)'); return; }
+    catch (e) { setStatus('Preciso do microfone para falar 🎙️ (autorize e tente de novo)'); showFallback('Sem microfone?'); return; }
     active = true; history.length = 0; leadSent = false; if (scriptEl) scriptEl.innerHTML = '';
     const Ctx = window.AudioContext || window.webkitAudioContext; ac = new Ctx();
     try { if (ac.state === 'suspended') await ac.resume(); } catch (e) {}

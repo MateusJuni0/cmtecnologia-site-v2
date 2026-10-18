@@ -415,6 +415,11 @@
       const contacto = (fd.get('contacto') || '').toString().trim();
       const msg = (fd.get('msg') || '').toString().trim();
       const text = `Olá! Sou ${nome || '(sem nome)'}. Contacto: ${contacto || '—'}.\n${msg || 'Quero saber mais sobre automação com IA.'}`;
+      // Kept on our side first, with the origin (e.g. the Instagram bio link): the contact is never lost if
+      // WhatsApp does not open, and the marketing counts it. keepalive lets it finish while WhatsApp opens.
+      fetch('/api/lead', { method: 'POST', keepalive: true, headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ source: 'Formulário do site', origem: new URLSearchParams(location.search).get('origem'),
+          name: nome, contact: contacto, need: msg }) }).catch(() => {});
       const note = document.getElementById('formNote');
       if (note) note.textContent = 'A abrir o WhatsApp com o seu pedido…';
       window.open('https://wa.me/351964977047?text=' + encodeURIComponent(text), '_blank', 'noopener');
