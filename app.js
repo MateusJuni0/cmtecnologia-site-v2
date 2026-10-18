@@ -431,4 +431,14 @@
       }
     });
   });
+
+  /* ---------- arriving with #section (e.g. the Instagram bio link /ig -> #voz) ----------
+     Lenis owns scrolling, so the browser's own jump to the hash never happens: on 18-10 a visitor
+     from the bio stayed at the top, 4 400 px above the voice demo. Jump once the page is laid out. */
+  const alvo = location.hash.length > 1 ? document.getElementById(location.hash.slice(1)) : null;
+  if (alvo) {
+    const ir = () => setTimeout(() => (lenis ? lenis.scrollTo(alvo, { offset: 0, immediate: true }) : alvo.scrollIntoView()), 150);
+    if (document.readyState === 'complete') ir();
+    else window.addEventListener('load', ir, { once: true });
+  }
 })();
