@@ -1,6 +1,10 @@
 // Lead notification — emails C&M when Inês (voice) captures a qualified visitor.
 // Called by voice-live.js once per session when the assistant returns lead.ready.
 // Uses Resend (env RESEND_API_KEY). Recipient: env LEAD_EMAIL (fallback below).
+// Every lead is also kept in leads.jsonl (SITE_DATA_DIR) with its origin: the marketing pipeline counts
+// the ones that came from the Instagram bio link (/ig adds ?origem=instagram).
+import { cortar, origemValida, registar } from './registo.js';
+
 export const config = { maxDuration: 20 };
 
 const TO = process.env.LEAD_EMAIL || 'mjnoliveira.mateus@gmail.com';
@@ -18,11 +22,15 @@ export default async function handler(req, res) {
   if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = {}; } }
   const { name, contact, need, transcript, source } = body || {};
   if (!name && !contact) { res.status(400).json({ error: 'empty lead' }); return; }
+  const origem = origemValida(body.origem);
+  registar('leads.jsonl', { ts: new Date().toISOString(), source: cortar(source || 'site', 40), origem,
+    name: cortar(name, 120), contact: cortar(contact, 120), need: cortar(need, 500) });
 
   // Best-effort instant alert to Telegram (independent of email; no-op if env not set)
   const TG_TOKEN = process.env.TG_BOT_TOKEN, TG_CHAT = process.env.TG_LEAD_CHAT_ID;
   if (TG_TOKEN && TG_CHAT) {
-    const tgText = `🐰 Novo lead — ${source || 'site'}\n👤 ${name || '—'}\n📞 ${contact || '—'}\n📝 ${need || '—'}`;
+    const veio = origem ? ` · veio do ${origem === 'instagram' ? 'Instagram' : origem}` : '';
+    const tgText = `🐰 Novo lead — ${source || 'site'}${veio}\n👤 ${name || '—'}\n📞 ${contact || '—'}\n📝 ${need || '—'}`;
     try {
       await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage`, {
         method: 'POST', headers: { 'content-type': 'application/json' },

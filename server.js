@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 import ines from './api/ines.js';
 import madalena from './api/madalena.js';
 import lead from './api/lead.js';
+import { registar } from './api/registo.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 3000;
@@ -87,6 +88,17 @@ app.get('/healthz', (_req, res) => res.status(200).json({ ok: true }));
 app.post('/api/ines', ines);
 app.post('/api/madalena', madalena);
 app.post('/api/lead', lead);
+
+// Link of the Instagram bio (marketing plan, phase 3). Counts the visit (time only: no IP, no cookie) and
+// sends the visitor to the voice demo with the origin in the URL, so a lead left in that conversation is
+// recorded as coming from Instagram. 302, not 301: a cached 301 would stop counting the next visits.
+app.get('/ig', (req, res) => {
+  // Express also runs GET routes for HEAD; link checkers send HEAD, and that is not a visit.
+  if (req.method === 'GET') {
+    registar('ig-visitas.jsonl', { ts: new Date().toISOString(), app_instagram: /Instagram/i.test(req.get('user-agent') || '') });
+  }
+  res.redirect(302, '/?origem=instagram#voz');
+});
 
 // --- SEO: 301 redirects for legacy URLs from the previous Next.js site -------
 // These paths existed on the old (Vercel/Next.js) cmtecnologia.pt and were
