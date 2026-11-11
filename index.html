@@ -210,7 +210,7 @@
 <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="stylesheet" href="/fonts.css?v=20260717" />
-<link rel="stylesheet" href="styles.css?v=20260606c" />
+<link rel="stylesheet" href="styles.css?v=20261111a" />
 </head>
 <body>
   <!-- scroll progress -->
@@ -449,6 +449,7 @@
             <input type="text" name="nome" required aria-label="O seu nome ou empresa" placeholder="O seu nome ou empresa" autocomplete="name" />
             <input type="text" name="contacto" required aria-label="WhatsApp ou email" placeholder="WhatsApp ou email" />
           </div>
+          <div style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><label>Não preencher <input type="text" name="hp" tabindex="-1" autocomplete="off" /></label></div>
           <textarea name="msg" rows="2" aria-label="O que precisa" placeholder="O que precisa? (ex.: automatizar as marcações e o WhatsApp da clínica)"></textarea>
           <div class="lead-actions">
             <button type="submit" class="btn-primary form-send">Enviar pedido →</button>
@@ -556,7 +557,7 @@
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-  <script src="app.js?v=20261111a" defer></script>
+  <script src="app.js?v=20261111b" defer></script>
   <script src="voice-live.js" defer></script>
 </body>
 </html>

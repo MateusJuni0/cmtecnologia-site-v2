@@ -908,6 +908,18 @@ body.service-page :where(a, summary, .button, .btn, .cta):focus-visible {
 
   .top-nav a {
     flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Touch targets of at least 44 px on phones. */
+  .top > a:first-child,
+  .service-breadcrumbs a,
+  .breadcrumbs a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
   }
 
   .wrap {

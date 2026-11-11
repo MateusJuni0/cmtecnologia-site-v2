@@ -21,7 +21,9 @@ export default async function handler(req, res) {
 
   let body = req.body;
   if (typeof body === 'string') { try { body = JSON.parse(body); } catch (e) { body = {}; } }
-  const { name, contact, need, transcript, source } = body || {};
+  const { name, contact, need, transcript, source, hp } = body || {};
+  // Hidden field the site's forms keep empty; only bots fill it. Answer like a success so they move on.
+  if (typeof hp === 'string' && hp.trim()) { res.status(200).json({ ok: true }); return; }
   if (!name && !contact) { res.status(400).json({ error: 'empty lead' }); return; }
   const origem = origemValida(body.origem);
   // Kept first, with an id: if every alert below fails, the marketing pipeline on the VPS re-sends the lead to

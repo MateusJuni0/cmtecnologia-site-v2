@@ -18,10 +18,30 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.disable('x-powered-by');
 
+// Content-Security-Policy: only our own files, the pinned GSAP/Lenis CDN and the
+// live templates demo in the modal. 'unsafe-inline' stays for scripts because the
+// calculator script and image onerror handlers are inline (shortcut: move them to
+// files and drop it). data: media is the voice demo's WAV fallback player.
+const CONTENT_SECURITY_POLICY = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net",
+  "style-src 'self' 'unsafe-inline'",
+  "img-src 'self' data:",
+  "font-src 'self'",
+  "media-src 'self' data: blob:",
+  "connect-src 'self'",
+  'frame-src https://templates.cmtecnologia.pt',
+  "frame-ancestors 'self'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "object-src 'none'",
+].join('; ');
+
 // Baseline browser protections. The public site is always HTTPS through the
 // dedicated Cloudflare tunnel; the origin remains bound to localhost on VPS.
 app.use((_req, res, next) => {
   res.set({
+    'Content-Security-Policy': CONTENT_SECURITY_POLICY,
     'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
     'X-Content-Type-Options': 'nosniff',
     'X-Frame-Options': 'SAMEORIGIN',
@@ -94,6 +114,40 @@ app.use((req, res, next) => {
     }
   }
 
+  next();
+});
+
+// Anti-abuse for the public POST endpoints: a fixed window per visitor IP, checked
+// before the body is parsed. Each chat turn spends the Gemini key; each lead pings Telegram.
+// cf-connecting-ip is trustworthy here: the origin only listens on localhost behind the tunnel.
+// shortcut: in-memory counters for one container; move to Cloudflare rate limiting if it ever runs replicas.
+const API_LIMITS = {
+  '/api/lead': { max: 8, windowMs: 60 * 60 * 1000 },
+  '/api/madalena': { max: 40, windowMs: 10 * 60 * 1000 },
+  '/api/ines': { max: 30, windowMs: 10 * 60 * 1000 },
+};
+const apiHits = new Map();
+
+app.use((req, res, next) => {
+  const limit = req.method === 'POST' && API_LIMITS[req.path];
+  if (!limit) return next();
+
+  const now = Date.now();
+  if (apiHits.size > 10000) {
+    for (const [key, entry] of apiHits) if (entry.resetAt <= now) apiHits.delete(key);
+  }
+  const key = `${req.path}|${req.get('cf-connecting-ip') || req.socket.remoteAddress}`;
+  const previous = apiHits.get(key);
+  const entry =
+    previous && previous.resetAt > now
+      ? { count: previous.count + 1, resetAt: previous.resetAt }
+      : { count: 1, resetAt: now + limit.windowMs };
+  apiHits.set(key, entry);
+
+  if (entry.count > limit.max) {
+    res.set('Retry-After', String(Math.ceil((entry.resetAt - now) / 1000)));
+    return res.status(429).json({ error: 'too many requests' });
+  }
   next();
 });
 
