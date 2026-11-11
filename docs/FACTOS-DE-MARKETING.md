@@ -32,7 +32,7 @@ Pacotes de entrada por âmbito, **sem preço de tabela** publicado (`/pacotes.ht
 - RGPD: a C&M **propõe** à clínica um acordo de subcontratação de dados antes do primeiro paciente.
   - ⚠️ Não dizer «assinamos sempre». Nos clientes em marca branca, o acordo pode passar pela Telecof.
 
-### Programas com que já ligamos os agentes (levantado a 2026-11-11; ⏳ publicar só com o OK do Mateus)
+### Programas com que já ligamos os agentes (levantado e publicado a 2026-11-11, com o «sim, publica» do Mateus)
 
 | Programa | O que fazemos | Prova |
 |---|---|---|
