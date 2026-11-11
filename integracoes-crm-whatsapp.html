@@ -180,6 +180,45 @@
           <p>Uma integração séria não tenta automatizar tudo. O desenho deve prever handoff humano para dúvidas sensíveis, negociação complexa, reclamações ou casos que precisam de contexto adicional. Quando isso acontece, o operador deve receber o histórico da conversa, o estado do lead e a próxima ação sugerida, em vez de começar do zero.</p>
           <p>Logs e idempotência são igualmente críticos. Logs permitem auditar quem recebeu o evento, que transformação foi feita e se o CRM confirmou a escrita. Idempotência evita que o mesmo webhook gere dois negócios, duas tarefas ou duas notas por engano. Em operações reais, isso é o que separa automação útil de caos invisível.</p>
 
+          <h2>Programas com que já ligamos os nossos agentes</h2>
+          <p>Estas ligações já estão a funcionar em projetos reais ou foram provadas no programa a sério, com registos de teste. Para outros programas, a primeira pergunta é sempre a mesma: o programa permite ligação por API? Se permite, liga-se; se não, o agente regista o pedido e a equipa confirma.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Programa</th>
+                <th>Para que serve</th>
+                <th>O que o agente faz</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Zappy</td>
+                <td>Agenda de clínicas</td>
+                <td>Consulta as vagas e marca, remarca e desmarca consultas</td>
+              </tr>
+              <tr>
+                <td>Treatwell</td>
+                <td>Agenda de salões e clínicas de estética</td>
+                <td>Consulta a agenda e marca sem sobrepor marcações</td>
+              </tr>
+              <tr>
+                <td>Twenty</td>
+                <td>CRM</td>
+                <td>Lê a ficha do cliente antes de responder e regista cada pedido</td>
+              </tr>
+              <tr>
+                <td>Chatwoot</td>
+                <td>Caixa de entrada partilhada da equipa</td>
+                <td>Põe as conversas do WhatsApp à frente da equipa e passa-lhe o caso quando é preciso uma pessoa</td>
+              </tr>
+              <tr>
+                <td>Google Calendar</td>
+                <td>Agenda de reuniões</td>
+                <td>Marca reuniões nas horas livres</td>
+              </tr>
+            </tbody>
+          </table>
+
           <h2>Comparação equilibrada</h2>
           <table>
             <thead>

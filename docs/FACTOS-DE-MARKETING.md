@@ -32,6 +32,22 @@ Pacotes de entrada por âmbito, **sem preço de tabela** publicado (`/pacotes.ht
 - RGPD: a C&M **propõe** à clínica um acordo de subcontratação de dados antes do primeiro paciente.
   - ⚠️ Não dizer «assinamos sempre». Nos clientes em marca branca, o acordo pode passar pela Telecof.
 
+### Programas com que já ligamos os agentes (levantado a 2026-11-11; ⏳ publicar só com o OK do Mateus)
+
+| Programa | O que fazemos | Prova |
+|---|---|---|
+| Zappy | consultar vagas, marcar, remarcar e desmarcar | provado no Zappy real a 11-11, com registos de teste apagados depois |
+| Treatwell | consultar a agenda e marcar sem sobrepor (sem cancelar: `ALLOW_TREATWELL_DESTRUCTIVE=false`) | no ar |
+| Twenty (CRM) | ler a ficha antes de responder e registar pedidos | no ar |
+| Chatwoot | caixa de entrada partilhada, passagem à equipa | no ar |
+| Google Calendar | marcar reuniões | Madalena |
+
+⛔ **Não dizer ainda:**
+- PHC: ainda é por email; a ligação direta depende do webservice da CS Software.
+- NoviGest: o token foi recusado.
+- Allin1: sem acesso.
+- «API oficial do WhatsApp»: não está confirmado em produção.
+
 ## 3. Proibido dizer
 
 - Clientes, testemunhos, avaliações, casos de estudo ou logótipos de clientes **sem autorização escrita do cliente**. Os agentes que fazemos para clientes da Telecof são em marca branca: a CMTec não aparece.
