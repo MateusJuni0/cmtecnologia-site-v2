@@ -405,6 +405,10 @@
     });
   }
 
+  /* ---------- footer year: never a hand-written © that goes stale ---------- */
+  const ano = document.getElementById('ano');
+  if (ano) ano.textContent = String(new Date().getFullYear());
+
   /* ---------- lead form → compõe WhatsApp ---------- */
   const leadForm = document.getElementById('leadForm');
   if (leadForm) {

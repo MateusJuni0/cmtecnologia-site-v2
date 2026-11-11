@@ -32,7 +32,8 @@ before(async () => {
     },
     stdio: 'ignore',
   });
-  for (let attempt = 0; attempt < 50; attempt += 1) {
+  // Up to 15 s: a busy machine took over 5 s to boot node once and failed every test.
+  for (let attempt = 0; attempt < 150; attempt += 1) {
     try {
       if ((await fetch(`${base}/healthz`)).ok) return;
     } catch {
