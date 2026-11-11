@@ -169,13 +169,13 @@
   const works = document.getElementById('works');
   if (works) {
     [
-      { img: 'scenes/cronos-fullpage.jpg', name: 'Cronos', kind: 'E-commerce de jogos · loja premium', domain: 'cronosgame.com.br', modal: 'cronos' },
-      { img: 'scenes/templates-fullpage.jpg', name: 'CM Templates Pro', kind: 'Biblioteca SaaS · 7.559 designs', domain: 'templates.cmtecnologia.pt', modal: 'templates' },
-      { img: 'scenes/painel-fullpage.jpg', name: 'Painel Boutique', kind: 'Dashboard em tempo real', domain: 'painel.cmtecnologia.pt', modal: 'painel' },
+      { img: 'scenes/cronos-thumb.jpg', name: 'Cronos', kind: 'E-commerce de jogos · loja premium', domain: 'cronosgame.com.br', modal: 'cronos' },
+      { img: 'scenes/templates-thumb.jpg', name: 'CM Templates Pro', kind: 'Biblioteca SaaS · 7.559 designs', domain: 'templates.cmtecnologia.pt', modal: 'templates' },
+      { img: 'scenes/painel-thumb.jpg', name: 'Painel Boutique', kind: 'Dashboard em tempo real', domain: 'painel.cmtecnologia.pt', modal: 'painel' },
     ].forEach((it) => {
       const c = document.createElement('button');
       c.className = 'work'; c.dataset.modal = it.modal;
-      c.innerHTML = `<span class="work-shot"><img src="${it.img}" alt="${it.name}" loading="lazy" onerror="this.closest('.work').classList.add('noimg')"/><em class="work-go">Espreitar ↗</em></span>` +
+      c.innerHTML = `<span class="work-shot"><img src="${it.img}" alt="${it.name}" width="800" height="500" loading="lazy" onerror="this.closest('.work').classList.add('noimg')"/><em class="work-go">Espreitar ↗</em></span>` +
         `<span class="work-meta"><b>${it.name}</b><small>${it.kind}</small><i>${it.domain}</i></span>`;
       works.appendChild(c);
     });

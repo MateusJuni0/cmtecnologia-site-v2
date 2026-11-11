@@ -8,7 +8,8 @@
     "start": "node server.js",
     "validate:seo": "node scripts/validate-seo.mjs",
     "validate:indexnow": "node scripts/submit-indexnow.mjs --dry-run",
-    "submit:indexnow": "node scripts/submit-indexnow.mjs"
+    "submit:indexnow": "node scripts/submit-indexnow.mjs",
+    "test": "node --test scripts/server.test.mjs"
   },
   "engines": {
     "node": ">=20"

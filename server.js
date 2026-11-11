@@ -31,17 +31,33 @@ app.use((_req, res, next) => {
   next();
 });
 
-// Canonicalise public page requests at the application layer as a fallback
-// when Cloudflare forwards the www host to this origin. Keep non-idempotent
+// Cloudflare tells the origin which scheme the visitor used in CF-Visitor.
+// X-Forwarded-Proto is not used: it can describe the tunnel's local hop, and
+// trusting it could loop https visitors. No header (Docker health check) = no redirect.
+const visitorScheme = (req) => {
+  try {
+    return JSON.parse(req.get('cf-visitor') || '{}').scheme;
+  } catch {
+    return undefined;
+  }
+};
+
+// Canonicalise public page requests at the application layer: one address,
+// https://cmtecnologia.pt, for both http:// and the www host. Keep non-idempotent
 // API requests untouched so a redirect can never change a POST into a GET.
 app.use((req, res, next) => {
   const isPublicRead = req.method === 'GET' || req.method === 'HEAD';
-  if (isPublicRead && req.hostname.toLowerCase() === 'www.cmtecnologia.pt') {
+  const isWww = req.hostname.toLowerCase() === 'www.cmtecnologia.pt';
+  if (isPublicRead && (isWww || visitorScheme(req) === 'http')) {
     return res.redirect(301, `https://cmtecnologia.pt${req.originalUrl}`);
   }
 
   next();
 });
+
+// Branded 404 (Portuguese, with a way back) instead of Express's "Cannot GET".
+const NOT_FOUND_PAGE = path.join(__dirname, '404.html');
+const notFound = (_req, res) => res.status(404).sendFile(NOT_FOUND_PAGE);
 
 // Every indexable page has one canonical public URL. Express's extensions
 // fallback is convenient, but without redirects /page and /page/ would return
@@ -49,7 +65,10 @@ app.use((req, res, next) => {
 const CANONICAL_HTML_PATHS = new Set(
   fs
     .readdirSync(__dirname)
-    .filter((fileName) => fileName.endsWith('.html') && fileName !== 'index.html')
+    .filter(
+      (fileName) =>
+        fileName.endsWith('.html') && fileName !== 'index.html' && fileName !== '404.html',
+    )
     .map((fileName) => '/' + fileName),
 );
 
@@ -158,20 +177,22 @@ app.use((req, res, next) => {
     publicPath === '/package.json' ||
     publicPath === '/package-lock.json' ||
     publicPath === '/dockerfile' ||
+    publicPath === '/404' ||
+    publicPath === '/404.html' ||
     publicPath.endsWith('.md') ||
     publicPath.includes('.bak') ||
     publicPath.startsWith('/api/') ||
     publicPath.startsWith('/docs/') ||
     publicPath.startsWith('/scripts/');
 
-  if (isPrivatePath) return res.sendStatus(404);
+  if (isPrivatePath) return notFound(req, res);
   next();
 });
 
 // Static multi-page site: index.html, app.js, styles.css, guia, robots.txt,
 // sitemap.xml, scenes/ (videos), etc. Clean URLs via the html extension.
 // dotfiles ignored so .git / .env-style paths are never served. Unknown paths
-// fall through to Express's native 404 (parity with Vercel).
+// fall through to the branded 404 page below.
 app.use(
   express.static(__dirname, {
     index: 'index.html',
@@ -185,6 +206,8 @@ app.use(
     },
   }),
 );
+
+app.use(notFound);
 
 app.listen(PORT, '0.0.0.0', () => {
   // eslint-disable-next-line no-console
