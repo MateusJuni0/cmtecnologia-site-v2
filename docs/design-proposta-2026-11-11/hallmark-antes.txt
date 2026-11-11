@@ -1,0 +1,330 @@
+styles.css
+  FAIL 2a :44 purple-to-blue gradient on .progress | fix: One anchor hue; drop the gradient
+  FAIL 2a :99 purple-to-blue gradient text on .brand-mark | fix: One anchor hue, solid ink
+  FAIL 2a :149 purple-to-blue gradient text on .grad
+  FAIL 2a :177 purple-to-blue gradient on .btn-primary
+  FAIL 2a :216 purple-to-blue gradient on .shot-badge
+  FAIL 2a :230 purple-to-blue gradient on .btn-show-ic
+  FAIL 2a :278 purple-to-blue gradient on .voice-btn
+  FAIL 2a :291 purple-to-blue gradient on .waves i
+  FAIL 2a :351 purple-to-blue gradient on .work-go
+  FAIL 2a :365 purple-to-blue gradient on .svc-ic
+  FAIL 2a :381 purple-to-blue gradient on .stat::before
+  FAIL 2a :463 purple-to-pink gradient on .ig-av
+  FAIL 2a :475 purple-to-blue gradient on .ig-tile.g-a
+  FAIL 2a :476 purple-to-blue gradient on .ig-tile.g-b
+  FAIL 6a :133 hero sized in vh: min-height: 100vh on .scene | fix: dvh or svh
+  FAIL 7a :39 pure #fff: color: #fff (::selection) | fix: Tint the base toward the anchor hue
+  FAIL 7a :124 pure #fff: color: #fff (.wa-fab)
+  FAIL 7a :241 pure #fff: color: #fff (.thumb span)
+  FAIL 7a :278 pure #fff: color: #fff (.voice-btn)
+  FAIL 7a :331 pure #fff: background: #fff (.modal-iframe)
+  FAIL 7a :479 pure #fff: color: #fff (.ig-tile b)
+  FAIL 10a :69 @keyframes eq animates height | fix: Animate transform or opacity instead
+  FAIL 10a :291 transitioning height on .waves i
+  FAIL 20 :1 no Hallmark stamp on the first non-empty line of any CSS | fix: The stamp comment is line 1 of the CSS; only @charset may precede it
+  FAIL 34 :553 width: 100vw on .modal-card, .modal-card.wide (scrollbar overflow) | fix: width: 100% with container padding
+  FAIL 39a :259 focus state via border on .wa-input input:focus | fix: Focus ring via outline, not border
+  FAIL 39a :263 disabled via opacity alone on .wa-input button:disabled | fix: Three disabled channels: fill, ink and cursor, plus the disabled attribute
+  FAIL 47a :199 re-drawn chrome selector .browser-bar | fix: Use a real screenshot in a figure
+  FAIL 48 :39 colour literal rgba(139,92,246,.4) outside tokens (background on ::selection) | fix: Lift the value into the token block
+  FAIL 48 :39 colour literal #fff outside tokens (color on ::selection)
+  FAIL 48 :45 colour literal rgba(139,92,246,.6) outside tokens (box-shadow on .progress)
+  FAIL 48 :60 colour literal rgba(14,8,32,.5) outside tokens (background on .sound-btn)
+  FAIL 48 :75 colour literal rgba(11,6,22,.66) outside tokens (background on .scrim)
+  FAIL 48 :75 colour literal rgba(11,6,22,.36) outside tokens (background on .scrim)
+  FAIL 48 :75 colour literal rgba(11,6,22,.05) outside tokens (background on .scrim)
+  FAIL 48 :75 colour literal rgba(11,6,22,.5) outside tokens (background on .scrim)
+  FAIL 48 :93 colour literal rgba(11,6,22,.62) outside tokens (background on .nav.scrolled)
+  FAIL 48 :110 colour literal #0a0712 outside tokens (color on .btn-quote)
+  FAIL 48 :112 colour literal rgba(45,212,167,.6) outside tokens (box-shadow on .btn-quote)
+  FAIL 48 :114 colour literal rgba(45,212,167,.7) outside tokens (box-shadow on .btn-quote:hover)
+  FAIL 48 :117 colour literal rgba(14,8,32,.55) outside tokens (background on .nav-toggle)
+  FAIL 48 :124 colour literal #fff outside tokens (color on .wa-fab)
+  FAIL 48 :124 colour literal #25d366 outside tokens (background on .wa-fab)
+  FAIL 48 :124 colour literal #1faa55 outside tokens (background on .wa-fab)
+  FAIL 48 :124 colour literal rgba(37,211,102,.65) outside tokens (box-shadow on .wa-fab)
+  FAIL 48 :124 colour literal rgba(255,255,255,.08) outside tokens (box-shadow on .wa-fab)
+  FAIL 48 :126 colour literal rgba(37,211,102,.85) outside tokens (box-shadow on .wa-fab:hover)
+  FAIL 48 :127 colour literal rgba(37,211,102,.6) outside tokens (box-shadow on 0%, 100%)
+  FAIL 48 :127 colour literal rgba(37,211,102,.45) outside tokens (box-shadow on 0%, 100%)
+  FAIL 48 :127 colour literal rgba(37,211,102,.6) outside tokens (box-shadow on 50%)
+  FAIL 48 :150 colour literal #dcd6f3 outside tokens (color on .lede)
+  FAIL 48 :150 colour literal rgba(8,4,18,.85) outside tokens (text-shadow on .lede)
+  FAIL 48 :150 colour literal rgba(8,4,18,.6) outside tokens (text-shadow on .lede)
+  FAIL 48 :157 colour literal rgba(8,4,18,.6) outside tokens (text-shadow on h1, h2)
+  FAIL 48 :158 colour literal rgba(8,4,18,.6) outside tokens (text-shadow on .kicker)
+  FAIL 48 :159 colour literal rgba(8,4,18,.7) outside tokens (text-shadow on .ticks li)
+  FAIL 48 :161 colour literal rgba(9,5,20,.9) outside tokens (background on .wrap.center::before)
+  FAIL 48 :161 colour literal rgba(9,5,20,.58) outside tokens (background on .wrap.center::before)
+  FAIL 48 :177 colour literal #0a0712 outside tokens (color on .btn-primary)
+  FAIL 48 :177 colour literal rgba(139,92,246,.7) outside tokens (box-shadow on .btn-primary)
+  FAIL 48 :178 colour literal rgba(139,92,246,.8) outside tokens (box-shadow on .btn-primary:hover)
+  FAIL 48 :179 colour literal rgba(255,255,255,.04) outside tokens (background on .btn-ghost)
+  FAIL 48 :180 colour literal rgba(255,255,255,.09) outside tokens (background on .btn-ghost:hover)
+  FAIL 48 :196 colour literal #0c0a18 outside tokens (background on .browser)
+  FAIL 48 :196 colour literal rgba(80,40,180,.7) outside tokens (box-shadow on .browser)
+  FAIL 48 :196 colour literal rgba(255,255,255,.03) outside tokens (box-shadow on .browser)
+  FAIL 48 :199 colour literal rgba(255,255,255,.05) outside tokens (background on .browser-bar)
+  FAIL 48 :201 colour literal #ff5f57 outside tokens (background on .browser-bar i:nth-child(1))
+  FAIL 48 :201 colour literal #febc2e outside tokens (background on .browser-bar i:nth-child(2))
+  FAIL 48 :201 colour literal #28c840 outside tokens (background on .browser-bar i:nth-child(3))
+  FAIL 48 :203 colour literal #0a0818 outside tokens (background on .browser-screen)
+  FAIL 48 :216 colour literal #0a0712 outside tokens (color on .shot-badge)
+  FAIL 48 :218 colour literal rgba(11,6,22,.58) outside tokens (background on .has-device::before)
+  FAIL 48 :218 colour literal rgba(11,6,22,.86) outside tokens (background on .has-device::before)
+  FAIL 48 :227 colour literal rgba(255,255,255,.08) outside tokens (background on .btn-show:hover)
+  FAIL 48 :229 colour literal #0a0712 outside tokens (color on .btn-show-ic)
+  FAIL 48 :237 colour literal #0c0a18 outside tokens (background on .thumb)
+  FAIL 48 :241 colour literal #fff outside tokens (color on .thumb span)
+  FAIL 48 :241 colour literal #000 outside tokens (text-shadow on .thumb span)
+  FAIL 48 :247 colour literal #07060f outside tokens (background on .phone)
+  FAIL 48 :248 colour literal rgba(56,189,248,.45) outside tokens (box-shadow on .phone)
+  FAIL 48 :248 colour literal rgba(139,92,246,.55) outside tokens (box-shadow on .phone)
+  FAIL 48 :248 colour literal rgba(0,0,0,.5) outside tokens (box-shadow on .phone)
+  FAIL 48 :250 colour literal #07060f outside tokens (background on .phone-notch)
+  FAIL 48 :251 colour literal #0e1c2b outside tokens (background on .wa)
+  FAIL 48 :251 colour literal #0b1622 outside tokens (background on .wa)
+  FAIL 48 :252 colour literal rgba(255,255,255,.05) outside tokens (background on .wa-top)
+  FAIL 48 :252 colour literal rgba(255,255,255,.06) outside tokens (border-bottom on .wa-top)
+  FAIL 48 :253 colour literal #0a0712 outside tokens (color on .wa-av)
+  FAIL 48 :255 colour literal #7fd6a8 outside tokens (color on .wa-top small)
+  FAIL 48 :257 colour literal rgba(255,255,255,.05) outside tokens (background on .wa-input)
+  FAIL 48 :257 colour literal rgba(255,255,255,.07) outside tokens (border-top on .wa-input)
+  FAIL 48 :258 colour literal #0c1722 outside tokens (background on .wa-input input)
+  FAIL 48 :258 colour literal rgba(255,255,255,.1) outside tokens (border on .wa-input input)
+  FAIL 48 :258 colour literal #eafff5 outside tokens (color on .wa-input input)
+  FAIL 48 :260 colour literal #6f8597 outside tokens (color on .wa-input input::placeholder)
+  FAIL 48 :261 colour literal #04210f outside tokens (color on .wa-input button)
+  FAIL 48 :265 colour literal #1f2c3a outside tokens (background on .bub.in)
+  FAIL 48 :266 colour literal #134d37 outside tokens (background on .bub.out)
+  FAIL 48 :266 colour literal #eafff5 outside tokens (color on .bub.out)
+  FAIL 48 :267 colour literal rgba(255,255,255,.45) outside tokens (color on .bub small)
+  FAIL 48 :269 colour literal #1f2c3a outside tokens (background on .typing)
+  FAIL 48 :270 colour literal #8aa0b4 outside tokens (background on .typing i)
+  FAIL 48 :278 colour literal #fff outside tokens (color on .voice-btn)
+  FAIL 48 :279 colour literal rgba(139,92,246,.5) outside tokens (box-shadow on .voice-btn)
+  FAIL 48 :281 colour literal rgba(139,92,246,.5) outside tokens (border on .voice-btn::after)
+  FAIL 48 :284 colour literal #ff5f57 outside tokens (background on .voice-btn.live)
+  FAIL 48 :284 colour literal #febc2e outside tokens (background on .voice-btn.live)
+  FAIL 48 :285 colour literal #2dd4a7 outside tokens (background on .voice-btn.st-listen)
+  FAIL 48 :285 colour literal #38bdf8 outside tokens (background on .voice-btn.st-listen)
+  FAIL 48 :286 colour literal #a78bfa outside tokens (background on .voice-btn.st-think)
+  FAIL 48 :286 colour literal #8b5cf6 outside tokens (background on .voice-btn.st-think)
+  FAIL 48 :287 colour literal #fbbf24 outside tokens (background on .voice-btn.st-speak)
+  FAIL 48 :287 colour literal #fb923c outside tokens (background on .voice-btn.st-speak)
+  FAIL 48 :298 colour literal rgba(139,92,246,.25) outside tokens (background on .vline.ines .who)
+  FAIL 48 :299 colour literal rgba(56,189,248,.18) outside tokens (background on .vline.user .who)
+  FAIL 48 :304 colour literal rgba(139,92,246,.18) outside tokens (border on .orbit .ring)
+  FAIL 48 :308 colour literal rgba(0,0,0,.6) outside tokens (box-shadow on .orbit .ic)
+  FAIL 48 :314 colour literal rgba(6,3,14,.7) outside tokens (background on .modal-backdrop)
+  FAIL 48 :319 colour literal #0c0a18 outside tokens (background on .modal-card)
+  FAIL 48 :320 colour literal rgba(80,40,180,.85) outside tokens (box-shadow on .modal-card)
+  FAIL 48 :324 colour literal rgba(255,255,255,.04) outside tokens (background on .modal-head)
+  FAIL 48 :327 colour literal rgba(255,255,255,.05) outside tokens (background on .modal-mini)
+  FAIL 48 :328 colour literal rgba(255,255,255,.12) outside tokens (background on .modal-mini:hover)
+  FAIL 48 :329 colour literal #0a0818 outside tokens (background on .modal-viewport)
+  FAIL 48 :331 colour literal #fff outside tokens (background on .modal-iframe)
+  FAIL 48 :333 colour literal #0a0818 outside tokens (background on .modal-viewport.loading::after)
+  FAIL 48 :344 colour literal rgba(80,40,180,.8) outside tokens (box-shadow on .work:hover)
+  FAIL 48 :345 colour literal #0c0a18 outside tokens (background on .work-shot)
+  FAIL 48 :348 colour literal #1a1030 outside tokens (background on .work.noimg .work-shot)
+  FAIL 48 :348 colour literal #0c0a18 outside tokens (background on .work.noimg .work-shot)
+  FAIL 48 :351 colour literal #0a0712 outside tokens (color on .work-go)
+  FAIL 48 :364 colour literal rgba(255,255,255,.06) outside tokens (background on .svc:hover)
+  FAIL 48 :365 colour literal rgba(139,92,246,.22) outside tokens (background on .svc-ic)
+  FAIL 48 :365 colour literal rgba(56,189,248,.14) outside tokens (background on .svc-ic)
+  FAIL 48 :372 colour literal rgba(22,15,40,.40) outside tokens (background on .panel)
+  FAIL 48 :372 colour literal rgba(10,7,20,.54) outside tokens (background on .panel)
+  FAIL 48 :372 colour literal rgba(255,255,255,.14) outside tokens (border on .panel)
+  FAIL 48 :372 colour literal rgba(0,0,0,.62) outside tokens (box-shadow on .panel)
+  FAIL 48 :372 colour literal rgba(255,255,255,.08) outside tokens (box-shadow on .panel)
+  FAIL 48 :375 colour literal rgba(8,4,18,.6) outside tokens (text-shadow on .panel .lede)
+  FAIL 48 :376 colour literal rgba(8,4,18,.5) outside tokens (text-shadow on .panel p, .panel small, .pane…)
+  FAIL 48 :380 colour literal rgba(255,255,255,.045) outside tokens (background on .stat)
+  FAIL 48 :380 colour literal rgba(255,255,255,.09) outside tokens (border on .stat)
+  FAIL 48 :387 colour literal rgba(255,255,255,.1) outside tokens (border-bottom on .faq-item)
+  FAIL 48 :400 colour literal rgba(255,255,255,.06) outside tokens (background on .lead-form input, .lead-form …)
+  FAIL 48 :401 colour literal rgba(179,172,214,.65) outside tokens (color on .lead-form input::placeholder…)
+  FAIL 48 :402 colour literal rgba(255,255,255,.09) outside tokens (background on .lead-form input:focus, .lead…)
+  FAIL 48 :412 colour literal #1faa55 outside tokens (background on .wa-cta)
+  FAIL 48 :412 colour literal #25d366 outside tokens (background on .wa-cta)
+  FAIL 48 :412 colour literal #042713 outside tokens (color on .wa-cta)
+  FAIL 48 :414 colour literal rgba(37,211,102,.7) outside tokens (box-shadow on .wa-cta)
+  FAIL 48 :416 colour literal rgba(37,211,102,.85) outside tokens (box-shadow on .wa-cta:hover)
+  FAIL 48 :417 colour literal #042713 outside tokens (color on .wa-ico)
+  FAIL 48 :425 colour literal rgba(8,5,16,.4) outside tokens (background on .foot)
+  FAIL 48 :425 colour literal rgba(8,5,16,.82) outside tokens (background on .foot)
+  FAIL 48 :429 colour literal rgba(139,92,246,.45) outside tokens (filter on .foot-logo)
+  FAIL 48 :432 colour literal #5bf0b0 outside tokens (color on .foot-wa:hover)
+  FAIL 48 :434 colour literal rgba(255,255,255,.06) outside tokens (background on .foot-socials a)
+  FAIL 48 :435 colour literal rgba(255,255,255,.1) outside tokens (background on .foot-socials a:hover)
+  FAIL 48 :448 colour literal rgba(139,92,246,.4) outside tokens (filter on .foot-base-logo)
+  FAIL 48 :458 colour literal rgba(139,92,246,.45) outside tokens (filter on .brand-logo)
+  FAIL 48 :461 colour literal #15101f outside tokens (background on .ig)
+  FAIL 48 :461 colour literal #0c0a16 outside tokens (background on .ig)
+  FAIL 48 :463 colour literal #f15bb5 outside tokens (background on .ig-av)
+  FAIL 48 :464 colour literal #0c0a16 outside tokens (background on .ig-av img)
+  FAIL 48 :472 colour literal #1a1030 outside tokens (background on .ig-tile)
+  FAIL 48 :475 colour literal #6d28d9 outside tokens (background on .ig-tile.g-a)
+  FAIL 48 :475 colour literal #38bdf8 outside tokens (background on .ig-tile.g-a)
+  FAIL 48 :476 colour literal #0e7490 outside tokens (background on .ig-tile.g-b)
+  FAIL 48 :476 colour literal #8b5cf6 outside tokens (background on .ig-tile.g-b)
+  FAIL 48 :477 colour literal #9a3412 outside tokens (background on .ig-tile.g-c)
+  FAIL 48 :477 colour literal #7c3aed outside tokens (background on .ig-tile.g-c)
+  FAIL 48 :478 colour literal rgba(255,255,255,.85) outside tokens (color on .ig-tile .ig-k)
+  FAIL 48 :479 colour literal #fff outside tokens (color on .ig-tile b)
+  FAIL 48 :479 colour literal rgba(0,0,0,.45) outside tokens (text-shadow on .ig-tile b)
+  FAIL 48 :480 colour literal rgba(255,255,255,.75) outside tokens (border on .ig-tile .ig-dots)
+  FAIL 48 :481 colour literal #b5179e outside tokens (background on .ig-cta)
+  FAIL 48 :481 colour literal #f15bb5 outside tokens (background on .ig-cta)
+  FAIL 48 :481 colour literal #fbbf24 outside tokens (background on .ig-cta)
+  FAIL 48 :481 colour literal #2a0a24 outside tokens (color on .ig-cta)
+  FAIL 48 :481 colour literal rgba(241,91,181,.7) outside tokens (box-shadow on .ig-cta)
+  FAIL 48 :494 colour literal #0d0820 outside tokens (background on .nav-links)
+  FAIL 48 :494 colour literal #07040e outside tokens (background on .nav-links)
+  FAIL 48 :501 colour literal rgba(11,6,22,.32) outside tokens (background on .scrim)
+  FAIL 48 :501 colour literal rgba(11,6,22,.5) outside tokens (background on .scrim)
+  FAIL 48 :501 colour literal rgba(11,6,22,.72) outside tokens (background on .scrim)
+  FAIL 50 :138 bare 1fr track holds images (.split) | fix: Use minmax(0, 1fr) for image tracks
+  FAIL 50 :427 bare 1.6fr track holds images (.foot-grid)
+  FAIL 50 :497 bare 1fr track holds images (.split)
+  FAIL 50 :506 bare 1fr track holds images (.foot-grid)
+  FAIL 50 :563 bare 1fr track holds images (.foot-grid)
+  FAIL 62 :216 .shot-badge is hidden at rest (opacity: 0) and depends on a script to appear | fix: Visible by default: scope the hidden state under a .js class the script adds, or animate from visible with @starting-style
+  FAIL 62 :352 .work-go is hidden at rest (opacity: 0) and depends on a script to appear
+  FAIL 62 :484 .reveal is hidden at rest (opacity: 0) and depends on a script to appear
+  FAIL 67 :60 .sound-btn: uppercase control tracked 0.14em | fix: Controls follow the display voice: sentence case here, or tracking 0.04em at most where the display itself is uppercase
+  FAIL 67 :141 .kicker: uppercase tracked 0.26em at 13px in a label role | fix: Labels, captions, table heads, nav links and meta are the body face (or the theme's label face), a step smaller, sentence case, untracked
+  FAIL 67 :154 .hero-meta: letter-spaced tracked 0.04em at 12px in a label role
+  FAIL 67 :184 .scrollhint: uppercase tracked 0.26em at 11px in a label role
+  FAIL 67 :478 .ig-tile .ig-k: uppercase tracked 0.1em at 7px in a label role
+  REFLEX 24b :60 gap: 10px (off the 4px scale) on .sound-btn | fix: Use the 4px spacing scale
+  REFLEX 24b :60 padding: 10px 16px (off the 4px scale) on .sound-btn
+  REFLEX 24b :70 padding: 11px (off the 4px scale) on .sound-btn
+  REFLEX 24b :87 gap: 18px (off the 4px scale) on .nav
+  REFLEX 24b :88 padding: 18px clamp(18px, 4vw, 54px) (off the 4px scale) on .nav
+  REFLEX 24b :94 padding-top: 13px (off the 4px scale) on .nav.scrolled
+  REFLEX 24b :94 padding-bottom: 13px (off the 4px scale) on .nav.scrolled
+  REFLEX 24b :111 padding: 11px 20px (off the 4px scale) on .btn-quote
+  REFLEX 24b :117 gap: 5px (off the 4px scale) on .nav-toggle
+  REFLEX 24b :134 padding: 120px clamp(18px, 6vw, 90px) (off the 4px scale) on .scene
+  REFLEX 24b :138 gap: clamp(28px, 5vw, 70px) (off the 4px scale) on .split
+  REFLEX 24b :143 margin-bottom: 22px (off the 4px scale) on .kicker
+  REFLEX 24b :150 margin-top: 26px (off the 4px scale) on .lede
+  REFLEX 24b :162 margin-top: 26px (off the 4px scale) on .ticks
+  REFLEX 24b :163 padding-left: 30px (off the 4px scale) on .ticks li
+  REFLEX 24b :170 gap: 14px (off the 4px scale) on .hero-cta
+  REFLEX 24b :174 padding: 16px 30px (off the 4px scale) on .btn-primary, .btn-ghost
+  REFLEX 24b :174 gap: 10px (off the 4px scale) on .btn-primary, .btn-ghost
+  REFLEX 24b :199 padding: 11px 16px (off the 4px scale) on .browser-bar
+  REFLEX 24b :216 padding: 9px 18px (off the 4px scale) on .shot-badge
+  REFLEX 24b :222 margin-top: 34px (off the 4px scale) on .btn-show
+  REFLEX 24b :224 padding: 16px 24px 16px 18px (off the 4px scale) on .btn-show
+  REFLEX 24b :234 gap: 14px (off the 4px scale) on .thumbs
+  REFLEX 24b :234 margin-top: 30px (off the 4px scale) on .thumbs
+  REFLEX 24b :252 gap: 10px (off the 4px scale) on .wa-top
+  REFLEX 24b :252 padding: 30px 16px 12px (off the 4px scale) on .wa-top
+  REFLEX 24b :256 padding: 16px 14px (off the 4px scale) on .wa-body
+  REFLEX 24b :256 gap: 9px (off the 4px scale) on .wa-body
+  REFLEX 24b :257 padding: 9px 10px (off the 4px scale) on .wa-input
+  REFLEX 24b :258 padding: 9px 14px (off the 4px scale) on .wa-input input
+  REFLEX 24b :264 padding: 9px 13px (off the 4px scale) on .bub
+  REFLEX 24b :267 margin-top: 3px (off the 4px scale) on .bub small
+  REFLEX 24b :269 padding: 12px 14px (off the 4px scale) on .typing
+  REFLEX 24b :275 gap: 22px (off the 4px scale) on .voice
+  REFLEX 24b :290 gap: 5px (off the 4px scale) on .waves
+  REFLEX 24b :295 gap: 10px (off the 4px scale) on .voice-script
+  REFLEX 24b :296 gap: 10px (off the 4px scale) on .vline
+  REFLEX 24b :297 padding: 3px 9px (off the 4px scale) on .vline .who
+  REFLEX 24b :324 padding: 14px 16px (off the 4px scale) on .modal-head
+  REFLEX 24b :338 gap: 18px (off the 4px scale) on .works
+  REFLEX 24b :338 margin-top: 38px (off the 4px scale) on .works
+  REFLEX 24b :351 padding: 7px 13px (off the 4px scale) on .work-go
+  REFLEX 24b :355 gap: 3px (off the 4px scale) on .work-meta
+  REFLEX 24b :355 padding: 16px 18px 18px (off the 4px scale) on .work-meta
+  REFLEX 24b :362 margin-top: 42px (off the 4px scale) on .services
+  REFLEX 24b :363 padding: 24px 22px (off the 4px scale) on .svc
+  REFLEX 24b :363 gap: 9px (off the 4px scale) on .svc
+  REFLEX 24b :372 padding: clamp(28px, 4.2vw, 54px) (off the 4px scale) on .panel
+  REFLEX 24b :379 gap: 14px (off the 4px scale) on .about-stats
+  REFLEX 24b :380 padding: 20px 18px (off the 4px scale) on .stat
+  REFLEX 24b :382 margin-bottom: 7px (off the 4px scale) on .stat b
+  REFLEX 24b :386 margin-top: 26px (off the 4px scale) on .faq
+  REFLEX 24b :389 padding: 19px 42px 19px 2px (off the 4px scale) on .faq-item summary
+  REFLEX 24b :395 padding: 0 30px 22px 2px (off the 4px scale) on .faq-item p
+  REFLEX 24b :400 padding: 14px 16px (off the 4px scale) on .lead-form input, .lead-form textarea
+  REFLEX 24b :411 margin-top: 30px (off the 4px scale) on .wa-cta
+  REFLEX 24b :411 gap: 14px (off the 4px scale) on .wa-cta
+  REFLEX 24b :413 padding: 13px 22px 13px 15px (off the 4px scale) on .wa-cta
+  REFLEX 24b :429 margin-bottom: 18px (off the 4px scale) on .foot-logo
+  REFLEX 24b :431 gap: 9px (off the 4px scale) on .foot-wa
+  REFLEX 24b :431 margin-top: 18px (off the 4px scale) on .foot-wa
+  REFLEX 24b :433 gap: 10px (off the 4px scale) on .foot-socials
+  REFLEX 24b :437 gap: 11px (off the 4px scale) on .foot-col
+  REFLEX 24b :442 margin-top: 6px (off the 4px scale) on .foot-cta
+  REFLEX 24b :444 padding-top: 22px (off the 4px scale) on .foot-base
+  REFLEX 24b :445 gap: 14px (off the 4px scale) on .foot-base
+  REFLEX 24b :461 padding: 26px 14px 14px (off the 4px scale) on .ig
+  REFLEX 24b :467 gap: 18px (off the 4px scale) on .ig-stats
+  REFLEX 24b :494 gap: 30px (off the 4px scale) on .nav-links
+  REFLEX 24b :497 gap: 30px (off the 4px scale) on .split
+  REFLEX 24b :499 padding: 110px clamp(18px, 6vw, 40px) (off the 4px scale) on .scene
+  REFLEX 24b :521 padding: 78px 18px 58px (off the 4px scale) on .scene
+  REFLEX 24b :537 margin-bottom: 15px (off the 4px scale) on .kicker
+  REFLEX 24b :538 margin-top: 18px (off the 4px scale) on .lede
+  REFLEX 24b :539 gap: 10px (off the 4px scale) on .hero-cta
+  REFLEX 24b :540 padding: 13px 22px (off the 4px scale) on .btn-primary, .btn-ghost
+  REFLEX 24b :541 margin-top: 18px (off the 4px scale) on .ticks
+  REFLEX 24b :541 gap: 9px (off the 4px scale) on .ticks
+  REFLEX 24b :542 padding-left: 26px (off the 4px scale) on .ticks li
+  REFLEX 24b :557 gap: 14px (off the 4px scale) on .works
+  REFLEX 24b :559 padding: 20px 18px (off the 4px scale) on .svc
+  REFLEX 24b :562 padding: 46px 20px 30px (off the 4px scale) on .foot
+  REFLEX 24b :569 gap: 10px (off the 4px scale) on .foot-base
+  REFLEX 26b :1 no :active styling anywhere | fix: All eight states; guard: not a form control, no aria-disabled anywhere
+  REFLEX 38iii :149 accented word inside a heading (.grad) | fix: Set the whole head one way: a line break, a second line at a second size, or the whole head in the accent. Guard: the theme names the coloured word as its signature and it appears once on the page, in the hero
+  REFLEX 47b :250 re-drawn chrome selector .phone-notch | fix: Use a real screenshot in a figure
+  WARN 10b :89 transitioning padding on .nav | fix: Animate transform or opacity instead
+  WARN 11 :344 the hover lift (translateY plus shadow) on 4 selectors (.btn-quote, .btn-primary, .work) | fix: One signal per element; the same lift on every card is the template
+  WARN 11 :347 image transforms on hover (.work:hover .work-shot img) | fix: Imagery sits still; give the container the feedback
+  WARN 18 :189 infinite animation on .scrollhint .bar with no pause state | fix: Pause on hover and focus
+  WARN 29 :60 glass panel: backdrop-filter blur over a translucent black on .sound-btn | fix: Solid or grained surface; elevation by lightness
+  WARN 29 :93 glass panel: backdrop-filter blur over a translucent black on .nav.scrolled
+  WARN 29 :117 glass panel: backdrop-filter blur over a translucent black on .nav-toggle
+  WARN 29 :225 glass panel: backdrop-filter blur over a translucent white on .btn-show
+  WARN 29 :307 glass panel: backdrop-filter blur over a translucent white on .orbit .ic
+  WARN 29 :314 glass panel: backdrop-filter blur over a translucent black on .modal-backdrop
+  WARN 29 :363 glass panel: backdrop-filter blur over a translucent white on .svc
+  WARN 41 :319 dark surface (L 16%) on .modal-card sets no text colour | fix: Swap text to paper in the same rule
+  WARN 74 :18 default Tailwind palette #8b5cf6 on --violet | fix: Mix the colour for this page in OKLCH; a stock swatch is the AI look
+  WARN F3 :147 no text-wrap: balance on any display head (6 head rule(s), e.g. h1) | fix: Add text-wrap: balance to h1/h2-level heads
+  WARN F24 :196 a hairline border under a wide soft shadow on .browser | fix: Commit to one: a defined edge, or elevation by shadow
+index.html
+  FAIL 19 :277 dash "—" in copy | fix: A comma, a colon, a full stop or parentheses; never a dash
+  FAIL 30a :388 emoji icon "☎" in <span class="voice-ic"> | fix: One icon library or custom SVG
+  FAIL 30a :510 text opens with an emoji: "📍 Lisboa, Portugal" | fix: One icon library, a custom SVG, or the word alone
+  FAIL 30a :511 text opens with an emoji: "⏰ Seg–Sex · 9h–18h"
+  FAIL 47a :287 re-drawn chrome class "browser-bar" (class="browser-bar")
+  FAIL 54 :258 eyebrow "C&M Tecnologia · Software House" before <h1> | fix: Cut it; the heading already says this (craft.md § 7 has twelve other openings)
+  FAIL 54 :275 eyebrow "O seu painel de gestão" before <h2>
+  FAIL 54 :301 eyebrow "Trabalhos" before <h2>
+  FAIL 54 :313 eyebrow "O WhatsApp que vende por si" before <h2>
+  FAIL 54 :347 eyebrow "Redes sociais no automático" before <h2>
+  FAIL 54 :382 eyebrow "Atendimento por voz" before <h2>
+  FAIL 54 :403 eyebrow "Sobre nós" before <h2>
+  FAIL 54 :420 eyebrow "Perguntas frequentes" before <h2>
+  FAIL 54 :443 eyebrow "Vamos a isto" before <h2>
+  FAIL 63 :301 decorative status dots (dot) repeated across the page | fix: Delete them; a dot means live state, and only where it is one
+  FAIL 63 :455 arrow glued to the label "Enviar pedido →" | fix: A verb as the label; the link already says it goes somewhere
+  FAIL 63 :513 arrow glued to the label "Solicitar orçamento →"
+  FAIL 76 :543 an <img> with no source | fix: Give it the real image, make it a data-slot placeholder, or remove it
+  REFLEX 47b :329 re-drawn chrome class "notch" (class="phone-notch")
+  WARN 42 :234 default nav shape: 6 links + CTA + 1px hairline | fix: Give the nav a shape of its own (layout.md, navs)
+  WARN 49 :393 long clickable label "ou vê um exemplo de conversa ↓" without nowrap | fix: Shorten the label or set nowrap
+  WARN 58 :1 1488 visible words on the page (450 at most) | fix: Cut copy: one idea per screen, sections become objects
+  WARN 58 :259 h1 runs 8 words ("Todo o seu negócio, a trabalhar por si.") | fix: Seven words or fewer, 50 characters or fewer
+  WARN 58 :260 hero paragraph runs 44 words | fix: One sentence, twelve words or fewer
+  WARN F1 :430 straight quote in prose x4 (first: mos consigo sem "informatiquês".) | fix: Use typographic quotes: “ ” ’
+  WARN F4 :265 two filled buttons side by side in the hero: "Solicitar Orçamento" and "Ver o que fazemos" | fix: One filled primary per screen; the second action is outlined or a typographic link
+sloplint: 218 FAIL, 87 REFLEX, 22 WARN across 2 file(s).
