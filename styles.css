@@ -566,7 +566,7 @@ h1, h2 { text-shadow: 0 3px 24px rgba(8,4,18,.6); }
   .foot-col:last-child { grid-column: 1 / -1; }
   .foot-socials { justify-content: center; }
   .foot-wa { justify-content: center; }
-  .foot-base { flex-direction: column-reverse; gap: 10px; text-align: center; }
+  .foot-base { flex-direction: column-reverse; gap: 10px; text-align: center; padding-bottom: 84px; } /* room for the fixed WhatsApp and music buttons */
   .wa-cta { width: 100%; justify-content: center; }
 }
 

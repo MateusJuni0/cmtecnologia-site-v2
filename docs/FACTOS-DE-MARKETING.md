@@ -14,6 +14,8 @@
 | WhatsApp | +351 964 977 047 (`https://wa.me/351964977047`) | site |
 | Site | https://cmtecnologia.pt | — |
 | Instagram | @cm.tecnologia | perfil real, link na bio para o site |
+| NIF | 311 848 710 (empresário em nome individual; nome legal na política de privacidade) | política de privacidade; no rodapé desde 11-11 |
+| Agentes em produção | Os agentes que fazemos atendem clientes reais de empresas em Portugal (voz e WhatsApp). ⛔ Sem número, sem nomes e sem «todos os dias» | verificado a 11-11 (Bleem, Águas Sublimes e Sparkes no ar; nomes NÃO públicos) |
 | Produtos nossos | Madalena (assistente de WhatsApp), Inês (assistente de voz), painel de gestão, Cronos Game (loja nossa, no Brasil) | site |
 
 ## 2. O que vendemos (pode dizer-se)
