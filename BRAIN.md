@@ -1,5 +1,45 @@
 # BRAIN.md — cmtecnologia-site-v2
 
+## ▶️ Onde parámos (2026-11-11, noite) — ler primeiro
+
+**No ar (imagem `38305be`, deploy por `scripts/deploy-vps.sh`).**
+
+- **SEO e segurança:**
+  - um só endereço (`http` → `https`, pelo `CF-Visitor`);
+  - página 404 com marca;
+  - telemóvel com LCP de 17,3 s para 3,8 s;
+  - dependências sem falhas;
+  - CSP;
+  - antirrobô (campo `hp` e limites por IP em `/api/*`);
+  - botões de pelo menos 44 px.
+- **Para as IAs nos recomendarem:**
+  - página `/rececionista-virtual-voz-clinicas.html`;
+  - lista de programas a que ligamos (Zappy, Treatwell, Twenty, Chatwoot, Google Calendar) na página de integrações e no `llms.txt`;
+  - «Sobre» com factos em vez do «começámos há pouco»;
+  - NIF em todos os rodapés e `taxID` no `#org`.
+- **Fora do repo:**
+  - avisos de leads no Telegram corrigidos (bot do Lince no `cmtec-site.env`);
+  - DMARC `p=none` com relatórios no DMARC Management da Cloudflare.
+
+**Suite:** `npm test` (12 testes do servidor) + `npm run validate:seo` (21 páginas, 19 no feed) + `validate:indexnow` + `npm audit --omit=dev`.
+
+**Começar amanhã por:**
+
+1. **Mostrar ao Mateus a proposta de design**, que ele ainda não viu.
+   - Está no ramo `design/unslop-proposta-2026-11-11` (`docs/design-proposta-2026-11-11/`: imagens antes e depois e o LEIA-ME).
+   - ⚠️ O ramo parte de `24da431`: antes de juntar, fazer rebase sobre o `main` e mudar o `validate-seo.mjs`.
+2. **Decisões dele por tomar:**
+   - o `geral@` não recebe (não há MX);
+   - o telefone `tel:`;
+   - se o TikTok e o LinkedIn do `sameAs` são nossos.
+3. **Parte dele no plano das IAs** (`docs/seo/ai-visibility-2026-11-11.md`):
+   - o vídeo do perfil Google;
+   - 1 caso de estudo autorizado;
+   - os perfis Sortlist, Clutch e LinkedIn.
+4. **Daqui a 2 a 4 semanas:** voltar a fazer as mesmas perguntas às IAs.
+
+Factos que se podem publicar: `docs/FACTOS-DE-MARKETING.md`.
+
 ## Pendentes adiados por decisão do Mateus (2026-07-17)
 
 Não executar durante o loop técnico atual; retomar depois com confirmação humana:
