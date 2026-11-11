@@ -1,0 +1,5 @@
+/* Proposta de design 2026-11-11: o resto está aplicado direto no styles.css. */
+.kicker .dot { display: none; }
+h1, h2 { font-weight: 600; }
+.ticks li::before { content: ""; top: .75em; width: 14px; height: 2px; background: var(--violet-2); }
+.wa-fab { animation: none; }
