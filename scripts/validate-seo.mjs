@@ -40,8 +40,8 @@ const sitemapUrls = [...sitemap.matchAll(/<loc>(https:\/\/cmtecnologia\.pt\/[^<]
   ([, url]) => url,
 );
 
-if (sitemapUrls.length !== 20) {
-  errors.push(`sitemap.xml: expected 20 canonical URLs, found ${sitemapUrls.length}`);
+if (sitemapUrls.length !== 21) {
+  errors.push(`sitemap.xml: expected 21 canonical URLs, found ${sitemapUrls.length}`);
 }
 
 const duplicateSitemapUrls = sitemapUrls.filter(
@@ -79,6 +79,7 @@ const evidenceRequiredPaths = new Set([
   'painel-gestao-negocio.html',
   'calculadora-roi.html',
   'guia-automacao-ia.html',
+  'rececionista-virtual-voz-clinicas.html',
 ]);
 
 for (const pageUrl of sitemapUrls) {
@@ -156,7 +157,7 @@ for (const pageUrl of sitemapUrls) {
     if (!/<dfn\b/i.test(answerFirstWindow)) {
       errors.push(`${relativePath}: missing semantic dfn near the h1`);
     }
-    if (!/(?:2026-07-17|17 de julho de 2026)/i.test(answerFirstWindow)) {
+    if (!/\b20\d{2}-\d{2}-\d{2}\b|\b\d{1,2} de (?:janeiro|fevereiro|março|abril|maio|junho|julho|agosto|setembro|outubro|novembro|dezembro) de 20\d{2}\b/i.test(answerFirstWindow)) {
       errors.push(`${relativePath}: missing visible freshness signal near the h1`);
     }
   }
@@ -303,8 +304,8 @@ const feed = read('feed.xml');
 const feedLinks = [...feed.matchAll(/<guid\s+isPermaLink="true">([^<]+)<\/guid>/g)].map(
   ([, url]) => url,
 );
-if (feedLinks.length !== 18) {
-  errors.push(`feed.xml: expected 18 unique items, found ${feedLinks.length}`);
+if (feedLinks.length !== 19) {
+  errors.push(`feed.xml: expected 19 unique items, found ${feedLinks.length}`);
 }
 if (new Set(feedLinks).size !== feedLinks.length) {
   errors.push('feed.xml: duplicate item GUIDs found');

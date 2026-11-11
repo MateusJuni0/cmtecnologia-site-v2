@@ -21,6 +21,17 @@
 Sites e lojas online · chatbot de WhatsApp com IA · atendimento por voz com IA · automação de redes sociais · painel único de gestão · automações e integrações (CRM, WhatsApp, n8n, Supabase) · software à medida · SEO semântico e GEO.
 Pacotes de entrada por âmbito, **sem preço de tabela** publicado (`/pacotes.html`).
 
+### Agentes de voz (verificado a 2026-11-11 no molde `cmtec-agent-skeleton-template`)
+
+- Falam português de Portugal.
+- Dizem que são «assistente virtual» logo na saudação. É imposto por código (art. 50.º do AI Act): `has_disclosure` e a reposição da frase quando a saudação é cortada.
+- Antes do número real, passam por testes de conversa, por chamadas de teste automáticas pela linha telefónica (o nosso «Provador») e por 1 chamada de uma pessoa. Também é dito nos reels públicos do @cm.tecnologia.
+- Marcam, remarcam e desmarcam na agenda **quando o software da clínica tem API**. Sem API, registam o pedido e a equipa confirma.
+- Não fazem triagem clínica: o que é clínico ou urgente passa para a equipa.
+- O número da clínica não muda: o operador reencaminha as chamadas segundo a regra combinada.
+- RGPD: a C&M **propõe** à clínica um acordo de subcontratação de dados antes do primeiro paciente.
+  - ⚠️ Não dizer «assinamos sempre». Nos clientes em marca branca, o acordo pode passar pela Telecof.
+
 ## 3. Proibido dizer
 
 - Clientes, testemunhos, avaliações, casos de estudo ou logótipos de clientes **sem autorização escrita do cliente**. Os agentes que fazemos para clientes da Telecof são em marca branca: a CMTec não aparece.

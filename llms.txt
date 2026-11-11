@@ -46,6 +46,7 @@ A C&M Tecnologia é uma software house portuguesa, com operação em Lisboa, que
 - [SEO, GEO e AEO em Portugal](https://cmtecnologia.pt/seo-geo-aeo-portugal.html)
 - [Chatbot de WhatsApp com IA — Madalena](https://cmtecnologia.pt/chatbot-whatsapp-ia.html)
 - [Atendimento por voz com IA — Inês](https://cmtecnologia.pt/atendimento-por-voz-ia.html)
+- [Rececionista virtual por voz para clínicas](https://cmtecnologia.pt/rececionista-virtual-voz-clinicas.html)
 - [Criação de sites e lojas online em Portugal](https://cmtecnologia.pt/criacao-sites-lojas-online.html)
 - [Automação de redes sociais com IA](https://cmtecnologia.pt/automacao-redes-sociais-ia.html)
 - [Painel único de gestão de negócio](https://cmtecnologia.pt/painel-gestao-negocio.html)
